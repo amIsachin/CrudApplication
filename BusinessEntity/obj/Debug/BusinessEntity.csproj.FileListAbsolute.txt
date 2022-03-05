@@ -1,0 +1,6 @@
+E:\Sachin\Application\Crud\CrudApplication\BusinessEntity\bin\Debug\BusinessEntity.dll
+E:\Sachin\Application\Crud\CrudApplication\BusinessEntity\bin\Debug\BusinessEntity.pdb
+E:\Sachin\Application\Crud\CrudApplication\BusinessEntity\obj\Debug\BusinessEntity.csproj.AssemblyReference.cache
+E:\Sachin\Application\Crud\CrudApplication\BusinessEntity\obj\Debug\BusinessEntity.csproj.CoreCompileInputs.cache
+E:\Sachin\Application\Crud\CrudApplication\BusinessEntity\obj\Debug\BusinessEntity.dll
+E:\Sachin\Application\Crud\CrudApplication\BusinessEntity\obj\Debug\BusinessEntity.pdb
