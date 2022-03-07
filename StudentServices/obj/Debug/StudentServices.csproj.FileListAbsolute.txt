@@ -1,0 +1,6 @@
+E:\Sachin\Application\Crud\CrudApplication\StudentServices\bin\Debug\StudentServices.dll
+E:\Sachin\Application\Crud\CrudApplication\StudentServices\bin\Debug\StudentServices.pdb
+E:\Sachin\Application\Crud\CrudApplication\StudentServices\obj\Debug\StudentServices.csproj.AssemblyReference.cache
+E:\Sachin\Application\Crud\CrudApplication\StudentServices\obj\Debug\StudentServices.csproj.CoreCompileInputs.cache
+E:\Sachin\Application\Crud\CrudApplication\StudentServices\obj\Debug\StudentServices.dll
+E:\Sachin\Application\Crud\CrudApplication\StudentServices\obj\Debug\StudentServices.pdb
