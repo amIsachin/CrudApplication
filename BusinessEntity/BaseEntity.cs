@@ -4,7 +4,7 @@ namespace BusinessEntity
 {
     public class BaseEntity
     {
-        protected internal int ID { get; set; }
-        protected internal DateTime CreatedOn { get; set; } = DateTime.Now;
+        protected int ID { get; set; }
+        protected DateTime CreatedOn { get; private set; } = DateTime.Now;
     }
 }
