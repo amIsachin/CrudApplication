@@ -77,3 +77,12 @@ E:\Sachin\Application\Crud\CrudApplication\Crud.Web\obj\Debug\Crud.Web.csproj.Co
 E:\Sachin\Application\Crud\CrudApplication\Crud.Web\obj\Debug\Crud.Web.csproj.CopyComplete
 E:\Sachin\Application\Crud\CrudApplication\Crud.Web\obj\Debug\Crud.Web.dll
 E:\Sachin\Application\Crud\CrudApplication\Crud.Web\obj\Debug\Crud.Web.pdb
+E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\StudentServices.dll
+E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\StudentServices.pdb
+E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\System.Runtime.CompilerServices.Unsafe.dll
+E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\Unity.Abstractions.dll
+E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\Unity.Container.dll
+E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\Unity.Mvc5.dll
+E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\System.Runtime.CompilerServices.Unsafe.xml
+E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\Unity.Abstractions.pdb
+E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\Unity.Container.pdb
