@@ -13,10 +13,16 @@ namespace Crud.Web.Controllers
         }
         #endregion
 
+        [HttpGet]
         public ActionResult Index()
         {
             string Name = _StudentsService.GetName();
             return View();
+        }
+
+        public ActionResult Listing()
+        {
+            return PartialView();
         }
     }
 }

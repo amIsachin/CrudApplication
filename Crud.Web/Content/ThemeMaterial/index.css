@@ -23,7 +23,7 @@ body{
 ----  -------------- Fonts ---------------------------------------------------*/
 @font-face {
     font-family: 'Raleway-Bold';
-    src: url('Fonts/fonts/Raleway-Bold.ttf');
+    src: url('Fonts/fonts/Raleway-Bold.ttf') format('truetype');
 }
 
 @font-face {
@@ -175,9 +175,9 @@ section.section-0 .search-wrapper .search-box .search:hover{
     padding: 0 0.5rem;
 }
 
-section.section-0 .search-wrapper .search-box input{
+section.section-0 .search-wrapper .search-box input {
     font-size: 1.8rem;
-    font-family: "Raleway-meduim";
+    font-family: "Raleway-Medium";
     color: var(--ternary);
     letter-spacing: 0.09rem;
     width: 95%;
@@ -189,7 +189,7 @@ section.section-0 .search-wrapper .search-box input:focus{
 }
 
 section.section-0 .search-wrapper .search-box button{
-    font-family: "Raleway-bold";
+    font-family: "Raleway-Bold";
     font-size: 2.5rem;
     padding: 0.5rem 4rem;
     border: none;
