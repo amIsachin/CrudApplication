@@ -86,3 +86,5 @@ E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\Unity.Mvc5.dll
 E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\System.Runtime.CompilerServices.Unsafe.xml
 E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\Unity.Abstractions.pdb
 E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\Unity.Container.pdb
+E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\BusinessEntity.dll
+E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\BusinessEntity.pdb

@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<BusinessEntity.StudentEntity>
+
 @{
     ViewBag.Title = "Listing";
 }
@@ -31,50 +32,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Sachin</td>
-                        <td>Male</td>
-                        <td>22</td>
-                        <td>12000</td>
-                        <td>Delhi</td>
-                        <td>
-                            <a href="#">Edit  <i class="fa-solid fa-pen-to-square"></i></a>
-                            <a href="#">Delete  <i class="fa-solid fa-trash-can"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Adil</td>
-                        <td>Male</td>
-                        <td>28</td>
-                        <td>13000</td>
-                        <td>Karachi</td>
-                        <td>
-                            <a href="#">Edit  <i class="fa-solid fa-pen-to-square"></i></a>
-                            <a href="#">Delete  <i class="fa-solid fa-trash-can"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>venkat</td>
-                        <td>Male</td>
-                        <td>20</td>
-                        <td>14000</td>
-                        <td>London</td>
-                        <td>
-                            <a href="#">Edit  <i class="fa-solid fa-pen-to-square"></i></a>
-                            <a href="#">Delete  <i class="fa-solid fa-trash-can"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Sourabh</td>
-                        <td>Male</td>
-                        <td>37</td>
-                        <td>17000</td>
-                        <td>Bhopal</td>
-                        <td>
-                            <a href="#">Edit  <i class="fa-solid fa-pen-to-square"></i></a>
-                            <a href="#">Delete  <i class="fa-solid fa-trash-can"></i></a>
-                        </td>
-                    </tr>
+                    @foreach (var student in Model)
+                    {
+                        <tr>
+                            <td>@student.Name</td>
+                            <td>@student.Class</td>
+                            <td>@student.Gender</td>
+                            <td>@student.Age</td>
+                            <td>@student.City</td>
+                            <td>
+                                <a href="#">Edit  <i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="#">Delete  <i class="fa-solid fa-trash-can"></i></a>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>

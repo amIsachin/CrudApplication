@@ -1,4 +1,7 @@
-﻿using StudentServices;
+﻿using BusinessEntity;
+using StudentServices;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace Crud.Web.Controllers
@@ -16,13 +19,14 @@ namespace Crud.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            string Name = _StudentsService.GetName();
             return View();
         }
 
         public ActionResult Listing()
         {
-            return PartialView();
+            List<StudentEntity> record = _StudentsService.GetAllStudents().ToList();
+
+            return PartialView(record);
         }
     }
 }
