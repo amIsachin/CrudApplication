@@ -2,6 +2,7 @@
 using StudentServices;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace Crud.Web.Controllers
@@ -27,6 +28,13 @@ namespace Crud.Web.Controllers
             List<StudentEntity> record = _StudentsService.GetAllStudents().ToList();
 
             return PartialView(record);
+        }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            //return PartialView();
+            return HttpNotFound();
         }
     }
 }

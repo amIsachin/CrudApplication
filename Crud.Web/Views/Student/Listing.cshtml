@@ -11,7 +11,7 @@
                 <input type="text" class="focus">
                 <button class="seperate clickShow"><i class="fa-solid fa-xmark"></i></button>
                 <button><i class="fa-solid fa-magnifying-glass search"></i></button>
-                <button class="btnCreate">Create</button>
+                <button class="btnCreate" id="createButton">Create</button>
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
                         <th>Name</th>
                         <th>Gender</th>
                         <th>Age</th>
-                        <th>Salary</th>
+                        <th>Fees</th>
                         <th>City</th>
                         <th>Task</th>
                     </tr>
@@ -36,9 +36,9 @@
                     {
                         <tr>
                             <td>@student.Name</td>
-                            <td>@student.Class</td>
                             <td>@student.Gender</td>
                             <td>@student.Age</td>
+                            <td>@student.Fees</td>
                             <td>@student.City</td>
                             <td>
                                 <a href="#">Edit  <i class="fa-solid fa-pen-to-square"></i></a>
@@ -54,6 +54,23 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
+        //--> Create Button functionality.
+        $('#createButton').click(function () {
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("Create", "Student")',
+                success: function (response) {
+                    console.log(response)
+                    $('#actionContainer').html(response);
+                },
+                error: function (error) {
+                    console.log(error);
+                    swal("Oop's something went wrong !!");
+                }
+            });
+        });
+
+        //--> Please dont touch this line of code without consdering the rest of the code.
         $('.focus').on({
             keydown: function () {
                 $('.clickShow').css('display', 'block')
@@ -64,5 +81,5 @@
             $('.clickShow').css('display', 'none')
         });
 
-    });  //--> Here is Close document read function().
+    });  //--> Here is Close document ready function().
 </script>

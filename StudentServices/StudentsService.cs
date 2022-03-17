@@ -39,21 +39,6 @@ namespace StudentServices
                     student.AdmissionSession = Convert.ToDateTime(dr.GetValue(10).ToString());
 
                     studentList.Add(student);
-
-                    //studentList.Add(new StudentEntity
-                    //{
-                    //    ID = Convert.ToInt32(dr.GetValue(0).ToString()),
-                    //    CreatedOn = Convert.ToDateTime(dr.GetValue(1).ToString()),
-                    //    RollNumber = Convert.ToInt32(dr.GetValue(1).ToString()),
-                    //    Name = dr.GetValue(2).ToString(),
-                    //    Class = dr.GetValue(3).ToString(),
-                    //    Gender = dr.GetValue(4).ToString(),
-                    //    Age = Convert.ToInt32(dr.GetValue(5).ToString()),
-                    //    Fees = Convert.ToInt32(dr.GetValue(6).ToString()),
-                    //    City = dr.GetValue(7).ToString(),
-                    //    Address = dr.GetValue(8).ToString(),
-                    //    AdmissionSession = Convert.ToDateTime(dr.GetValue(9).ToString())
-                    //});
                 }
                 con.Close();
             }
