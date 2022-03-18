@@ -2,7 +2,7 @@
 
 namespace BusinessEntity
 {
-    public sealed class StudentEntity : BaseEntity
+    public sealed class StudentEntity : BaseEntity 
     {
         public int RollNumber { get; set; }
         public string Name { get; set; }

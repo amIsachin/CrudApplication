@@ -11,9 +11,11 @@ namespace Crud.Web.Controllers
     {
         #region InitailizeInstance
         private IStudentsService _StudentsService = null;
-        public StudentController(IStudentsService studentsService)
+        //--> private IStudentEntity _StudentEntity = null;
+        public StudentController(IStudentsService studentsService)  //--> IStudentEntity studentEntity
         {
-            _StudentsService = studentsService;
+            this._StudentsService = studentsService;
+            //--> this._StudentEntity = studentEntity;
         }
         #endregion
 

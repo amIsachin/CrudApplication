@@ -16,7 +16,12 @@ namespace Crud.Web
 
             // e.g. container.RegisterType<ITestService, TestService>();
 
+            //--> BusinessServices.
             container.RegisterType<IStudentsService, StudentsService>();
+
+            //--> businessentity.
+            //container.RegisterType<IStudentEntity, StudentEntity>();
+            //container.RegisterType<IBaseEntity, BaseEntity>();
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }

@@ -60,12 +60,10 @@
                 type: 'GET',
                 url: '@Url.Action("Create", "Student")',
                 success: function (response) {
-                    console.log(response)
                     $('#actionContainer').html(response);
                 },
                 error: function (error) {
-                    console.log(error);
-                    swal("Oop's something went wrong !!");
+                    swal("Oop's something went wrong !!" + error);
                 }
             });
         });
