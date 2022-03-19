@@ -10,7 +10,7 @@ namespace Crud.Web.Controllers
     public class StudentController : Controller
     {
         #region InitailizeInstance
-        private IStudentsService _StudentsService = null;
+        private readonly IStudentsService _StudentsService = null;
         //--> private IStudentEntity _StudentEntity = null;
         public StudentController(IStudentsService studentsService)  //--> IStudentEntity studentEntity
         {

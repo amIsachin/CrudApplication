@@ -61,9 +61,11 @@
                 url: '@Url.Action("Create", "Student")',
                 success: function (response) {
                     $('#actionContainer').html(response);
+                    focusAction('actionContainer');
                 },
                 error: function (error) {
-                    swal("Oop's something went wrong !!" + error);
+                    console.warn(error.always);
+                    swal("Oop's something went wrong !! " + error.status);
                 }
             });
         });

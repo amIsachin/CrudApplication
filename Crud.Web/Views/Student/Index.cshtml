@@ -12,3 +12,12 @@
 <div id="actionContainer">
     <!--  **In this div Create and Edit form will appear -->
 </div>
+
+
+<script>
+    function focusAction(controlToFocus) {
+        $('html,body').animate({
+            scrollTop: $('#' + controlToFocus).offset().top - 100
+        }, 4000);
+    }
+</script>
