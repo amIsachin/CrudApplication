@@ -181,6 +181,7 @@ section.section-0 .search-wrapper .search-box input {
     color: var(--ternary);
     letter-spacing: 0.09rem;
     width: 95%;
+    padding-left: 1rem;
     border: 2px solid var(--color-light);
 }
 

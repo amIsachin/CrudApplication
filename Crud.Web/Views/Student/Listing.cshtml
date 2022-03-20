@@ -8,7 +8,7 @@
     <div class="container">
         <div class="search-wrapper">
             <div class="search-box">
-                <input type="text" class="focus">
+                <input type="text" class="focus" placeholder="Search">
                 <button class="seperate clickShow"><i class="fa-solid fa-xmark"></i></button>
                 <button><i class="fa-solid fa-magnifying-glass search"></i></button>
                 <button class="btnCreate" id="createButton">Create</button>
@@ -64,7 +64,7 @@
                     focusAction('actionContainer');
                 },
                 error: function (error) {
-                    console.warn(error.always);
+                    console.warn(error);
                     swal("Oop's something went wrong !! " + error.status);
                 }
             });
