@@ -1,4 +1,5 @@
-﻿/*
+﻿//--> This file is Unity.config.
+/*
 Getting started with Unity.Mvc5
 -------------------------------
 

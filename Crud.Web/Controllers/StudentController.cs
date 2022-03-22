@@ -35,8 +35,8 @@ namespace Crud.Web.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return PartialView();
-            //return HttpNotFound();
+            //return PartialView();
+            return HttpNotFound();
         }
 
         [HttpPost]

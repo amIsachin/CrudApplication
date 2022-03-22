@@ -1,0 +1,6 @@
+E:\Sachin\Application\Crud\CrudApplication\BusinessLogics\bin\Debug\BusinessLogics.dll
+E:\Sachin\Application\Crud\CrudApplication\BusinessLogics\bin\Debug\BusinessLogics.pdb
+E:\Sachin\Application\Crud\CrudApplication\BusinessLogics\obj\Debug\BusinessLogics.csproj.AssemblyReference.cache
+E:\Sachin\Application\Crud\CrudApplication\BusinessLogics\obj\Debug\BusinessLogics.csproj.CoreCompileInputs.cache
+E:\Sachin\Application\Crud\CrudApplication\BusinessLogics\obj\Debug\BusinessLogics.dll
+E:\Sachin\Application\Crud\CrudApplication\BusinessLogics\obj\Debug\BusinessLogics.pdb
