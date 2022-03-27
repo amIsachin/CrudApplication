@@ -1,4 +1,9 @@
-﻿//--> This file is Unity.config.
+﻿
+
+//---> RollNumber INT PRIMARY KEY IDENTITY(1000, 1),
+
+
+//--> This file is Unity.config.
 /*
 Getting started with Unity.Mvc5
 -------------------------------

@@ -6,13 +6,17 @@ using System.Data.SqlClient;
 
 namespace StudentServices
 {
-    public class StudentsService : IStudentsService
+    public sealed class StudentsService : IStudentsService
     {
         #region ConnectionString
         //--> Connection String
         private readonly SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Crud-app"].ConnectionString);
         #endregion
 
+        /// <summary>
+        /// Get all student functionality.
+        /// </summary>
+        /// <returns></returns>
         public List<StudentEntity> GetAllStudents()
         {
             List<StudentEntity> studentList = new List<StudentEntity>();
@@ -42,7 +46,7 @@ namespace StudentServices
                 }
                 con.Close();
             }
-            catch (Exception)
+            catch (System.Exception)
             {
                 throw;
             }
@@ -53,5 +57,52 @@ namespace StudentServices
 
             return studentList;
         }
+
+        /// <summary>
+        /// Insert student functionality.
+        /// </summary>
+        /// <param name="studentEntity"></param>
+        /// <returns></returns>
+        public bool InsertStudent(StudentEntity studentEntity)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("sp_Insert", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id", studentEntity.ID);
+                cmd.Parameters.AddWithValue("@createdOn", studentEntity.CreatedOn);
+                cmd.Parameters.AddWithValue("@name", studentEntity.Name);
+                cmd.Parameters.AddWithValue("@class", studentEntity.Class);
+                cmd.Parameters.AddWithValue("@gender", studentEntity.Gender);
+                cmd.Parameters.AddWithValue("@age", studentEntity.Age);
+                cmd.Parameters.AddWithValue("@fees", studentEntity.Fees);
+                cmd.Parameters.AddWithValue("@city", studentEntity.City);
+                cmd.Parameters.AddWithValue("@address", studentEntity.Address);
+                cmd.Parameters.AddWithValue("@admissionSession", studentEntity.AdmissionSession);
+
+                con.Open();
+                int isTrue = cmd.ExecuteNonQuery();
+                con.Close();
+
+                if (isTrue > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
     }
 }

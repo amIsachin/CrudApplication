@@ -88,3 +88,5 @@ E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\Unity.Abstractions.pdb
 E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\Unity.Container.pdb
 E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\BusinessEntity.dll
 E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\BusinessEntity.pdb
+E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\BusinessLogics.dll
+E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\BusinessLogics.pdb

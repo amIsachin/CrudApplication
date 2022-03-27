@@ -1,5 +1,7 @@
 ﻿using BusinessEntity;
+using BusinessLogics;
 using StudentServices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -35,14 +37,26 @@ namespace Crud.Web.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            //return PartialView();
-            return HttpNotFound();
+            try
+            {
+                return PartialView();
+            }
+            catch (System.Exception ex)
+            {
+                ViewData["Message"] = ex.Message;
+                return HttpNotFound();
+            }
         }
 
         [HttpPost]
         public ActionResult Create(StudentEntity studentEntity)
         {
-            return View();
+            studentEntity.ID = RandomNumber.GenerateRandomNumber();
+            //studentEntity.AdmissionSession = DateTime.Now;
+            _StudentsService.InsertStudent(studentEntity);
+            return RedirectToAction("Listing");
+            //return View();
+            //return HttpNotFound();
         }
     }
 }
