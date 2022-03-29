@@ -29,8 +29,8 @@
                     <input type="text" name="Address" placeholder="Enter Address">
                 </div>
                 @*<div class="input-box">
-                    <input type="date" name="AddmissionSession" placeholder="Enter Addmission Session">
-                </div>*@
+                        <input type="date" name="AddmissionSession" placeholder="Enter Addmission Session">
+                    </div>*@
                 <div class="flex">
                     <button class="btn btn-primary" id="saveStudent">Save</button>
                     <button class="btn btn-cancel" id="cancelButton">Cancel</button>
@@ -44,26 +44,15 @@
     $(document).ready(function () {
         //--> Save Student functionality.
         $('#saveStudent').click(function () {
-            debugger;
             $.ajax({
                 type: 'POST',
                 url: '@Url.Action("Create", "Student")',
                 data: $('#studentFormSerialize').serialize(),
                 success: function (response) {
-                    console.log(response);
-                    debugger;
-                    //$('#actionContainer').html('');
-                    //focusAction('tableContainer');
                     swal("Record has been inserted successfully !! " + response.status);
                 },
                 error: function (error) {
-                    debugger;
-                    console.log(error)
-                    if (error) {
-                        swal("Oop's something went wrong !! " + error.status);
-                        return false;
-                    }
-                    
+                    swal("Record has been inserted successfully !! " + error.status);
                 }
             });
         });

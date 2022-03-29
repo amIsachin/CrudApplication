@@ -29,7 +29,7 @@ namespace Crud.Web.Controllers
 
         public ActionResult Listing()
         {
-            List<StudentEntity> record = _StudentsService.GetAllStudents().ToList();
+            List<StudentEntity> record = _StudentsService.GetAllStudents().OrderByDescending(x => x.ID).Take(5).ToList();
 
             return PartialView(record);
         }
@@ -44,19 +44,34 @@ namespace Crud.Web.Controllers
             catch (System.Exception ex)
             {
                 ViewData["Message"] = ex.Message;
-                return HttpNotFound();
+                return new HttpStatusCodeResult(500);
             }
         }
 
         [HttpPost]
         public ActionResult Create(StudentEntity studentEntity)
         {
-            studentEntity.ID = RandomNumber.GenerateRandomNumber();
-            //studentEntity.AdmissionSession = DateTime.Now;
-            _StudentsService.InsertStudent(studentEntity);
-            return RedirectToAction("Listing");
-            //return View();
-            //return HttpNotFound();
+            try
+            {
+                studentEntity.ID = CommonMethods.GenerateRandomNumber();
+                studentEntity.AdmissionSession = CommonProperties.GetTime;
+                var isInserted = _StudentsService.InsertStudent(studentEntity);
+
+                if (isInserted is true)
+                {
+                    TempData["InsertMessage"] = "Data has been Inserted Successfully";
+                    return RedirectToAction("Listing");
+                }
+                else
+                {
+                    return View();
+                }
+            }
+            catch (System.Exception)
+            {
+                return new HttpStatusCodeResult(500);
+            }
         }
+
     }
 }
