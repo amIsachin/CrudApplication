@@ -1,0 +1,6 @@
+E:\Sachin\Application\Crud\CrudApplication\ViewModels\bin\Debug\ViewModels.dll
+E:\Sachin\Application\Crud\CrudApplication\ViewModels\bin\Debug\ViewModels.pdb
+E:\Sachin\Application\Crud\CrudApplication\ViewModels\obj\Debug\ViewModels.csproj.AssemblyReference.cache
+E:\Sachin\Application\Crud\CrudApplication\ViewModels\obj\Debug\ViewModels.csproj.CoreCompileInputs.cache
+E:\Sachin\Application\Crud\CrudApplication\ViewModels\obj\Debug\ViewModels.dll
+E:\Sachin\Application\Crud\CrudApplication\ViewModels\obj\Debug\ViewModels.pdb

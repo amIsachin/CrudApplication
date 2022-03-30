@@ -29,9 +29,16 @@ namespace Crud.Web.Controllers
 
         public ActionResult Listing()
         {
-            List<StudentEntity> record = _StudentsService.GetAllStudents().OrderByDescending(x => x.ID).Take(5).ToList();
+            try
+            {
+                List<StudentEntity> record = _StudentsService.GetAllStudents().OrderByDescending(x => x.ID).Take(5).ToList();
 
-            return PartialView(record);
+                return PartialView(record);
+            }
+            catch (System.Exception)
+            {
+                return new HttpStatusCodeResult(500);
+            }
         }
 
         [HttpGet]
@@ -55,7 +62,7 @@ namespace Crud.Web.Controllers
             {
                 studentEntity.ID = CommonMethods.GenerateRandomNumber();
                 studentEntity.AdmissionSession = CommonProperties.GetTime;
-                var isInserted = _StudentsService.InsertStudent(studentEntity);
+                bool isInserted = _StudentsService.InsertStudent(studentEntity);
 
                 if (isInserted is true)
                 {
