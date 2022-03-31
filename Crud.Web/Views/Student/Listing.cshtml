@@ -42,7 +42,7 @@
                             <td>@student.Fees</td>
                             <td>@student.City</td>
                             <td>
-                                <a href="#">Edit  <i class="fa-solid fa-pen-to-square"></i></a>
+                                <a class="editButton" data-id="@student.ID">Edit  <i class="fa-solid fa-pen-to-square"></i></a>
                                 <a href="#">Delete  <i class="fa-solid fa-trash-can"></i></a>
                             </td>
                         </tr>
@@ -66,6 +66,25 @@
                 },
                 error: function (error) {
                     console.warn(error);
+                    swal("Oop's something went wrong !! " + error.status);
+                }
+            });
+        });
+
+        //--> Edit Button functionality.
+        $('.editButton').click(function () {
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("Edit", "Student")',
+                data: {
+                    ID: $(this).attr('data-id')
+                },
+                success: function (response) {
+                    $('#actionContainer').html(response);
+                    focusAction('actionContainer');
+                },
+                error: function (error) {
                     swal("Oop's something went wrong !! " + error.status);
                 }
             });

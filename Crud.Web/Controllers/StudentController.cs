@@ -1,7 +1,6 @@
 ﻿using BusinessEntity;
 using BusinessLogics;
 using StudentServices;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,7 +23,14 @@ namespace Crud.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            try
+            {
+                return View();
+            }
+            catch (System.Exception)
+            {
+                return new HttpStatusCodeResult(500);
+            }
         }
 
         public ActionResult Listing()
@@ -73,6 +79,21 @@ namespace Crud.Web.Controllers
                 {
                     return View();
                 }
+            }
+            catch (System.Exception)
+            {
+                return new HttpStatusCodeResult(500);
+            }
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int ID)
+        {
+            try
+            {
+                var record = _StudentsService.GetAllStudents().Find(x => x.ID == ID);
+
+                return PartialView(record);
             }
             catch (System.Exception)
             {

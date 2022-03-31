@@ -265,17 +265,19 @@ section.section-1 .container .table tbody tr:last-child td{
     border: none;
 }
 
-section.section-1 .container .table tbody tr td a:first-child{
+section.section-1 .container .table tbody tr td a:first-child {
     text-decoration: none;
     color: var(--color-success);
     font-size: 1.6rem;
     margin-right: 0.5rem;
+    cursor: pointer;
 }
 
-section.section-1 .container .table tbody tr td a:last-child{
+section.section-1 .container .table tbody tr td a:last-child {
     text-decoration: none;
     color: var(--color-danger);
     font-size: 1.6rem;
+    cursor: pointer;
 }
 
 /*--  --------------------------------------------/
