@@ -104,5 +104,51 @@ namespace StudentServices
             }
         }
 
+        /// <summary>
+        /// Update student functionality.
+        /// </summary>
+        /// <param name="studentEntity"></param>
+        /// <returns></returns>
+        public bool UpdateStudent(StudentEntity studentEntity)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("sp_Update", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id", studentEntity.ID);
+                cmd.Parameters.AddWithValue("@createdOn", studentEntity.CreatedOn);
+                cmd.Parameters.AddWithValue("@rollNo", studentEntity.RollNumber);
+                cmd.Parameters.AddWithValue("@name", studentEntity.Name);
+                cmd.Parameters.AddWithValue("@class", studentEntity.Class);
+                cmd.Parameters.AddWithValue("@gender", studentEntity.Gender);
+                cmd.Parameters.AddWithValue("@age", studentEntity.Age);
+                cmd.Parameters.AddWithValue("@fees", studentEntity.Fees);
+                cmd.Parameters.AddWithValue("@city", studentEntity.City);
+                cmd.Parameters.AddWithValue("@address", studentEntity.Address);
+                cmd.Parameters.AddWithValue("@admissionSession", studentEntity.AdmissionSession);
+
+                con.Open();
+                int isUpdated = cmd.ExecuteNonQuery();
+                con.Close();
+
+                if (isUpdated > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }

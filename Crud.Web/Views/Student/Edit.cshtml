@@ -9,6 +9,12 @@
         <div>
             <form class="form" id="studentFormSerialize">
                 <div class="input-box">
+                    <input type="hidden" name="ID" placeholder="Enter name" value="@Model.ID">
+                </div>
+                <div class="input-box">
+                    <input type="hidden" name="RollNumber" placeholder="Enter name" value="@Model.RollNumber">
+                </div>
+                <div class="input-box">
                     <input type="text" name="Name" placeholder="Enter name" value="@Model.Name">
                 </div>
                 <div class="input-box">
@@ -30,13 +36,30 @@
                     <input type="text" name="Address" placeholder="Enter Address" value="@Model.Address">
                 </div>
                 @*<div class="input-box">
-                        <input type="date" name="AddmissionSession" placeholder="Enter Addmission Session">
-                    </div>*@
+            <input type="date" name="AddmissionSession" placeholder="Enter Addmission Session">
+        </div>*@
                 <div class="flex">
-                    <button class="btn btn-primary" id="saveStudent">Edit</button>
+                    <button class="btn btn-primary" id="editButton">Edit</button>
                     <button class="btn btn-cancel" id="cancelButton">Cancel</button>
                 </div>
             </form>
         </div>
     </div>
 </section>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //--> Edit button functinality.
+        $('#editButton').click(function () {
+            debugger;
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Edit", "Student")',
+                data: $('#studentFormSerialize').serialize(),
+
+            });
+        });
+
+
+    });  //--> Here is close document ready function();
+</script>

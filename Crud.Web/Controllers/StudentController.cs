@@ -101,5 +101,13 @@ namespace Crud.Web.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult Edit(StudentEntity studentEntity)
+        {
+            studentEntity.AdmissionSession = CommonProperties.GetTime;
+            _StudentsService.UpdateStudent(studentEntity);
+            return RedirectToAction("Listing");
+        }
+
     }
 }
