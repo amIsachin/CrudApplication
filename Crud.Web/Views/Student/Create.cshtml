@@ -45,11 +45,14 @@
         //--> Save Student functionality.
         $('#saveStudent').click(function () {
             $.ajax({
+                //async: true,
                 type: 'POST',
                 url: '@Url.Action("Create", "Student")',
                 data: $('#studentFormSerialize').serialize(),
                 success: function (response) {
-                    swal("Record has been inserted successfully !! " + response.status);
+                    //--> swal("Record has been inserted successfully !! " + response.status);
+                    //--> swal("Record has been inserted successfully !! ", { timeout: 50000 });
+                    toastr.success("Data has been created successfuly", 'Success Alert', { timeout: 5000 })
                 },
                 error: function (error) {
                     swal("Record has been inserted successfully !! " + error.status);

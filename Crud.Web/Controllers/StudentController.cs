@@ -104,9 +104,39 @@ namespace Crud.Web.Controllers
         [HttpPost]
         public ActionResult Edit(StudentEntity studentEntity)
         {
-            studentEntity.AdmissionSession = CommonProperties.GetTime;
-            _StudentsService.UpdateStudent(studentEntity);
-            return RedirectToAction("Listing");
+            try
+            {
+                studentEntity.AdmissionSession = CommonProperties.GetTime;
+                bool isUpdated = _StudentsService.UpdateStudent(studentEntity);
+
+                if (isUpdated is true)
+                {
+                    TempData["UpdateMessage"] = "Data Updated Successfully";
+                    return RedirectToAction("Listing");
+                }
+                else
+                {
+                    return View();
+                }
+            }
+            catch (System.Exception)
+            {
+                return new HttpStatusCodeResult(500);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int rollNumber)
+        {
+            bool isDeleted = _StudentsService.DeleteStudent(rollNumber);
+            if (isDeleted is true)
+            {
+                return RedirectToAction("Listing");
+            }
+            else
+            {
+                return View();
+            }
         }
 
     }

@@ -134,6 +134,53 @@ header.header .head-wrapper{
 }
 
 /*--  --------------------------------------------/
+----  -------------- Section-Alert ---------------------------------------------------*/
+section.section-alert {
+    margin-bottom: 3rem;
+}
+
+section.section-alert .container div.alert {
+    font-size: 1.7rem;
+    letter-spacing: 0.09rem;
+    padding: 0.8rem;
+    border-radius: 0.7rem;
+}
+
+section.section-alert .container div.alert strong {
+    font-family: "Raleway-bold";
+    padding-left: 1rem;
+    margin-right: 0.7rem;
+}
+
+section.section-alert .container div.alert span {
+    font-family: "Raleway-medium";
+}
+
+section.section-alert .container div.alert button {
+    font-family: "Raleway-bold";
+    padding: 0.7rem;
+    font-size: 1.6rem;
+    border: none;
+    padding-right: 2rem;
+    background-color: transparent;
+    cursor: pointer;
+    /* margin-top: 0.34rem !important; */
+}
+
+section.section-alert .container div.alert.alert-success {
+    background-color: var(--color-success);
+}
+
+section.section-alert .container div.alert.alert-danger {
+    background-color: var(--color-danger);
+}
+
+section.section-alert .container div.alert.alert-info {
+    background-color: var(--color-primary);
+}
+
+
+/*--  --------------------------------------------/
 ----  -------------- Section-0 ---------------------------------------------------*/
 section.section-0{
     margin-bottom: 7em;

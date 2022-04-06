@@ -8,5 +8,6 @@ namespace StudentServices
         List<StudentEntity> GetAllStudents();
         bool InsertStudent(StudentEntity studentEntity);
         bool UpdateStudent(StudentEntity studentEntity);
+        bool DeleteStudent(int rollNo);
     }
 }

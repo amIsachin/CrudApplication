@@ -150,5 +150,42 @@ namespace StudentServices
                 con.Close();
             }
         }
+
+        /// <summary>
+        /// Delete Student functionality.
+        /// </summary>
+        /// <param name="rollNo"></param>
+        /// <returns></returns>
+        public bool DeleteStudent(int rollNo)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("sp_Delete", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@rollNo", rollNo);
+
+                con.Open();
+                int isDeleted = cmd.ExecuteNonQuery();
+                con.Close();
+
+                if (isDeleted > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }
