@@ -3,18 +3,35 @@
     ViewBag.Title = "Index";
 }
 
+<section class="section-alert">
+    <div class="container">
+        @if (TempData["InsertMessage"] != null)
+        {
+            <div class="alert alert-success flex justify-content align-items" id="alert-div">
+                <div>
+                    <strong>Success!</strong> <span>@TempData["InsertMessage"]</span>
+                </div>
+                <button type="button" id="alertButton"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        }
+    </div>
+</section>
 
-<div class="container">
-    @if (TempData["InsertMessage"] != null)
-    {
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Holy guacamole!</strong> @TempData["InsertMessage"].
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    }
-</div>
+<section class="section-alert">
+    <div class="container">
+        @if (TempData["UpdateMessage"] != null)
+        {
+            <div class="alert alert-success flex justify-content align-items" id="alert-div">
+                <div>
+                    <strong>Success!</strong> <span>@TempData["UpdateMessage"]</span>
+                </div>
+                <button type="button" id="alertButton"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        }
+    </div>
+</section>
 
-<div class="tableContainer">
+<div id="tableContainer">
     @{
         Html.RenderAction("Listing");
     }
@@ -28,6 +45,6 @@
     function focusAction(controlToFocus) {
         $('html,body').animate({
             scrollTop: $('#' + controlToFocus).offset().top - 100
-        }, 4000);
+        }, 2000);
     }
 </script>

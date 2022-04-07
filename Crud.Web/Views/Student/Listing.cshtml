@@ -4,27 +4,15 @@
     ViewBag.Title = "Listing";
 }
 
-<button id="toa">Click</button>
 
-
-<section class="section-alert">
-    <div class="container">
-        <div class="alert alert-success flex justify-content align-items" id="alert-div">
-            <div>
-                <strong>Success!</strong> <span>Data has been Inserted successfuly</span>
-            </div>
-            <button type="button" id="alertButton"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-    </div>
-</section>
 
 <section class="section-0">
     <div class="container">
         <div class="search-wrapper">
             <div class="search-box">
-                <input type="text" class="focus" placeholder="Search">
+                <input type="text" class="focus" placeholder="Search" id="searchField">
                 <button class="seperate clickShow"><i class="fa-solid fa-xmark"></i></button>
-                <button><i class="fa-solid fa-magnifying-glass search"></i></button>
+                <button id="searchButton"><i class="fa-solid fa-magnifying-glass search"></i></button>
                 <button class="btnCreate" id="createButton">Create</button>
             </div>
         </div>
@@ -68,6 +56,26 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
+        //--> Search button functionality.
+        $('#searchButton').click(function () {
+            var searchField = $('#searchField').val();
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("Search", "Student")',
+                data: {
+                    search: searchField
+                },
+                success: function (response) {
+                    $('#tableContainer').html(response)
+                    alert(response)
+                    console.log(response)
+                },
+                error: function (error) {
+                    swal("Oop's something went wrong !! " + error.status);
+                }
+            })
+        });
+
         //--> Create Button functionality.
         $('#createButton').click(function () {
             $.ajax({
@@ -75,7 +83,6 @@
                 url: '@Url.Action("Create", "Student")',
                 success: function (response) {
                     $('#actionContainer').html(response);
-                    toastr.success("Data has been created successfuly", 'Success Alert', { timeout: 5000, 'closeButton': true })
                     focusAction('actionContainer');
                 },
                 error: function (error) {
@@ -125,6 +132,9 @@
                                 },
                                 success: function (response) {
                                     swal("Student has been deleted successfuly!!");
+                                    setTimeout(function () {
+                                        window.location.reload();
+                                    }, 5000)
                                 },
                                 error: function (error) {
                                     swal("Oops something went wrong !!" + error.status);

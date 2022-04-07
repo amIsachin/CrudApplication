@@ -36,8 +36,8 @@
                     <input type="text" name="Address" placeholder="Enter Address" value="@Model.Address">
                 </div>
                 @*<div class="input-box">
-            <input type="date" name="AddmissionSession" placeholder="Enter Addmission Session">
-        </div>*@
+                     <input type="date" name="AddmissionSession" placeholder="Enter Addmission Session">
+                </div>*@
                 <div class="flex">
                     <button class="btn btn-primary" id="editButton">Edit</button>
                     <button class="btn btn-cancel" id="cancelButton">Cancel</button>
@@ -51,12 +51,16 @@
     $(document).ready(function () {
         //--> Edit button functinality.
         $('#editButton').click(function () {
-            debugger;
             $.ajax({
                 type: 'POST',
                 url: '@Url.Action("Edit", "Student")',
                 data: $('#studentFormSerialize').serialize(),
-
+                success: function (response) {
+                    $('#actionContainer').html('');
+                },
+                error: function (error) {
+                    swal("Oops something went wrong !! " + error.status);
+                }
             });
         });
 

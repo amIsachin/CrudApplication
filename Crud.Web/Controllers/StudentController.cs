@@ -33,6 +33,24 @@ namespace Crud.Web.Controllers
             }
         }
 
+        [HttpGet]
+        public JsonResult Search(string search)
+        {
+            JsonResult json = new JsonResult();
+            try
+            {
+                var record = _StudentsService.GetAllStudents().Where(x => x.Name.ToLower().Contains(search.ToLower())).ToList();
+                json.Data = new { Success = true, Response = record };
+            }
+            catch (System.Exception ex)
+            {
+                json.Data = new { Success = false, Message = ex.Message };
+            }
+            return Json(json, JsonRequestBehavior.AllowGet);
+
+            //--> result.Data = new { Success = true, ImageURL = string.Format("/Content/Images/{0}", fileName) };
+        }
+
         public ActionResult Listing()
         {
             try
@@ -111,7 +129,7 @@ namespace Crud.Web.Controllers
 
                 if (isUpdated is true)
                 {
-                    TempData["UpdateMessage"] = "Data Updated Successfully";
+                    TempData["UpdateMessage"] = "Data has been updated successfuly";
                     return RedirectToAction("Listing");
                 }
                 else
@@ -128,14 +146,22 @@ namespace Crud.Web.Controllers
         [HttpPost]
         public ActionResult Delete(int rollNumber)
         {
-            bool isDeleted = _StudentsService.DeleteStudent(rollNumber);
-            if (isDeleted is true)
+            try
             {
-                return RedirectToAction("Listing");
+                bool isDeleted = _StudentsService.DeleteStudent(rollNumber);
+
+                if (isDeleted is true)
+                {
+                    return RedirectToAction("Listing");
+                }
+                else
+                {
+                    return View();
+                }
             }
-            else
+            catch (System.Exception)
             {
-                return View();
+                return new HttpStatusCodeResult(500);
             }
         }
 
