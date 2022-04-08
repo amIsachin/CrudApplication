@@ -1,0 +1,11 @@
+E:\Sachin\Application\Crud\CrudApplication\ServicePrincipals\bin\Debug\ServicePrincipals.dll
+E:\Sachin\Application\Crud\CrudApplication\ServicePrincipals\bin\Debug\ServicePrincipals.pdb
+E:\Sachin\Application\Crud\CrudApplication\ServicePrincipals\obj\Debug\ServicePrincipals.csproj.AssemblyReference.cache
+E:\Sachin\Application\Crud\CrudApplication\ServicePrincipals\obj\Debug\ServicePrincipals.csproj.CoreCompileInputs.cache
+E:\Sachin\Application\Crud\CrudApplication\ServicePrincipals\obj\Debug\ServicePrincipals.dll
+E:\Sachin\Application\Crud\CrudApplication\ServicePrincipals\obj\Debug\ServicePrincipals.pdb
+E:\Sachin\Application\Crud\CrudApplication\ServicePrincipals\bin\Debug\BusinessEntity.dll
+E:\Sachin\Application\Crud\CrudApplication\ServicePrincipals\bin\Debug\StudentServices.dll
+E:\Sachin\Application\Crud\CrudApplication\ServicePrincipals\bin\Debug\BusinessEntity.pdb
+E:\Sachin\Application\Crud\CrudApplication\ServicePrincipals\bin\Debug\StudentServices.pdb
+E:\Sachin\Application\Crud\CrudApplication\ServicePrincipals\obj\Debug\ServicePrincipals.csproj.CopyComplete

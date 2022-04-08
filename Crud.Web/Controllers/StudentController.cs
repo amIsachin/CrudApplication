@@ -1,5 +1,6 @@
 ﻿using BusinessEntity;
 using BusinessLogics;
+using ServicePrincipals;
 using StudentServices;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,12 @@ namespace Crud.Web.Controllers
     {
         #region InitailizeInstance
         private readonly IStudentsService _StudentsService = null;
+        private readonly StudentServicePrincipals StudentServicePrincipals = null;
         //--> private IStudentEntity _StudentEntity = null;
         public StudentController(IStudentsService studentsService)  //--> IStudentEntity studentEntity
         {
             this._StudentsService = studentsService;
+            this.StudentServicePrincipals = new StudentServicePrincipals(studentsService);
             //--> this._StudentEntity = studentEntity;
         }
         #endregion
@@ -23,6 +26,9 @@ namespace Crud.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            string Name = "Delhi";
+            var record = StudentServicePrincipals.Search(Name);
+
             try
             {
                 return View();

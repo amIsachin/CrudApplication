@@ -227,6 +227,10 @@
       <Project>{dfadc2aa-4f61-46ed-baaf-1fe708bcde76}</Project>
       <Name>BusinessLogics</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ServicePrincipals\ServicePrincipals.csproj">
+      <Project>{bd01a9db-e1b0-497b-9977-4ab12b750510}</Project>
+      <Name>ServicePrincipals</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StudentServices\StudentServices.csproj">
       <Project>{ff532114-75a2-4b07-8cf1-bd1f3c339843}</Project>
       <Name>StudentServices</Name>

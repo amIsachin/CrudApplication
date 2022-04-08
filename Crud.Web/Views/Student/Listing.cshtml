@@ -4,8 +4,6 @@
     ViewBag.Title = "Listing";
 }
 
-
-
 <section class="section-0">
     <div class="container">
         <div class="search-wrapper">
@@ -73,7 +71,7 @@
                 error: function (error) {
                     swal("Oop's something went wrong !! " + error.status);
                 }
-            })
+            });
         });
 
         //--> Create Button functionality.
@@ -175,4 +173,3 @@
 
     });  //--> Here is close document ready function().
 </script>
-
