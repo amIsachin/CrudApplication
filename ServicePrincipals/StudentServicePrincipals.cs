@@ -27,7 +27,7 @@ namespace ServicePrincipals
             }
             else
             {
-                return _StudentsService.GetAllStudents();
+                return _StudentsService.GetAllStudents().OrderBy(x => x.ID).Take(5).ToList();
             }
         }
     }

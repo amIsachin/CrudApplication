@@ -41,7 +41,7 @@
                             <td>@student.Fees</td>
                             <td>@student.City</td>
                             <td>
-                                <a class="editButton" data-id="@student.ID">Edit  <i class="fa-solid fa-pen-to-square"></i></a>
+                                <a class="editButton" data-id="@student.RollNumber">Edit  <i class="fa-solid fa-pen-to-square"></i></a>
                                 <a class="deleteButton" data-id="@student.RollNumber">Delete  <i class="fa-solid fa-trash-can"></i></a>
                             </td>
                         </tr>
@@ -56,17 +56,16 @@
     $(document).ready(function () {
         //--> Search button functionality.
         $('#searchButton').click(function () {
+            debugger;
             var searchField = $('#searchField').val();
             $.ajax({
                 type: 'GET',
-                url: '@Url.Action("Search", "Student")',
+                url: '@Url.Action("Listing", "Student")',
                 data: {
                     search: searchField
                 },
                 success: function (response) {
                     $('#tableContainer').html(response)
-                    alert(response)
-                    console.log(response)
                 },
                 error: function (error) {
                     swal("Oop's something went wrong !! " + error.status);
@@ -96,7 +95,7 @@
                 type: 'GET',
                 url: '@Url.Action("Edit", "Student")',
                 data: {
-                    ID: $(this).attr('data-id')
+                    rollNumber: $(this).attr('data-id')
                 },
                 success: function (response) {
                     $('#actionContainer').html(response);
@@ -132,7 +131,7 @@
                                     swal("Student has been deleted successfuly!!");
                                     setTimeout(function () {
                                         window.location.reload();
-                                    }, 5000)
+                                    }, 3000)
                                 },
                                 error: function (error) {
                                     swal("Oops something went wrong !!" + error.status);
@@ -163,7 +162,23 @@
         });
 
         $('.clickShow').click(function () {
-            $('.clickShow').css('display', 'none')
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("Listing", "Student")',
+                data: {
+                    search: ''
+                },
+                success: function (response) {
+                    $('#tableContainer').html(response);
+                    $('.clickShow').css('display', 'none');
+                },
+                error: function (error) {
+                    swal("Oops something went wrong !!" + error.status);
+                }
+
+            });
+            
         });
 
         //  **Alert related code.

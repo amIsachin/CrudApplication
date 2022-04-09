@@ -14,21 +14,16 @@ namespace Crud.Web.Controllers
         #region InitailizeInstance
         private readonly IStudentsService _StudentsService = null;
         private readonly StudentServicePrincipals StudentServicePrincipals = null;
-        //--> private IStudentEntity _StudentEntity = null;
-        public StudentController(IStudentsService studentsService)  //--> IStudentEntity studentEntity
+        public StudentController(IStudentsService studentsService)
         {
             this._StudentsService = studentsService;
             this.StudentServicePrincipals = new StudentServicePrincipals(studentsService);
-            //--> this._StudentEntity = studentEntity;
         }
         #endregion
 
         [HttpGet]
         public ActionResult Index()
         {
-            string Name = "Delhi";
-            var record = StudentServicePrincipals.Search(Name);
-
             try
             {
                 return View();
@@ -39,29 +34,11 @@ namespace Crud.Web.Controllers
             }
         }
 
-        [HttpGet]
-        public JsonResult Search(string search)
-        {
-            JsonResult json = new JsonResult();
-            try
-            {
-                var record = _StudentsService.GetAllStudents().Where(x => x.Name.ToLower().Contains(search.ToLower())).ToList();
-                json.Data = new { Success = true, Response = record };
-            }
-            catch (System.Exception ex)
-            {
-                json.Data = new { Success = false, Message = ex.Message };
-            }
-            return Json(json, JsonRequestBehavior.AllowGet);
-
-            //--> result.Data = new { Success = true, ImageURL = string.Format("/Content/Images/{0}", fileName) };
-        }
-
-        public ActionResult Listing()
+        public ActionResult Listing(string search)
         {
             try
             {
-                List<StudentEntity> record = _StudentsService.GetAllStudents().OrderByDescending(x => x.ID).Take(5).ToList();
+                List<StudentEntity> record = StudentServicePrincipals.Search(search);
 
                 return PartialView(record);
             }
@@ -111,11 +88,11 @@ namespace Crud.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Edit(int ID)
+        public ActionResult Edit(int rollNumber)
         {
             try
             {
-                var record = _StudentsService.GetAllStudents().Find(x => x.ID == ID);
+                var record = _StudentsService.GetAllStudents().Find(x => x.RollNumber == rollNumber);
 
                 return PartialView(record);
             }
