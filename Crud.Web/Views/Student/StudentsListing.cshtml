@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "StudentsListing";
+}
+
+<section class="section-1">
+    <div class="container">
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Age</th>
+                        <th>Fees</th>
+                        <th>City</th>
+                        <th>Task</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var student in Model)
+                    {
+                        <tr>
+                            <td>@student.Name</td>
+                            <td>@student.Gender</td>
+                            <td>@student.Age</td>
+                            <td>@student.Fees</td>
+                            <td>@student.City</td>
+                            <td>
+                                <a class="editButton" data-id="@student.RollNumber">Edit  <i class="fa-solid fa-pen-to-square"></i></a>
+                                <a class="deleteButton" data-id="@student.RollNumber">Delete  <i class="fa-solid fa-trash-can"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+

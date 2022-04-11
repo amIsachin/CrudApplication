@@ -30,5 +30,14 @@ namespace ServicePrincipals
                 return _StudentsService.GetAllStudents().OrderBy(x => x.ID).Take(5).ToList();
             }
         }
+
+        /// <summary>
+        /// This line of code return all Student.
+        /// </summary>
+        /// <returns></returns>
+        public List<StudentEntity> GetAllStudents()
+        {
+            return _StudentsService.GetAllStudents();
+        }
     }
 }

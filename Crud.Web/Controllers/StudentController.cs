@@ -148,5 +148,20 @@ namespace Crud.Web.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult StudentsListing()
+        {
+            try
+            {
+                List<StudentEntity> record = StudentServicePrincipals.GetAllStudents();
+
+                return View(record);
+            }
+            catch (System.Exception)
+            {
+                return new HttpStatusCodeResult(500);
+            }
+        }
+
     }
 }

@@ -74,6 +74,10 @@ body{
     justify-content: flex-end;
 }
 
+.justify-center {
+    justify-content: center;
+}
+
 .align-items{
     align-items: center;
 }
@@ -325,6 +329,26 @@ section.section-1 .container .table tbody tr td a:last-child {
     color: var(--color-danger);
     font-size: 1.6rem;
     cursor: pointer;
+}
+/*--  --------------------------------------------/
+----  -------------- Section-link ------------------------------------------------*/
+section.link {
+    margin-top: 1.5rem;
+}
+
+section.link .container .view-all {
+    font-family: 'Raleway-bold';
+    font-size: 1.4rem;
+    color: var(--color-info-dark);
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all .3s ease;
+}
+
+section.link .container .view-all:hover {
+    text-decoration: underline;
+    color: var(--color-primary);
 }
 
 /*--  --------------------------------------------/
