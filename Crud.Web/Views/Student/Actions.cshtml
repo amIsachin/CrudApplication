@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Actions";
+}
+
+<section class="section-3">
+    <div class="container">
+        <div>
+            <form class="form" action="@Url.Action("Actions", "Student")" method="post">
+                <div class="input-box">
+                    <input type="text" name="Name" placeholder="Enter name">
+                </div>
+                <div class="input-box">
+                    <input type="text" name="Class" placeholder="Enter Class">
+                </div>
+                <div class="input-box">
+                    <input type="text" name="Gender" placeholder="Enter Gender">
+                </div>
+                <div class="input-box">
+                    <input type="text" name="Age" placeholder="Enter Age">
+                </div>
+                <div class="input-box">
+                    <input type="text" name="fees" placeholder="Enter Fees">
+                </div>
+                <div class="input-box">
+                    <input type="text" name="City" placeholder="Enter City">
+                </div>
+                <div class="input-box">
+                    <input type="text" name="Address" placeholder="Enter Address">
+                </div>
+                @*<div class="input-box">
+                     <input type="date" name="AddmissionSession" placeholder="Enter Addmission Session">
+                    </div>*@
+                <div class="flex">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button class="btn btn-cancel">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+

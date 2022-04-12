@@ -3,6 +3,21 @@
     ViewBag.Title = "StudentsListing";
 }
 
+<form action="@Url.Action("Actions", "Student")" method="get">
+    <section class="section-0">
+        <div class="container">
+            <div class="search-wrapper">
+                <div class="search-box">
+                    <input type="text" class="focus" placeholder="Search" id="searchField">
+                    <button class="seperate clickShow"><i class="fa-solid fa-xmark"></i></button>
+                    <button id="searchButton"><i class="fa-solid fa-magnifying-glass search"></i></button>
+                    <button class="btnCreate" id="createButton">Create</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>
+
 <section class="section-1">
     <div class="container">
         <div>

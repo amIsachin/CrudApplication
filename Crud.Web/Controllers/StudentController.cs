@@ -163,5 +163,17 @@ namespace Crud.Web.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult Actions(int? ID)
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        public ActionResult Actions(StudentEntity studentEntity)
+        {
+            return View();
+        }
+
     }
 }
