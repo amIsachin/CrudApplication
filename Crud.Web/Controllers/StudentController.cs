@@ -164,15 +164,24 @@ namespace Crud.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Actions(int? ID)
+        public ActionResult Actions(int? rollNumber)
         {
-            return View();
+            StudentEntity studentEntity = new StudentEntity();
+            if (rollNumber > 0)
+            {
+                var record = StudentServicePrincipals.GetStudentByRollNumber(rollNumber);
+                return View(record);
+            }
+            else
+            {
+                return View(studentEntity);
+            }
         }
-        
+
         [HttpPost]
         public ActionResult Actions(StudentEntity studentEntity)
         {
-            return View();
+            return RedirectToAction("StudentsListing");
         }
 
     }

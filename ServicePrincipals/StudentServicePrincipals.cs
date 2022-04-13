@@ -39,5 +39,16 @@ namespace ServicePrincipals
         {
             return _StudentsService.GetAllStudents();
         }
+
+        /// <summary>
+        /// This line of code return a single record using Roll Number.
+        /// </summary>
+        /// <param name="rollNumber"></param>
+        /// <returns></returns>
+        public StudentEntity GetStudentByRollNumber(int? rollNumber)
+        {
+            return _StudentsService.GetAllStudents().FirstOrDefault(x => x.RollNumber == rollNumber);
+
+        }
     }
 }

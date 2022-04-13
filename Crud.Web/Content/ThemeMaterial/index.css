@@ -352,11 +352,19 @@ section.link .container .view-all:hover {
 }
 
 /*--  --------------------------------------------/
-----  -------------- Section-3 ---------------------------------------------------*/
-section.section-3{
-    margin-top: 10rem;
+----  -------------- Section-title ------------------------------------------------*/
+section.title .container .heading h3 {
+    font-family: "Raleway-bold";
+    font-size: 3rem;
+    color: var(--color-primary);
+    border-bottom: 1px solid var(--color-light);
+    margin-bottom: 3rem;
+    padding-bottom: 0.2rem;
+    letter-spacing: 0.09rem;
 }
 
+/*--  --------------------------------------------/
+----  -------------- Section-3 ---------------------------------------------------*/
 section.section-3 .container div form.form{
     background-color: var(--color-white);
     padding: 2rem;

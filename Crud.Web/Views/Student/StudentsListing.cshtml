@@ -42,8 +42,8 @@
                             <td>@student.Fees</td>
                             <td>@student.City</td>
                             <td>
-                                <a class="editButton" data-id="@student.RollNumber">Edit  <i class="fa-solid fa-pen-to-square"></i></a>
-                                <a class="deleteButton" data-id="@student.RollNumber">Delete  <i class="fa-solid fa-trash-can"></i></a>
+                                <a href="@Url.Action("Actions", "Student", new { student.RollNumber })" data-id="@student.RollNumber">Edit  <i class="fa-solid fa-pen-to-square"></i></a>
+                                <a data-id="@student.RollNumber">Delete  <i class="fa-solid fa-trash-can"></i></a>
                             </td>
                         </tr>
                     }
@@ -52,4 +52,3 @@
         </div>
     </div>
 </section>
-
