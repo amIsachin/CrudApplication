@@ -49,6 +49,10 @@
       <Project>{c74a1db9-4816-4eee-9ecb-484826c2390a}</Project>
       <Name>BusinessEntity</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BusinessLogics\BusinessLogics.csproj">
+      <Project>{dfadc2aa-4f61-46ed-baaf-1fe708bcde76}</Project>
+      <Name>BusinessLogics</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StudentServices\StudentServices.csproj">
       <Project>{ff532114-75a2-4b07-8cf1-bd1f3c339843}</Project>
       <Name>StudentServices</Name>

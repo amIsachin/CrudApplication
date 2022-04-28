@@ -24,6 +24,12 @@
         <div>
             <form class="form" action="@Url.Action("Actions", "Student")" method="post">
                 <div class="input-box">
+                    <input type="hidden" name="ID" placeholder="Enter name" value="@Model.ID">
+                </div>
+                <div class="input-box">
+                    <input type="hidden" name="RollNumber" placeholder="Enter name" value="@Model.RollNumber">
+                </div>
+                <div class="input-box">
                     <input type="text" name="Name" placeholder="Enter name" value="@Model.Name">
                 </div>
                 <div class="input-box">
@@ -45,7 +51,7 @@
                     <input type="text" name="Address" placeholder="Enter Address" value="@Model.Address">
                 </div>
                 @*<div class="input-box">
-                     <input type="date" name="AddmissionSession" placeholder="Enter Addmission Session">
+                            <input type="date" name="AddmissionSession" placeholder="Enter Addmission Session">
                     </div>*@
                 <div class="flex">
                     <button type="submit" class="btn btn-primary">Save</button>
@@ -55,4 +61,3 @@
         </div>
     </div>
 </section>
-
