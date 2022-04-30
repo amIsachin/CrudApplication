@@ -3,6 +3,38 @@
     ViewBag.Title = "StudentsListing";
 }
 
+<section class="section-alert">
+    <div class="container">
+        @if (TempData["UpdatedMessage"] != null)
+        {
+            <div class="alert alert-success flex justify-content align-items" id="alert-div">
+                <div>
+                    <strong>Success!</strong> <span>@TempData["UpdatedMessage"]</span>
+                </div>
+                <button type="button" id="alertButton"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        }
+    </div>
+</section>
+
+<section class="section-alert">
+    <div class="container">
+        @if (TempData["CreateMessage"] != null)
+        {
+            <div class="alert alert-success flex justify-content align-items" id="alert-div">
+                <div>
+                    <strong>Success!</strong> <span>@TempData["CreateMessage"]</span>
+                </div>
+                <button type="button" id="alertButton"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        }
+    </div>
+</section>
+
+
+
+
+
 <form action="@Url.Action("Actions", "Student")" method="get">
     <section class="section-0">
         <div class="container">
@@ -32,7 +64,7 @@
                         <th>Task</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="autoSearching">
                     @foreach (var student in Model)
                     {
                         <tr>
@@ -42,7 +74,7 @@
                             <td>@student.Fees</td>
                             <td>@student.City</td>
                             <td>
-                                <a href="@Url.Action("Actions", "Student", new { student.RollNumber })" data-id="@student.RollNumber">Edit  <i class="fa-solid fa-pen-to-square"></i></a>
+                                <a id="renderedTD" href="@Url.Action("Actions", "Student", new { student.RollNumber })" data-id="@student.RollNumber">Edit  <i class="fa-solid fa-pen-to-square"></i></a>
                                 <a class="deleteButton" href="@Url.Action("Actions", "Student", new { student.RollNumber }, "POST")" data-id="@student.RollNumber">Delete  <i class="fa-solid fa-trash-can"></i></a>
                             </td>
                         </tr>
@@ -57,18 +89,49 @@
     $(document).ready(function () {
         //--> Search button functionality.
         $('#searchField').keyup(function () {
-            debugger;
             var searchValue = $('#searchField').val();
+            var dataSearching = $('#autoSearching');
+            dataSearching.html('');
+            var test = $('#renderedTD').html();
+            console.log(test)
+
             $.ajax({
                 type: 'POST',
                 url: '@Url.Action("AutoSearch", "Student")',
-                cnotentType:'html',
+                cnotentType:'json',
                 data: {
                     search:searchValue
+                },
+                success: function (response) {
+                    AppendSearchItem(response);
+                },
+                error: function (error) {
+                    swal("Oops something went wrong !!" + error.status);
                 }
 
             });
         });
+
+        function AppendSearchItem(response) {
+            var dataSearching = $('#autoSearching');
+            dataSearching.html('');
+            if (response.length == 0) {
+                dataSearching.append('<tr><td> Record Not Found... </td></tr>')
+            }
+            else {
+                $.each(response, function (index, value) {
+                    console.log(value)
+                    var data = "<tr>" +
+                        "<td>" + value.Name + "</td>" +
+                        "<td>" + value.Gender + "</td>" +
+                        "<td>" + value.Age + "</td>" +
+                        "<td>" + value.Fees + "</td>" +
+                        "<td>" + value.City + "</td>" +
+                        + "</tr>"
+                    dataSearching.append(data);
+                })
+            }
+        }
 
         //--> Delete button functionality.
         $('.deleteButton').click(function () {

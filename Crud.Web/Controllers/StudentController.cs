@@ -200,6 +200,7 @@ namespace Crud.Web.Controllers
                 {
                     if (StudentServicePrincipals.PerformDelete(studentEntity.RollNumber) is true)
                     {
+                        ViewData["DeleteMessage"] = "Student Deleted Successfully";
                         return RedirectToAction("StudentsListing");
                     }
                     else
@@ -212,6 +213,15 @@ namespace Crud.Web.Controllers
 
                 if (StudentServicePrincipals.PerformActions(studentEntity) is true)
                 {
+                    if (CommonProperties.isRequest is true)
+                    {
+                        TempData["UpdatedMessage"] = "Data has been Updated successfully";
+                    }
+                    else
+                    {
+                        TempData["CreateMessage"] = "Data has been Created successfully";
+                    }
+
                     return RedirectToAction("StudentsListing");
                 }
                 else
@@ -229,7 +239,10 @@ namespace Crud.Web.Controllers
         public JsonResult AutoSearch(string search)
         {
             JsonResult json = new JsonResult();
-            return Json(json, JsonRequestBehavior.AllowGet);
+            //json.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            var searchRecord = StudentServicePrincipals.Search(search, true);
+            //json.Data = new { Success = true, Response = searchRecord };
+            return Json(searchRecord, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult SearchItem(string search)
@@ -239,6 +252,27 @@ namespace Crud.Web.Controllers
 
             jsonResult.Data = new { Success = true, Response = record };
             return Json(jsonResult, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult UploadImage()
+        {
+            JsonResult result = new JsonResult();
+            result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            try
+            {
+                var file = Request.Files[0];
+                var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
+
+                var path = Path.Combine(Server.MapPath("~/Content/Images/"), fileName);
+                file.SaveAs(path);
+                result.Data = new { Success = true, ImageURL = string.Format("/Content/Images/{0}", fileName) };
+            }
+            catch (System.Exception ex)
+            {
+                result.Data = new { Success = false, Message = ex.Message };
+            }
+            //return Json(result, JsonRequestBehavior.AllowGet);
+            return result;
         }
 
     }

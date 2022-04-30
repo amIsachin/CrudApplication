@@ -20,9 +20,9 @@ namespace ServicePrincipals
         /// </summary>
         /// <param name="search"></param>
         /// <returns></returns>
-        public List<StudentEntity> Search(string search, bool isTrue)
+        public List<StudentEntity> Search(string search, bool isAutoSearch)
         {
-            if (isTrue is true)
+            if (isAutoSearch is true)
             {
                 if (!string.IsNullOrWhiteSpace(search))
                 {
@@ -90,6 +90,7 @@ namespace ServicePrincipals
 
                 if (_StudentsService.InsertStudent(studentEntity) is true)
                 {
+                    CommonProperties.isRequest = false;
                     return true;
                 }
                 else

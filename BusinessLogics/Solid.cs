@@ -9,6 +9,7 @@ namespace BusinessLogics
     public sealed class CommonProperties
     {
         public static DateTime GetTime { get; private set; } = DateTime.Now;
+        public static bool isRequest = true;
     }
 
     /// <summary>
