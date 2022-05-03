@@ -3,6 +3,7 @@ using BusinessLogics;
 using StudentServices;
 using System.Collections.Generic;
 using System.Linq;
+using ViewModels;
 
 namespace ServicePrincipals
 {
@@ -70,12 +71,28 @@ namespace ServicePrincipals
         /// </summary>
         /// <param name="studentEntity"></param>
         /// <returns></returns>
-        public bool PerformActions(StudentEntity studentEntity)
+        public bool PerformActions(StudentEntityBindingViewModel studentEntityBindingViewModel)
         {
+            StudentEntity studentEntity = new StudentEntity();
+
+            studentEntity.ID = studentEntityBindingViewModel.ID;
+            studentEntity.CreatedOn = studentEntityBindingViewModel.CreatedOn;
+            studentEntity.RollNumber = studentEntityBindingViewModel.RollNumber;
+            studentEntity.Name = studentEntityBindingViewModel.Name;
+            studentEntity.Class = studentEntityBindingViewModel.Class;
+            studentEntity.Gender = studentEntityBindingViewModel.Gender;
+            studentEntity.Age = studentEntityBindingViewModel.Age;
+            studentEntity.Fees = studentEntityBindingViewModel.Fees;
+            studentEntity.City = studentEntityBindingViewModel.City;
+            studentEntity.Address = studentEntityBindingViewModel.Address;
+            studentEntity.AdmissionSession = studentEntityBindingViewModel.AdmissionSession;
+
             if (studentEntity.RollNumber > 0)
             {
                 if (_StudentsService.UpdateStudent(studentEntity) is true)
                 {
+                    CommonVariables.AlertMessage = false;
+
                     return true;
                 }
                 else
@@ -90,7 +107,6 @@ namespace ServicePrincipals
 
                 if (_StudentsService.InsertStudent(studentEntity) is true)
                 {
-                    CommonProperties.isRequest = false;
                     return true;
                 }
                 else

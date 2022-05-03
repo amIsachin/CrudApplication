@@ -4,12 +4,20 @@ namespace BusinessLogics
 {
     /// <summary>
     /// **Please dont touch this line of code this line of code direct affected by entire application.
+    /// /// Here is only common variables which is use whole application.
+    /// </summary>
+    public sealed class CommonVariables
+    {
+        public static bool AlertMessage = true;
+    }
+
+    /// <summary>
+    /// **Please dont touch this line of code this line of code direct affected by entire application.
     /// Here is only common properties which is use whole application.
     /// </summary>
     public sealed class CommonProperties
     {
         public static DateTime GetTime { get; private set; } = DateTime.Now;
-        public static bool isRequest = true;
     }
 
     /// <summary>

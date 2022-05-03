@@ -11,3 +11,5 @@ E:\Sachin\Application\Crud\CrudApplication\ServicePrincipals\bin\Debug\StudentSe
 E:\Sachin\Application\Crud\CrudApplication\ServicePrincipals\obj\Debug\ServicePrincipals.csproj.CopyComplete
 E:\Sachin\Application\Crud\CrudApplication\ServicePrincipals\bin\Debug\BusinessLogics.dll
 E:\Sachin\Application\Crud\CrudApplication\ServicePrincipals\bin\Debug\BusinessLogics.pdb
+E:\Sachin\Application\Crud\CrudApplication\ServicePrincipals\bin\Debug\ViewModels.dll
+E:\Sachin\Application\Crud\CrudApplication\ServicePrincipals\bin\Debug\ViewModels.pdb

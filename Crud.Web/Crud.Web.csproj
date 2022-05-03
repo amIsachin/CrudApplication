@@ -237,6 +237,10 @@
       <Project>{ff532114-75a2-4b07-8cf1-bd1f3c339843}</Project>
       <Name>StudentServices</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ViewModels\ViewModels.csproj">
+      <Project>{90EF9285-18A9-4A1A-9AA2-2C16BA27F2D0}</Project>
+      <Name>ViewModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

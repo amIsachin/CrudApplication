@@ -92,3 +92,5 @@ E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\BusinessLogics.dll
 E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\BusinessLogics.pdb
 E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\ServicePrincipals.dll
 E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\ServicePrincipals.pdb
+E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\ViewModels.dll
+E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\ViewModels.pdb

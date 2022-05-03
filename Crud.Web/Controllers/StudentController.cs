@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using ViewModels;
 
 namespace Crud.Web.Controllers
 {
@@ -25,6 +26,7 @@ namespace Crud.Web.Controllers
 
         #region CreateObject
         private StudentEntity StudentEntityObject = new StudentEntity();
+        private StudentEntityBindingViewModel StudentEntityBindingViewModel = new StudentEntityBindingViewModel();
         #endregion
 
         [HttpGet]
@@ -178,11 +180,23 @@ namespace Crud.Web.Controllers
                 {
                     StudentEntityObject = StudentServicePrincipals.GetStudentByRollNumber(rollNumber);
 
-                    return View(StudentEntityObject);
+                    StudentEntityBindingViewModel.ID = StudentEntityObject.ID;
+                    StudentEntityBindingViewModel.CreatedOn = StudentEntityObject.CreatedOn;
+                    StudentEntityBindingViewModel.RollNumber = StudentEntityObject.RollNumber;
+                    StudentEntityBindingViewModel.Name = StudentEntityObject.Name;
+                    StudentEntityBindingViewModel.Class = StudentEntityObject.Class;
+                    StudentEntityBindingViewModel.Gender = StudentEntityObject.Gender;
+                    StudentEntityBindingViewModel.Age = StudentEntityObject.Age;
+                    StudentEntityBindingViewModel.Fees = StudentEntityObject.Fees;
+                    StudentEntityBindingViewModel.City = StudentEntityObject.City;
+                    StudentEntityBindingViewModel.Address = StudentEntityObject.Address;
+                    StudentEntityBindingViewModel.AdmissionSession = StudentEntityObject.AdmissionSession;
+
+                    return View(StudentEntityBindingViewModel);
                 }
                 else
                 {
-                    return View(StudentEntityObject);
+                    return View(StudentEntityBindingViewModel);
                 }
             }
             catch (System.Exception)
@@ -192,37 +206,44 @@ namespace Crud.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Actions(StudentEntity studentEntity)
+        public ActionResult Actions(StudentEntityBindingViewModel studentEntityBindingViewModel)
         {
             try
             {
-                if (Request.IsAjaxRequest())
+                if (ModelState.IsValid is true)
                 {
-                    if (StudentServicePrincipals.PerformDelete(studentEntity.RollNumber) is true)
+                    if (Request.IsAjaxRequest())
                     {
-                        ViewData["DeleteMessage"] = "Student Deleted Successfully";
+                        if (StudentServicePrincipals.PerformDelete(studentEntityBindingViewModel.RollNumber) is true)
+                        {
+                            TempData["DeleteMessage"] = "Student Deleted Successfully";
+                            return RedirectToAction("StudentsListing");
+                        }
+                        else
+                        {
+                            return View();
+                        }
+                    }
+
+                    studentEntityBindingViewModel.AdmissionSession = CommonProperties.GetTime;
+
+                    if (StudentServicePrincipals.PerformActions(studentEntityBindingViewModel) is true)
+                    {
+                        if (CommonVariables.AlertMessage is true)
+                        {
+                            TempData["UpdatedMessage"] = "Data has been Created successfully";
+                        }
+                        else
+                        {
+                            TempData["CreateMessage"] = "Data has been Updated successfully";
+                        }
+
                         return RedirectToAction("StudentsListing");
                     }
                     else
                     {
                         return View();
                     }
-                }
-
-                studentEntity.AdmissionSession = CommonProperties.GetTime;
-
-                if (StudentServicePrincipals.PerformActions(studentEntity) is true)
-                {
-                    if (CommonProperties.isRequest is true)
-                    {
-                        TempData["UpdatedMessage"] = "Data has been Updated successfully";
-                    }
-                    else
-                    {
-                        TempData["CreateMessage"] = "Data has been Created successfully";
-                    }
-
-                    return RedirectToAction("StudentsListing");
                 }
                 else
                 {
@@ -243,36 +264,6 @@ namespace Crud.Web.Controllers
             var searchRecord = StudentServicePrincipals.Search(search, true);
             //json.Data = new { Success = true, Response = searchRecord };
             return Json(searchRecord, JsonRequestBehavior.AllowGet);
-        }
-
-        public JsonResult SearchItem(string search)
-        {
-            JsonResult jsonResult = new JsonResult();
-            var record = _StudentsService.GetAllStudents().Where(x => x.Name.ToLower().Contains(search.ToLower())).ToList();
-
-            jsonResult.Data = new { Success = true, Response = record };
-            return Json(jsonResult, JsonRequestBehavior.AllowGet);
-        }
-
-        public JsonResult UploadImage()
-        {
-            JsonResult result = new JsonResult();
-            result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
-            try
-            {
-                var file = Request.Files[0];
-                var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
-
-                var path = Path.Combine(Server.MapPath("~/Content/Images/"), fileName);
-                file.SaveAs(path);
-                result.Data = new { Success = true, ImageURL = string.Format("/Content/Images/{0}", fileName) };
-            }
-            catch (System.Exception ex)
-            {
-                result.Data = new { Success = false, Message = ex.Message };
-            }
-            //return Json(result, JsonRequestBehavior.AllowGet);
-            return result;
         }
 
     }
