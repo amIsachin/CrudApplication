@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessEntity;
+using System;
+using System.Collections.Generic;
 
 namespace ViewModels
 {
@@ -15,7 +17,10 @@ namespace ViewModels
         public string City { get; set; }
         public string Address { get; set; }
         public DateTime AdmissionSession { get; set; }
+    }
 
-        public int AlertMessage { get; set; }
+    public class StudentEntityListBindingViewModel : SEO
+    {
+        public List<StudentEntity> Students { get; set; }
     }
 }

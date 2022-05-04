@@ -2,11 +2,7 @@
 using BusinessLogics;
 using ServicePrincipals;
 using StudentServices;
-using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 using ViewModels;
 
@@ -25,8 +21,9 @@ namespace Crud.Web.Controllers
         #endregion
 
         #region CreateObject
-        private StudentEntity StudentEntityObject = new StudentEntity();
-        private StudentEntityBindingViewModel StudentEntityBindingViewModel = new StudentEntityBindingViewModel();
+        private StudentEntity studentEntityObject = new StudentEntity();
+        private StudentEntityBindingViewModel studentEntityBindingViewModelObject = new StudentEntityBindingViewModel();
+        private StudentEntityListBindingViewModel studentEntityListBindingViewModelObject = new StudentEntityListBindingViewModel();
         #endregion
 
         [HttpGet]
@@ -34,6 +31,8 @@ namespace Crud.Web.Controllers
         {
             try
             {
+                studentEntityListBindingViewModelObject.Title = "Listing";
+                studentEntityListBindingViewModelObject.Description = "Ajax Listing";
                 return View();
             }
             catch (System.Exception)
@@ -46,9 +45,15 @@ namespace Crud.Web.Controllers
         {
             try
             {
-                List<StudentEntity> record = StudentServicePrincipals.Search(search, false);
+                //List<StudentEntity> record = StudentServicePrincipals.Search(search, false);
 
-                return PartialView(record);
+                studentEntityListBindingViewModelObject.Students = StudentServicePrincipals.Search(search, false);
+                studentEntityListBindingViewModelObject.Title = "Listing";
+                studentEntityListBindingViewModelObject.Description = "Ajax Listing";
+                return PartialView(studentEntityListBindingViewModelObject);
+
+                //return PartialView(record);
+
             }
             catch (System.Exception)
             {
@@ -139,9 +144,9 @@ namespace Crud.Web.Controllers
         {
             try
             {
-                bool isDeleted = _StudentsService.DeleteStudent(rollNumber);
+                //bool isDeleted = _StudentsService.DeleteStudent(rollNumber);
 
-                if (isDeleted is true)
+                if (StudentServicePrincipals.PerformDelete(rollNumber) is true)
                 {
                     return RedirectToAction("Listing");
                 }
@@ -161,9 +166,11 @@ namespace Crud.Web.Controllers
         {
             try
             {
-                List<StudentEntity> record = StudentServicePrincipals.GetAllStudents();
+                studentEntityListBindingViewModelObject.Students = StudentServicePrincipals.GetAllStudents();
+                studentEntityListBindingViewModelObject.Title = "Students";
+                studentEntityListBindingViewModelObject.Description = "All University Students";
 
-                return View(record);
+                return View(studentEntityListBindingViewModelObject);
             }
             catch (System.Exception)
             {
@@ -178,25 +185,25 @@ namespace Crud.Web.Controllers
             {
                 if (rollNumber > 0)
                 {
-                    StudentEntityObject = StudentServicePrincipals.GetStudentByRollNumber(rollNumber);
+                    studentEntityObject = StudentServicePrincipals.GetStudentByRollNumber(rollNumber);
 
-                    StudentEntityBindingViewModel.ID = StudentEntityObject.ID;
-                    StudentEntityBindingViewModel.CreatedOn = StudentEntityObject.CreatedOn;
-                    StudentEntityBindingViewModel.RollNumber = StudentEntityObject.RollNumber;
-                    StudentEntityBindingViewModel.Name = StudentEntityObject.Name;
-                    StudentEntityBindingViewModel.Class = StudentEntityObject.Class;
-                    StudentEntityBindingViewModel.Gender = StudentEntityObject.Gender;
-                    StudentEntityBindingViewModel.Age = StudentEntityObject.Age;
-                    StudentEntityBindingViewModel.Fees = StudentEntityObject.Fees;
-                    StudentEntityBindingViewModel.City = StudentEntityObject.City;
-                    StudentEntityBindingViewModel.Address = StudentEntityObject.Address;
-                    StudentEntityBindingViewModel.AdmissionSession = StudentEntityObject.AdmissionSession;
+                    studentEntityBindingViewModelObject.ID = studentEntityObject.ID;
+                    studentEntityBindingViewModelObject.CreatedOn = studentEntityObject.CreatedOn;
+                    studentEntityBindingViewModelObject.RollNumber = studentEntityObject.RollNumber;
+                    studentEntityBindingViewModelObject.Name = studentEntityObject.Name;
+                    studentEntityBindingViewModelObject.Class = studentEntityObject.Class;
+                    studentEntityBindingViewModelObject.Gender = studentEntityObject.Gender;
+                    studentEntityBindingViewModelObject.Age = studentEntityObject.Age;
+                    studentEntityBindingViewModelObject.Fees = studentEntityObject.Fees;
+                    studentEntityBindingViewModelObject.City = studentEntityObject.City;
+                    studentEntityBindingViewModelObject.Address = studentEntityObject.Address;
+                    studentEntityBindingViewModelObject.AdmissionSession = studentEntityObject.AdmissionSession;
 
-                    return View(StudentEntityBindingViewModel);
+                    return View(studentEntityBindingViewModelObject);
                 }
                 else
                 {
-                    return View(StudentEntityBindingViewModel);
+                    return View(studentEntityBindingViewModelObject);
                 }
             }
             catch (System.Exception)

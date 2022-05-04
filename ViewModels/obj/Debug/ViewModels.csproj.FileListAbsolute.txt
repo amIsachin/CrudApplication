@@ -4,3 +4,6 @@ E:\Sachin\Application\Crud\CrudApplication\ViewModels\obj\Debug\ViewModels.cspro
 E:\Sachin\Application\Crud\CrudApplication\ViewModels\obj\Debug\ViewModels.csproj.CoreCompileInputs.cache
 E:\Sachin\Application\Crud\CrudApplication\ViewModels\obj\Debug\ViewModels.dll
 E:\Sachin\Application\Crud\CrudApplication\ViewModels\obj\Debug\ViewModels.pdb
+E:\Sachin\Application\Crud\CrudApplication\ViewModels\bin\Debug\BusinessEntity.dll
+E:\Sachin\Application\Crud\CrudApplication\ViewModels\bin\Debug\BusinessEntity.pdb
+E:\Sachin\Application\Crud\CrudApplication\ViewModels\obj\Debug\ViewModels.csproj.CopyComplete

@@ -1,4 +1,5 @@
-﻿
+﻿@model ViewModels.StudentEntityListBindingViewModel
+
 @{
     ViewBag.Title = "StudentsListing";
 }
@@ -75,7 +76,7 @@
                     </tr>
                 </thead>
                 <tbody id="autoSearching">
-                    @foreach (var student in Model)
+                    @foreach (var student in Model.Students)
                     {
                         <tr>
                             <td>@student.Name</td>
@@ -185,7 +186,18 @@
 
         });
 
-        //--> Please dont touch this line of code without consdering the rest of the code. //  **Alert related code.
+        //--> Please dont touch this line of code without consdering the rest of the code.
+        $('.focus').on({
+            keydown: function () {
+                $('.clickShow').css('display', 'block')
+            }
+        });
+
+        $('.clickShow').click(function () {
+            $('.clickShow').css('display', 'none');
+        });
+
+        //  **Alert related code.
         $('#alertButton').click(function () {
             $('#alert-div').css('display', 'none');
         });
