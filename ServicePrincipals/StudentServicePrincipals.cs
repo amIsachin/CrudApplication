@@ -67,6 +67,45 @@ namespace ServicePrincipals
         }
 
         /// <summary>
+        /// This line perform Only Insert Operation.
+        /// </summary>
+        /// <param name="studentEntity"></param>
+        /// <returns></returns>
+        public bool InsertStudent(StudentEntity studentEntity)
+        {
+            studentEntity.ID = CommonMethods.GenerateRandomNumber();
+            studentEntity.AdmissionSession = CommonProperties.GetTime;
+
+            if (_StudentsService.InsertStudent(studentEntity) is true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// This line code perform only Update operation.
+        /// </summary>
+        /// <param name="studentEntity"></param>
+        /// <returns></returns>
+        public bool UpdateStudent(StudentEntity studentEntity)
+        {
+            studentEntity.AdmissionSession = CommonProperties.GetTime;
+
+            if (_StudentsService.UpdateStudent(studentEntity) is true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
         /// This line of code perform Create And Edit Operatoin.
         /// </summary>
         /// <param name="studentEntity"></param>

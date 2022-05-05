@@ -6,20 +6,6 @@
 
 <section class="section-alert">
     <div class="container">
-        @if (TempData["DeleteMessage"] != null)
-        {
-            <div class="alert alert-success flex justify-content align-items" id="alert-div">
-                <div>
-                    <strong>Success!</strong> <span>@TempData["DeleteMessage"]</span>
-                </div>
-                <button type="button" id="alertButton"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-        }
-    </div>
-</section>
-
-<section class="section-alert">
-    <div class="container">
         @if (TempData["UpdatedMessage"] != null)
         {
             <div class="alert alert-success flex justify-content align-items" id="alert-div">

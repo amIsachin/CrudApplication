@@ -31,9 +31,9 @@ namespace Crud.Web.Controllers
         {
             try
             {
-                studentEntityListBindingViewModelObject.Title = "Listing";
-                studentEntityListBindingViewModelObject.Description = "Ajax Listing";
-                return View();
+                studentEntityListBindingViewModelObject.Title = "Index-page";
+                studentEntityListBindingViewModelObject.Description = "Indexing Students Details";
+                return View(studentEntityListBindingViewModelObject);
             }
             catch (System.Exception)
             {
@@ -45,14 +45,11 @@ namespace Crud.Web.Controllers
         {
             try
             {
-                //List<StudentEntity> record = StudentServicePrincipals.Search(search, false);
-
                 studentEntityListBindingViewModelObject.Students = StudentServicePrincipals.Search(search, false);
                 studentEntityListBindingViewModelObject.Title = "Listing";
                 studentEntityListBindingViewModelObject.Description = "Ajax Listing";
-                return PartialView(studentEntityListBindingViewModelObject);
 
-                //return PartialView(record);
+                return PartialView(studentEntityListBindingViewModelObject);
 
             }
             catch (System.Exception)
@@ -68,9 +65,8 @@ namespace Crud.Web.Controllers
             {
                 return PartialView();
             }
-            catch (System.Exception ex)
+            catch (System.Exception)
             {
-                ViewData["Message"] = ex.Message;
                 return new HttpStatusCodeResult(500);
             }
         }
@@ -80,13 +76,10 @@ namespace Crud.Web.Controllers
         {
             try
             {
-                studentEntity.ID = CommonMethods.GenerateRandomNumber();
-                studentEntity.AdmissionSession = CommonProperties.GetTime;
-                bool isInserted = _StudentsService.InsertStudent(studentEntity);
-
-                if (isInserted is true)
+                if (StudentServicePrincipals.InsertStudent(studentEntity) is true)
                 {
                     TempData["InsertMessage"] = "Data has been Inserted Successfully";
+
                     return RedirectToAction("Listing");
                 }
                 else
@@ -105,7 +98,7 @@ namespace Crud.Web.Controllers
         {
             try
             {
-                var record = _StudentsService.GetAllStudents().Find(x => x.RollNumber == rollNumber);
+                var record = StudentServicePrincipals.GetStudentByRollNumber(rollNumber);
 
                 return PartialView(record);
             }
@@ -120,12 +113,10 @@ namespace Crud.Web.Controllers
         {
             try
             {
-                studentEntity.AdmissionSession = CommonProperties.GetTime;
-                bool isUpdated = _StudentsService.UpdateStudent(studentEntity);
-
-                if (isUpdated is true)
+                if (StudentServicePrincipals.UpdateStudent(studentEntity) is true)
                 {
                     TempData["UpdateMessage"] = "Data has been updated successfuly";
+
                     return RedirectToAction("Listing");
                 }
                 else
@@ -144,8 +135,6 @@ namespace Crud.Web.Controllers
         {
             try
             {
-                //bool isDeleted = _StudentsService.DeleteStudent(rollNumber);
-
                 if (StudentServicePrincipals.PerformDelete(rollNumber) is true)
                 {
                     return RedirectToAction("Listing");
@@ -167,7 +156,7 @@ namespace Crud.Web.Controllers
             try
             {
                 studentEntityListBindingViewModelObject.Students = StudentServicePrincipals.GetAllStudents();
-                studentEntityListBindingViewModelObject.Title = "Students";
+                studentEntityListBindingViewModelObject.Title = "Students-Listing";
                 studentEntityListBindingViewModelObject.Description = "All University Students";
 
                 return View(studentEntityListBindingViewModelObject);
@@ -199,10 +188,16 @@ namespace Crud.Web.Controllers
                     studentEntityBindingViewModelObject.Address = studentEntityObject.Address;
                     studentEntityBindingViewModelObject.AdmissionSession = studentEntityObject.AdmissionSession;
 
+                    studentEntityBindingViewModelObject.Title = "Updation-Page";
+                    studentEntityBindingViewModelObject.Description = "Modify Student Details Page";
+
                     return View(studentEntityBindingViewModelObject);
                 }
                 else
                 {
+                    studentEntityBindingViewModelObject.Title = "Creation-Page";
+                    studentEntityBindingViewModelObject.Description = "Registeration New Student Page";
+
                     return View(studentEntityBindingViewModelObject);
                 }
             }
@@ -223,7 +218,6 @@ namespace Crud.Web.Controllers
                     {
                         if (StudentServicePrincipals.PerformDelete(studentEntityBindingViewModel.RollNumber) is true)
                         {
-                            TempData["DeleteMessage"] = "Student Deleted Successfully";
                             return RedirectToAction("StudentsListing");
                         }
                         else
