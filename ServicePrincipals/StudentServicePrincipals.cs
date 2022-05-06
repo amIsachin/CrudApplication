@@ -10,9 +10,11 @@ namespace ServicePrincipals
     public sealed class StudentServicePrincipals
     {
         private readonly IStudentsService _StudentsService = null;
+        private readonly CommonMethods CommonMethods = null;
         public StudentServicePrincipals(IStudentsService studentsService)
         {
             _StudentsService = studentsService;
+            CommonMethods = new CommonMethods(studentsService);
         }
 
         /// <summary>

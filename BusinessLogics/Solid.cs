@@ -1,4 +1,6 @@
-﻿using System;
+﻿using StudentServices;
+using System;
+using System.Linq;
 
 namespace BusinessLogics
 {
@@ -26,10 +28,23 @@ namespace BusinessLogics
     /// </summary>
     public sealed class CommonMethods
     {
-        public static int GenerateRandomNumber()
+        private readonly IStudentsService _StudentsSrevice = null;
+        public CommonMethods(IStudentsService studentsService)
         {
+            _StudentsSrevice = studentsService;
+        }
+
+        public int GenerateRandomNumber()
+        {
+        ReEvaluate:
             Random random = new Random();
-            return random.Next(1001, 10000001);
+            int newRandomNumber = random.Next(1001, 10000001);
+            var isExist = _StudentsSrevice.GetAllStudents().FirstOrDefault(x => x.ID == newRandomNumber);
+            if (isExist.ID is null || isExist.ID == newRandomNumber)
+            {
+                goto ReEvaluate;
+            }
+            return newRandomNumber;
         }
     }
 }

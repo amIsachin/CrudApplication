@@ -33,6 +33,7 @@ namespace Crud.Web.Controllers
             {
                 studentEntityListBindingViewModelObject.Title = "Index-page";
                 studentEntityListBindingViewModelObject.Description = "Indexing Students Details";
+
                 return View(studentEntityListBindingViewModelObject);
             }
             catch (System.Exception)
@@ -188,14 +189,14 @@ namespace Crud.Web.Controllers
                     studentEntityBindingViewModelObject.Address = studentEntityObject.Address;
                     studentEntityBindingViewModelObject.AdmissionSession = studentEntityObject.AdmissionSession;
 
-                    studentEntityBindingViewModelObject.Title = "Updation-Page";
+                    studentEntityBindingViewModelObject.Title = "Updation-page";
                     studentEntityBindingViewModelObject.Description = "Modify Student Details Page";
 
                     return View(studentEntityBindingViewModelObject);
                 }
                 else
                 {
-                    studentEntityBindingViewModelObject.Title = "Creation-Page";
+                    studentEntityBindingViewModelObject.Title = "Creation-page";
                     studentEntityBindingViewModelObject.Description = "Registeration New Student Page";
 
                     return View(studentEntityBindingViewModelObject);
