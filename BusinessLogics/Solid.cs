@@ -28,23 +28,27 @@ namespace BusinessLogics
     /// </summary>
     public sealed class CommonMethods
     {
-        private readonly IStudentsService _StudentsSrevice = null;
+        private readonly IStudentsService _StudentsService = null;
         public CommonMethods(IStudentsService studentsService)
         {
-            _StudentsSrevice = studentsService;
+            _StudentsService = studentsService;
         }
 
         public int GenerateRandomNumber()
         {
-        ReEvaluate:
+            ReEvaluate:
             Random random = new Random();
             int newRandomNumber = random.Next(1001, 10000001);
-            var isExist = _StudentsSrevice.GetAllStudents().FirstOrDefault(x => x.ID == newRandomNumber);
-            if (isExist.ID is null || isExist.ID == newRandomNumber)
+            var isExist = _StudentsService.GetAllStudents().FirstOrDefault(x => x.ID == newRandomNumber);
+            if (isExist == null)
+            {
+                return newRandomNumber;
+            }
+            else
             {
                 goto ReEvaluate;
             }
-            return newRandomNumber;
         }
+
     }
 }

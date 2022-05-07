@@ -2,7 +2,6 @@
 using BusinessLogics;
 using ServicePrincipals;
 using StudentServices;
-using System.Collections.Generic;
 using System.Web.Mvc;
 using ViewModels;
 
@@ -22,8 +21,6 @@ namespace Crud.Web.Controllers
 
         #region CreateObject
         private StudentEntity studentEntityObject = new StudentEntity();
-        private StudentEntityBindingViewModel studentEntityBindingViewModelObject = new StudentEntityBindingViewModel();
-        private StudentEntityListBindingViewModel studentEntityListBindingViewModelObject = new StudentEntityListBindingViewModel();
         #endregion
 
         [HttpGet]
@@ -31,6 +28,8 @@ namespace Crud.Web.Controllers
         {
             try
             {
+                StudentEntityListBindingViewModel studentEntityListBindingViewModelObject = new StudentEntityListBindingViewModel();
+
                 studentEntityListBindingViewModelObject.Title = "Index-page";
                 studentEntityListBindingViewModelObject.Description = "Indexing Students Details";
 
@@ -43,9 +42,11 @@ namespace Crud.Web.Controllers
         }
 
         public ActionResult Listing(string search)
-        {
+        {            
             try
             {
+                StudentEntityListBindingViewModel studentEntityListBindingViewModelObject = new StudentEntityListBindingViewModel();
+
                 studentEntityListBindingViewModelObject.Students = StudentServicePrincipals.Search(search, false);
                 studentEntityListBindingViewModelObject.Title = "Listing";
                 studentEntityListBindingViewModelObject.Description = "Ajax Listing";
@@ -156,6 +157,8 @@ namespace Crud.Web.Controllers
         {
             try
             {
+                StudentEntityListBindingViewModel studentEntityListBindingViewModelObject = new StudentEntityListBindingViewModel();
+
                 studentEntityListBindingViewModelObject.Students = StudentServicePrincipals.GetAllStudents();
                 studentEntityListBindingViewModelObject.Title = "Students-Listing";
                 studentEntityListBindingViewModelObject.Description = "All University Students";
@@ -173,6 +176,8 @@ namespace Crud.Web.Controllers
         {
             try
             {
+                StudentEntityBindingViewModel studentEntityBindingViewModelObject = new StudentEntityBindingViewModel();
+
                 if (rollNumber > 0)
                 {
                     studentEntityObject = StudentServicePrincipals.GetStudentByRollNumber(rollNumber);
