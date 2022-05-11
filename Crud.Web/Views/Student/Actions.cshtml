@@ -22,7 +22,7 @@
 <section class="section-3">
     <div class="container">
         <div>
-            <form class="form" action="@Url.Action("Actions", "Student")" method="post">
+            <form class="form" action="@Url.Action("Actions", "Student")" method="post" id="formValid">
                 <div class="input-box">
                     <input type="hidden" name="ID" placeholder="Enter name" value="@Model.ID">
                 </div>
@@ -30,7 +30,8 @@
                     <input type="hidden" name="RollNumber" placeholder="Enter name" value="@Model.RollNumber">
                 </div>
                 <div class="input-box">
-                    <input type="text" name="Name" placeholder="Enter name" value="@Model.Name" required>
+                    <input type="text" name="Name" placeholder="Enter name" value="@Model.Name">
+                    @Html.ValidationMessageFor(x=>x.Name, validationMessage:null, htmlAttributes:new { @class="text-danger"})
                 </div>
                 <div class="input-box">
                     <input type="text" name="Class" placeholder="Enter Class" value="@Model.Class">
@@ -61,3 +62,11 @@
         </div>
     </div>
 </section>
+
+<script>
+    $('#Save').click(function () {
+        if (!$('#formValid').valid()) {
+            return false;
+        }
+    });
+</script>

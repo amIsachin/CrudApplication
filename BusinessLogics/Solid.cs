@@ -36,7 +36,7 @@ namespace BusinessLogics
 
         public int GenerateRandomNumber()
         {
-            ReEvaluate:
+        ReEvaluate:
             Random random = new Random();
             int newRandomNumber = random.Next(1001, 10000001);
             var isExist = _StudentsService.GetAllStudents().FirstOrDefault(x => x.ID == newRandomNumber);

@@ -44,18 +44,40 @@
     $(document).ready(function () {
         //--> Save Student functionality.
         $('#saveStudent').click(function () {
-            $.ajax({
-                type: 'POST',
-                url: '@Url.Action("Create", "Student")',
-                data: $('#studentFormSerialize').serialize(),
-                success: function (response) {
-                    $('#actionContainer').html('');
-                },
-                error: function (error) {
-                    swal("Oosps something went wrong !! " + error.status);
-                }
-            });
+            debugger;
+            if ($('#studentFormSerialize').valid()) {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("Create", "Student")',
+                    data: $('#studentFormSerialize').serialize(),
+                    success: function (response) {
+                        $('#actionContainer').html('');
+                    },
+                    error: function (error) {
+                        swal("Oosps something went wrong !! " + error.status);
+                    }
+                });
+            }
+            else {
+                //alert('jQuery Validate error')
+                swal("Please Enter All Required Fields");
+            }
+
         });
+        $('#studentFormSerialize').validate({
+            rules: {
+                Name: {
+                    required: true,
+                    minlength: 1,
+                    maxlength: 10
+                }
+            },
+            messages: {
+                Name: {
+                    required:'Please Enter The valid Name*'
+                }
+            }
+        })
 
         //--> Cancel button functionality.
         $('#cancelButton').click(function () {

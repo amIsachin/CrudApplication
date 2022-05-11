@@ -1,6 +1,7 @@
 ﻿using BusinessEntity;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ViewModels
 {
