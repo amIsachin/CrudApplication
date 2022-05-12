@@ -36,7 +36,7 @@
                     <input type="text" name="Address" placeholder="Enter Address" value="@Model.Address">
                 </div>
                 <div class="input-box">
-                     <input type="hidden" name="AddmissionSession" placeholder="Enter Addmission Session" value="@Model.AdmissionSession">
+                    <input type="hidden" name="AddmissionSession" placeholder="Enter Addmission Session" value="@Model.AdmissionSession">
                 </div>
                 <div class="flex">
                     <button class="btn btn-primary" id="editButton">Edit</button>
@@ -51,18 +51,37 @@
     $(document).ready(function () {
         //--> Edit button functinality.
         $('#editButton').click(function () {
-            $.ajax({
-                type: 'POST',
-                url: '@Url.Action("Edit", "Student")',
-                data: $('#studentFormSerialize').serialize(),
-                success: function (response) {
-                    $('#actionContainer').html('');
-                },
-                error: function (error) {
-                    swal("Oops something went wrong !! " + error.status);
-                }
-            });
+            if ($('#studentFormSerialize').valid())
+            {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("Edit", "Student")',
+                    data: $('#studentFormSerialize').serialize(),
+                    success: function (response) {
+                        $('#actionContainer').html('');
+                    },
+                    error: function (error) {
+                        swal("Oops something went wrong !! " + error.status);
+                    }
+                });
+            }
+            else
+            {
+                swal("Please Enter All Required Fields");
+            }
         });
+
+        $('#studentFormSerialize').validate({
+            rules: {
+                Name: {
+                    required: true
+                }
+            },
+            messaged: {
+                Name: {
+                }
+            }
+        })
 
 
     });  //--> Here is close document ready function().

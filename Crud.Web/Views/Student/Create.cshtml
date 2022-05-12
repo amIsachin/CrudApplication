@@ -3,6 +3,19 @@
     ViewBag.Title = "Create";
 }
 
+<style>
+    .error {
+        font-size: 1.3rem;
+        font-family: 'Raleway-Bold';
+        /*margin-left: 5rem;*/
+        color: red;
+        padding-left: 1.2rem;
+    }
+
+    #Class-error {
+    }
+</style>
+
 <section class="section-3">
     <div class="container">
         <div>
@@ -20,7 +33,7 @@
                     <input type="text" name="Age" placeholder="Enter Age">
                 </div>
                 <div class="input-box">
-                    <input type="text" name="fees" placeholder="Enter Fees">
+                    <input type="text" name="Fees" placeholder="Enter Fees">
                 </div>
                 <div class="input-box">
                     <input type="text" name="City" placeholder="Enter City">
@@ -45,7 +58,8 @@
         //--> Save Student functionality.
         $('#saveStudent').click(function () {
             debugger;
-            if ($('#studentFormSerialize').valid()) {
+            if ($('#studentFormSerialize').valid())
+            {
                 $.ajax({
                     type: 'POST',
                     url: '@Url.Action("Create", "Student")',
@@ -58,26 +72,65 @@
                     }
                 });
             }
-            else {
-                //alert('jQuery Validate error')
+            else
+            {
                 swal("Please Enter All Required Fields");
             }
 
         });
+
         $('#studentFormSerialize').validate({
             rules: {
                 Name: {
                     required: true,
                     minlength: 1,
-                    maxlength: 10
+                    maxlength: 20
+                },
+                Class: {
+                    required: true,
+                },
+                Gender: {
+                    required: true
+                },
+                Age: {
+                    required: true
+                },
+                Fees: {
+                    required: true
+                },
+                City: {
+                    required: true
+                },
+                Address: {
+                    required: true
                 }
             },
             messages: {
                 Name: {
-                    required:'Please Enter The valid Name*'
+                    required: 'Please Enter The valid Name*.',
+                    minlength: 'Minimum length is 1.',
+                    maxlength: 'Please Enter No More Than 20 Characters.'
+                },
+                Class: {
+                    required: 'Please Enter The Class.'
+                },
+                Gender: {
+                    required: 'Please Enter The valid Gemder*.',
+                },
+                Age: {
+                    required: 'Please Enter The valid age*.',
+                },
+                Fees: {
+                    required: 'Please Enter The valid Fees*.',
+                },
+                City: {
+                    required: 'Please Enter The valid city*.',
+                },
+                Address: {
+                    required: 'Please Enter The valid Address*.',
                 }
             }
-        })
+        });
 
         //--> Cancel button functionality.
         $('#cancelButton').click(function () {

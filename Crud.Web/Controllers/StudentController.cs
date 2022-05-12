@@ -42,7 +42,7 @@ namespace Crud.Web.Controllers
         }
 
         public ActionResult Listing(string search)
-        {            
+        {
             try
             {
                 StudentEntityListBindingViewModel studentEntityListBindingViewModelObject = new StudentEntityListBindingViewModel();
