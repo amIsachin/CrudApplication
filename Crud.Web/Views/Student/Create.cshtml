@@ -3,25 +3,12 @@
     ViewBag.Title = "Create";
 }
 
-<style>
-    .error {
-        font-size: 1.3rem;
-        font-family: 'Raleway-Bold';
-        /*margin-left: 5rem;*/
-        color: red;
-        padding-left: 1.2rem;
-    }
-
-    #Class-error {
-    }
-</style>
-
 <section class="section-3">
     <div class="container">
         <div>
             <form class="form" id="studentFormSerialize">
                 <div class="input-box">
-                    <input type="text" name="Name" placeholder="Enter name" required>
+                    <input type="text" name="Name" placeholder="Enter name">
                 </div>
                 <div class="input-box">
                     <input type="text" name="Class" placeholder="Enter Class">
@@ -56,8 +43,87 @@
 <script type="text/javascript">
     $(document).ready(function () {
         //--> Save Student functionality.
+        $('#studentFormSerialize').validate({
+            rules: {
+                Name: {
+                    required: true,
+                    minlength: 1,
+                    maxlength: 50
+                },
+                Class: {
+                    required: true,
+                    minlength: 1,
+                    maxlength: 10
+                },
+                Gender: {
+                    required: true,
+                    minlength: 1,
+                    maxlength: 10
+                },
+                Age: {
+                    required: true,
+                    digits: true,
+                    min: 18,
+                    max: 40
+                },
+                Fees: {
+                    required: true,
+                    digits: true,
+                    min: 400,
+                    max: 1200
+                },
+                City: {
+                    required: true,
+                    minlength: 1,
+                    maxlength: 100
+                },
+                Address: {
+                    required: true,
+                    minlength: 1,
+                    maxlength: 100
+                }
+            },
+            messages: {
+                Name: {
+                    required: 'Please Enter The valid Name*.',
+                    minlength: 'Minimum length is 1.',
+                    maxlength: 'Please Enter No More Than 50 Characters.'
+                },
+                Class: {
+                    required: 'Please Enter The Class.',
+                    minlength: 'Minimum length is 1',
+                    maxlength: 'Please Enter No More Than 10 Charaters.'
+                },
+                Gender: {
+                    required: 'Please Enter The valid Gemder*.',
+                    minlength: 'Minimum length is 1',
+                    maxlength: 'Please Enter No More Than 10 Charaters.'
+                },
+                Age: {
+                    required: 'Please Enter The valid age*.',
+                    minlength: 'Minimum length is 1',
+                    maxlength: 'Please Enter No More Than 40 Charaters.',
+                    min: 'Please Enter the Age greater than or equal to 18',
+                    max: 'Please Enter the Age less than or equal to 40'
+                },
+                Fees: {
+                    required: 'Please Enter The valid Fees*.',
+                    min: 'Please!! Fees must be greater than or equal to 400',
+                    mix: 'Please!! Fees must less than or equal to 1200'
+                },
+                City: {
+                    required: 'Please Enter The valid city*.',
+                    minlength: 'Minimum length is 1',
+                    maxlength: 'Please Enter No More Than 100 Charaters.'
+                },
+                Address: {
+                    required: 'Please Enter The valid Address*.',
+                    minlength: 'Minimum length is 1',
+                    maxlength: 'Please Enter No More Than 100 Charaters.'
+                }
+            }
+        });
         $('#saveStudent').click(function () {
-            debugger;
             if ($('#studentFormSerialize').valid())
             {
                 $.ajax({
@@ -77,59 +143,6 @@
                 swal("Please Enter All Required Fields");
             }
 
-        });
-
-        $('#studentFormSerialize').validate({
-            rules: {
-                Name: {
-                    required: true,
-                    minlength: 1,
-                    maxlength: 20
-                },
-                Class: {
-                    required: true,
-                },
-                Gender: {
-                    required: true
-                },
-                Age: {
-                    required: true
-                },
-                Fees: {
-                    required: true
-                },
-                City: {
-                    required: true
-                },
-                Address: {
-                    required: true
-                }
-            },
-            messages: {
-                Name: {
-                    required: 'Please Enter The valid Name*.',
-                    minlength: 'Minimum length is 1.',
-                    maxlength: 'Please Enter No More Than 20 Characters.'
-                },
-                Class: {
-                    required: 'Please Enter The Class.'
-                },
-                Gender: {
-                    required: 'Please Enter The valid Gemder*.',
-                },
-                Age: {
-                    required: 'Please Enter The valid age*.',
-                },
-                Fees: {
-                    required: 'Please Enter The valid Fees*.',
-                },
-                City: {
-                    required: 'Please Enter The valid city*.',
-                },
-                Address: {
-                    required: 'Please Enter The valid Address*.',
-                }
-            }
         });
 
         //--> Cancel button functionality.

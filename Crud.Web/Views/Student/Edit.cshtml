@@ -50,6 +50,86 @@
 <script type="text/javascript">
     $(document).ready(function () {
         //--> Edit button functinality.
+        $('#studentFormSerialize').validate({
+            rules: {
+                Name: {
+                    required: true,
+                    minlength: 1,
+                    maxlength: 50
+                },
+                Class: {
+                    required: true,
+                    minlength: 1,
+                    maxlength: 10
+                },
+                Gender: {
+                    required: true,
+                    minlength: 1,
+                    maxlength: 10
+                },
+                Age: {
+                    required: true,
+                    digits: true,
+                    min: 18,
+                    max: 40
+                },
+                Fees: {
+                    required: true,
+                    digits: true,
+                    min: 400,
+                    max: 1200
+                },
+                City: {
+                    required: true,
+                    minlength: 1,
+                    maxlength: 100
+                },
+                Address: {
+                    required: true,
+                    minlength: 1,
+                    maxlength: 100
+                }
+            },
+            messages: {
+                Name: {
+                    required: 'Please Enter The valid Name*.',
+                    minlength: 'Minimum length is 1.',
+                    maxlength: 'Please Enter No More Than 50 Characters.'
+                },
+                Class: {
+                    required: 'Please Enter The Class.',
+                    minlength: 'Minimum length is 1',
+                    maxlength: 'Please Enter No More Than 10 Charaters.'
+                },
+                Gender: {
+                    required: 'Please Enter The valid Gemder*.',
+                    minlength: 'Minimum length is 1',
+                    maxlength: 'Please Enter No More Than 10 Charaters.'
+                },
+                Age: {
+                    required: 'Please Enter The valid age*.',
+                    minlength: 'Minimum length is 1',
+                    maxlength: 'Please Enter No More Than 40 Charaters.',
+                    min: 'Please Enter the Age greater than or equal to 18',
+                    max: 'Please Enter the Age less than or equal to 40'
+                },
+                Fees: {
+                    required: 'Please Enter The valid Fees*.',
+                    min: 'Please!! Fees must be greater than or equal to 400',
+                    mix: 'Please!! Fees must less than or equal to 1200'
+                },
+                City: {
+                    required: 'Please Enter The valid city*.',
+                    minlength: 'Minimum length is 1',
+                    maxlength: 'Please Enter No More Than 100 Charaters.'
+                },
+                Address: {
+                    required: 'Please Enter The valid Address*.',
+                    minlength: 'Minimum length is 1',
+                    maxlength: 'Please Enter No More Than 100 Charaters.'
+                }
+            }
+        });
         $('#editButton').click(function () {
             if ($('#studentFormSerialize').valid())
             {
@@ -71,18 +151,7 @@
             }
         });
 
-        $('#studentFormSerialize').validate({
-            rules: {
-                Name: {
-                    required: true
-                }
-            },
-            messaged: {
-                Name: {
-                }
-            }
-        })
-
+      
 
     });  //--> Here is close document ready function().
 </script>

@@ -56,6 +56,16 @@ body{
 }
 
 /*--  --------------------------------------------/
+----  -------------- Essentials ---------------------------------------------------*/
+/* Please dont touch this line of code without consendering the jQuery validation error message code */
+.error {
+    font-size: 1.3rem;
+    font-family: 'Raleway-Bold';
+    color: var(--color-danger);
+    padding-left: 1.2rem;
+}
+
+/*--  --------------------------------------------/
 ----  -------------- Utilities ---------------------------------------------------*/
 .container{
     padding: 0 10rem;
