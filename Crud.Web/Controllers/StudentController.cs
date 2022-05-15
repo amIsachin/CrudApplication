@@ -217,7 +217,7 @@ namespace Crud.Web.Controllers
         public ActionResult Actions(StudentEntityBindingViewModel studentEntityBindingViewModel)
         {
             try
-            {
+            { 
                 if (ModelState.IsValid is true)
                 {
                     if (Request.IsAjaxRequest())
@@ -254,7 +254,7 @@ namespace Crud.Web.Controllers
                 }
                 else
                 {
-                    return View();
+                    return View(studentEntityBindingViewModel);
                 }
             }
             catch (System.Exception)
