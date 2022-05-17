@@ -11,8 +11,20 @@ namespace Crud.Web
 
             routes.MapRoute(
                 name: "all-students",
-                url: "all-student",
+                url: "all-students",
                 defaults: new { controller = "Student", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "students-listing",
+                url: "students-listing",
+                defaults: new { controller = "Student", action = "StudentsListing", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "get-student",
+                url: "Actions/{id}",
+                defaults: new { controller = "Student", action = "Actions", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
