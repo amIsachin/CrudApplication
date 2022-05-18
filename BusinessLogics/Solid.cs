@@ -28,11 +28,13 @@ namespace BusinessLogics
     /// </summary>
     public sealed class CommonMethods
     {
+        #region InitailizeDependencyInjectionInstance
         private readonly IStudentsService _StudentsService = null;
         public CommonMethods(IStudentsService studentsService)
         {
             _StudentsService = studentsService;
-        }
+        } 
+        #endregion
 
         public int GenerateRandomNumber()
         {

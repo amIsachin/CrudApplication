@@ -21,8 +21,10 @@ namespace ViewModels
         [StringLength(10, MinimumLength = 1)]
         public string Gender { get; set; }
         [Required]
+        [Range(minimum: 18, maximum: 40)]
         public int Age { get; set; }
         [Required]
+        [Range(minimum: 400, maximum: 1200)]
         public decimal Fees { get; set; }
         [Required]
         [StringLength(50, MinimumLength = 2)]

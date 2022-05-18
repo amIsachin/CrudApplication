@@ -24,7 +24,8 @@ namespace Crud.Web
             routes.MapRoute(
                 name: "get-student",
                 url: "Actions/{id}",
-                defaults: new { controller = "Student", action = "Actions", id = UrlParameter.Optional }
+                defaults: new { controller = "Student", action = "Actions", id = UrlParameter.Optional },
+                constraints: new { id = @"\d+" }
             );
 
             routes.MapRoute(
