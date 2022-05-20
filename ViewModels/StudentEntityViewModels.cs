@@ -33,6 +33,7 @@ namespace ViewModels
         [StringLength(100, MinimumLength = 2)]
         public string Address { get; set; }
         [Required]
+        [DisplayFormat(DataFormatString = "{dd/MM/yyyy}")]
         public DateTime AdmissionSession { get; set; }
     }
 

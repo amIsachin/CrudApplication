@@ -50,9 +50,10 @@
                 <div class="input-box">
                     <input type="text" name="Address" placeholder="Enter Address" value="@Model.Address" required minlength="2" maxlength="100" />
                 </div>
-                @*<div class="input-box">
-                    <input type="date" name="AddmissionSession" placeholder="Enter Addmission Session">
-                </div>*@
+                <div class="input-box">
+                    @*<input type="date" name="AddmissionSession"  value="@Model.AdmissionSession.ToString("yyyy-MM-dd")" />*@
+                    @Html.TextBoxFor(m => m.AdmissionSession, "{0:yyyy-MM-dd}", new { type = "date", placeholder = "Enter Addmission Session" })
+                </div>
                 <div class="flex">
                     <button type="submit" class="btn btn-primary">Save</button>
                     <button class="btn btn-cancel" @Url.Action("StudentsListing", "Student")>Cancel</button>

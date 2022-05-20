@@ -41,17 +41,18 @@ namespace Crud.Web.Controllers
             }
         }
 
+        //[ChildActionOnly]
         public ActionResult Listing(string search)
         {
             try
             {
-                StudentEntityListBindingViewModel studentEntityListBindingViewModelObject = new StudentEntityListBindingViewModel();
+                StudentEntityListBindingViewModel studentEntityListBindingViewModel = new StudentEntityListBindingViewModel();
 
-                studentEntityListBindingViewModelObject.Students = StudentServicePrincipals.Search(search, false);
-                studentEntityListBindingViewModelObject.Title = "Listing";
-                studentEntityListBindingViewModelObject.Description = "Ajax Listing";
+                studentEntityListBindingViewModel.Students = StudentServicePrincipals.Search(search, false);
+                studentEntityListBindingViewModel.Title = "Listing";
+                studentEntityListBindingViewModel.Description = "Ajax Listing";
 
-                return PartialView(studentEntityListBindingViewModelObject);
+                return PartialView(studentEntityListBindingViewModel);
 
             }
             catch (System.Exception)
@@ -157,13 +158,13 @@ namespace Crud.Web.Controllers
         {
             try
             {
-                StudentEntityListBindingViewModel studentEntityListBindingViewModelObject = new StudentEntityListBindingViewModel();
+                StudentEntityListBindingViewModel studentEntityListBindingViewModel = new StudentEntityListBindingViewModel();
 
-                studentEntityListBindingViewModelObject.Students = StudentServicePrincipals.GetAllStudents();
-                studentEntityListBindingViewModelObject.Title = "Students-Listing";
-                studentEntityListBindingViewModelObject.Description = "All University Students";
+                studentEntityListBindingViewModel.Students = StudentServicePrincipals.GetAllStudents();
+                studentEntityListBindingViewModel.Title = "Students-Listing";
+                studentEntityListBindingViewModel.Description = "All University Students";
 
-                return View(studentEntityListBindingViewModelObject);
+                return View(studentEntityListBindingViewModel);
             }
             catch (System.Exception)
             {
@@ -176,35 +177,35 @@ namespace Crud.Web.Controllers
         {
             try
             {
-                StudentEntityBindingViewModel studentEntityBindingViewModelObject = new StudentEntityBindingViewModel();
+                StudentEntityBindingViewModel studentEntityBindingViewModel = new StudentEntityBindingViewModel();
 
                 if (rollNumber > 0)
                 {
                     studentEntityObject = StudentServicePrincipals.GetStudentByRollNumber(rollNumber);
 
-                    studentEntityBindingViewModelObject.ID = studentEntityObject.ID;
-                    studentEntityBindingViewModelObject.CreatedOn = studentEntityObject.CreatedOn;
-                    studentEntityBindingViewModelObject.RollNumber = studentEntityObject.RollNumber;
-                    studentEntityBindingViewModelObject.Name = studentEntityObject.Name;
-                    studentEntityBindingViewModelObject.Class = studentEntityObject.Class;
-                    studentEntityBindingViewModelObject.Gender = studentEntityObject.Gender;
-                    studentEntityBindingViewModelObject.Age = studentEntityObject.Age;
-                    studentEntityBindingViewModelObject.Fees = studentEntityObject.Fees;
-                    studentEntityBindingViewModelObject.City = studentEntityObject.City;
-                    studentEntityBindingViewModelObject.Address = studentEntityObject.Address;
-                    studentEntityBindingViewModelObject.AdmissionSession = studentEntityObject.AdmissionSession;
+                    studentEntityBindingViewModel.ID = studentEntityObject.ID;
+                    studentEntityBindingViewModel.CreatedOn = studentEntityObject.CreatedOn;
+                    studentEntityBindingViewModel.RollNumber = studentEntityObject.RollNumber;
+                    studentEntityBindingViewModel.Name = studentEntityObject.Name;
+                    studentEntityBindingViewModel.Class = studentEntityObject.Class;
+                    studentEntityBindingViewModel.Gender = studentEntityObject.Gender;
+                    studentEntityBindingViewModel.Age = studentEntityObject.Age;
+                    studentEntityBindingViewModel.Fees = studentEntityObject.Fees;
+                    studentEntityBindingViewModel.City = studentEntityObject.City;
+                    studentEntityBindingViewModel.Address = studentEntityObject.Address;
+                    studentEntityBindingViewModel.AdmissionSession = studentEntityObject.AdmissionSession;
 
-                    studentEntityBindingViewModelObject.Title = "Updation-page";
-                    studentEntityBindingViewModelObject.Description = "Modify Student Details Page";
+                    studentEntityBindingViewModel.Title = "Updation-page";
+                    studentEntityBindingViewModel.Description = "Modify Student Details Page";
 
-                    return View(studentEntityBindingViewModelObject);
+                    return View(studentEntityBindingViewModel);
                 }
                 else
                 {
-                    studentEntityBindingViewModelObject.Title = "Creation-page";
-                    studentEntityBindingViewModelObject.Description = "Registeration New Student Page";
+                    studentEntityBindingViewModel.Title = "Creation-page";
+                    studentEntityBindingViewModel.Description = "Registeration New Student Page";
 
-                    return View(studentEntityBindingViewModelObject);
+                    return View(studentEntityBindingViewModel);
                 }
             }
             catch (System.Exception)
@@ -217,7 +218,7 @@ namespace Crud.Web.Controllers
         public ActionResult Actions(StudentEntityBindingViewModel studentEntityBindingViewModel)
         {
             try
-            { 
+            {
                 if (ModelState.IsValid is true)
                 {
                     if (Request.IsAjaxRequest())
@@ -231,8 +232,6 @@ namespace Crud.Web.Controllers
                             return View();
                         }
                     }
-
-                    studentEntityBindingViewModel.AdmissionSession = CommonProperties.GetTime;
 
                     if (StudentServicePrincipals.PerformActions(studentEntityBindingViewModel) is true)
                     {

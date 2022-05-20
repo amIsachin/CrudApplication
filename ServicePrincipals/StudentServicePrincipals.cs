@@ -145,6 +145,7 @@ namespace ServicePrincipals
             if (studentEntity.RollNumber <= 0)
             {
                 studentEntity.ID = CommonMethods.GenerateRandomNumber();
+                studentEntityBindingViewModel.AdmissionSession = CommonProperties.GetTime;
 
                 if (_StudentsService.InsertStudent(studentEntity) is true)
                 {

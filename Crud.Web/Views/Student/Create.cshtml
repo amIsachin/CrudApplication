@@ -124,6 +124,7 @@
             }
         });
         $('#saveStudent').click(function () {
+            debugger;
             if ($('#studentFormSerialize').valid())
             {
                 $.ajax({
@@ -132,6 +133,7 @@
                     data: $('#studentFormSerialize').serialize(),
                     success: function (response) {
                         $('#actionContainer').html('');
+                        toastr.success("Data has been created successfuly", 'Success Alert', { timeout: 5000, 'closeButton': true })
                     },
                     error: function (error) {
                         swal("Oosps something went wrong !! " + error.status);
