@@ -3,34 +3,6 @@
     ViewBag.Title = "Index";
 }
 
-<section class="section-alert">
-    <div class="container">
-        @if (TempData["InsertMessage"] != null)
-        {
-            <div class="alert alert-success flex justify-content align-items" id="alert-div">
-                <div>
-                    <strong>Success!</strong> <span>@TempData["InsertMessage"]</span>
-                </div>
-                <button type="button" id="alertButton"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-        }
-    </div>
-</section>
-
-<section class="section-alert">
-    <div class="container">
-        @if (TempData["UpdateMessage"] != null)
-        {
-            <div class="alert alert-success flex justify-content align-items" id="alert-div">
-                <div>
-                    <strong>Success!</strong> <span>@TempData["UpdateMessage"]</span>
-                </div>
-                <button type="button" id="alertButton"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-        }
-    </div>
-</section>
-
 <div id="tableContainer">
     @{
         Html.RenderAction("Listing");

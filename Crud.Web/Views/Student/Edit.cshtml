@@ -138,7 +138,8 @@
                     url: '@Url.Action("Edit", "Student")',
                     data: $('#studentFormSerialize').serialize(),
                     success: function (response) {
-                        $('#actionContainer').html('');
+                        /*$('#actionContainer').html('');*/
+                        toastr.success("Data has been created successfuly", 'Success Alert', { timeout: 10000, 'closeButton': true })
                     },
                     error: function (error) {
                         swal("Oops something went wrong !! " + error.status);
@@ -151,7 +152,7 @@
             }
         });
 
-      
+
 
     });  //--> Here is close document ready function().
 </script>

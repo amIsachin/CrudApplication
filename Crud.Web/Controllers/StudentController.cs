@@ -81,8 +81,6 @@ namespace Crud.Web.Controllers
             {
                 if (StudentServicePrincipals.InsertStudent(studentEntity) is true)
                 {
-                    TempData["InsertMessage"] = "Data has been Inserted Successfully";
-
                     return RedirectToAction("Listing");
                 }
                 else
@@ -118,8 +116,6 @@ namespace Crud.Web.Controllers
             {
                 if (StudentServicePrincipals.UpdateStudent(studentEntity) is true)
                 {
-                    TempData["UpdateMessage"] = "Data has been updated successfuly";
-
                     return RedirectToAction("Listing");
                 }
                 else
