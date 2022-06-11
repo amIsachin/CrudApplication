@@ -1,0 +1,56 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome CDN link come from this URL https://cdnjs.com/libraries/font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="~/Content/ThemeMaterial/Css/Application.css">
+    <title>Control Panel</title>
+</head>
+<body>
+    <!----  ------ header-section ---------------------/
+    ------  ---------------------------------------------------------------->
+    <header class="header-section">
+        <div class="container flex items-center">
+            <div class="logo flex items-center">
+                <div>
+                    <a href="#"><img src="~/Content/ThemeMaterial/Assests/86916754-6b0c9380-c167-11ea-901b-78571ad4065d.png" alt="web-logo"></a>
+                </div>
+                <div>
+                    <a href="#"><h4 class="heading">Azure DeOps</h4></a>
+                </div>
+            </div>
+            <nav class="navigation">
+                <div class="nav-wrapper flex space-between items-center">
+                    <div class="left nav-links">
+                        <a href="#">Azure DeOps</a>   <span class="divider">/</span>
+                        <a href="#">Pipe Line</a>     <span class="divider">/</span>
+                        <a href="#">Artifacts</a>     <span class="divider">/</span>
+                        <a href="#">Board</a>         <span class="divider">/</span>
+                        <a href="#">Kan ban bord</a>
+                    </div>
+                    <div class="right flex items-center">
+                        <div class="search-bar flex items-center">
+                            <input type="text" placeholder="Search">
+                            <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                        </div>
+                        <div class="sign-up">
+                            <a href="#"><i class="fa-solid fa-bars"></i></a>
+                            <a href="#"><i class="fa-solid fa-bell"></i></a>
+                            <a href="#"><i class="fa-solid fa-user-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    @RenderBody()
+</body>
+</html>

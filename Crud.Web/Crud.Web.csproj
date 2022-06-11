@@ -133,6 +133,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
@@ -145,8 +146,12 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\ThemeMaterial\Assests\86916754-6b0c9380-c167-11ea-901b-78571ad4065d.png" />
+    <Content Include="Content\ThemeMaterial\Assests\preview_9290a0d4544d79be552c190170afe17c.jpg" />
+    <Content Include="Content\ThemeMaterial\Css\Application-utilities.css" />
+    <Content Include="Content\ThemeMaterial\Css\Application.css" />
     <Content Include="Content\ThemeMaterial\Fonts\fonts\OFL.txt" />
-    <Content Include="Content\ThemeMaterial\index.css" />
+    <Content Include="Content\ThemeMaterial\Css\index.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -210,6 +215,8 @@
     <Content Include="Views\Student\Edit.cshtml" />
     <Content Include="Views\Student\StudentsListing.cshtml" />
     <Content Include="Views\Student\Actions.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\ControlPanel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

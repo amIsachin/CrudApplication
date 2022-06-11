@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
+/*---  ---------- Basic Reset ---------------/
+-----  ------------------------------------------------------------- */
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    /* background-color: var(--color-background); */
+
+    /* 100,300,400,500 */
+}
+
+/*---  ---------- Define Colors & Variables ---------------/
+-----  ------------------------------------------------------------- */
+:root{
+    --color-primary:#A0E7E5;
+    --color-light:#FBE7C6;
+    --color-green:#B4F8C8;
+    --color-pink:#FFAEBC;
+
+    --color-gray: #6C6C6C;
+    --color-black: #141414;
+
+    --color-background:#f6f6f9;
+    --color-heading:#2b82e7;
+
+    --color-edit: rgb(15, 182, 15);
+    --color-delete:rgb(255, 41, 41);
+    --color-details: rgb(212, 15, 212);
+
+    --color-thin-border:rgba(132, 139, 200, 0.18);
+    --letter-spacing: 0.09rem;
+}
+
+/*---  ---------- containers ---------------/
+-----  ------------------------------------------------------------- */
+.container{
+    padding: 0 1.2rem;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+/*---  ---------- Classes ---------------/
+-----  ------------------------------------------------------------- */
+.active{
+    border-bottom: 0.1px solid var(--color-gray);
+    background-color: var(--color-primary);
+    border-left: 5px solid var(--color-heading);
+}
+
+.divider{
+    font-size: 1.5rem;
+    color: var(--color-black);
+}
+
+/*---  ---------- flex ---------------/
+-----  ------------------------------------------------------------- */
+.flex{
+    display: flex;
+}
+
+.flex-1{
+    flex: 1;
+}
+
+.flex-direction-column{
+    flex-direction: column;
+}
+
+.items-center{
+    align-items: center;
+}
+
+.space-between{
+    justify-content: space-between;
+}
+
+/*---  ---------- Grid ---------------/
+-----  ------------------------------------------------------------- */
+.grid{
+    display: grid;
+}

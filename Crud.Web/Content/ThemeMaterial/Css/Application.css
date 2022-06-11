@@ -1,0 +1,245 @@
+@import './Application-utilities.css';
+
+/*--  -------- header-section -----------/
+----  --------------------------------------------------------------  */
+header.header-section{
+    margin-top: 0.5rem;
+}
+
+header.header-section .container .logo{
+    width: 23.5rem;
+}
+
+header.header-section .container .logo a img{
+    width: 3.5rem;
+    height: 3.5rem;
+    background-attachment: fixed;
+}
+
+header.header-section .container .logo div a{
+    text-decoration: none;
+    color: var(--color-heading);
+}
+
+header.header-section .container .logo div a h4.heading{
+    margin-left: 0.5rem;
+    margin-top: -0.4rem;
+    font-size: 1.3rem;
+    letter-spacing: 0.2rem;
+}
+
+header.header-section .container nav.navigation{
+    margin-top: -0.4rem;
+    width: 100%;
+}
+
+header.header-section .container nav.navigation .nav-wrapper .left  a {
+    font-size: 1.5rem;
+    color: var(--color-gray);
+    text-decoration-line: none;
+    padding: 1rem;
+    font-weight: 300;
+    transition: all .3s ease;
+}
+
+header.header-section .container nav.navigation .nav-wrapper .left  a:hover{
+    color: var(--color-heading);
+}
+
+header.header-section .container nav.navigation .nav-wrapper .left span.divider{
+    font-size: 1.5rem;
+    color: var(--color-black);
+}
+
+header.header-section .container nav.navigation .nav-wrapper .right .search-bar{
+    margin-right: 2rem;
+    border: 1px solid var(--color-light);
+}
+
+header.header-section .container nav.navigation .nav-wrapper .right .search-bar input{
+    border: none;
+    font-size: 1.5rem;
+    padding: 0.7rem 0.5rem 0.7rem 0.5rem;
+    border-right: 1px solid var(--color-light);
+    color: var(--color-gray);
+    letter-spacing: var(--letter-spacing);
+}
+
+header.header-section .container nav.navigation .nav-wrapper .right .search-bar input:focus{
+    outline: none;
+    border: 1px solid var(--color-heading);
+    width: 400px;
+}
+
+header.header-section .container nav.navigation .nav-wrapper .right .search-bar a{
+    font-size: 2rem;
+    cursor: pointer;
+    margin: 0 1rem;
+    background: transparent;
+    color: var(--color-gray);
+}
+
+header.header-section .container nav.navigation .nav-wrapper .right .sign-up > a{
+    font-size: 1.6rem;
+    cursor: pointer;
+    margin-left: 3rem;
+    color: var(--color-gray);
+}
+
+/*--  -------- main-section -----------/
+----  --------------------------------------------------------------  */
+main.main-section{
+    border-top: 3px solid var(--color-heading);
+    background: var(--color-background);
+    height: 93vh;
+}
+
+main.main-section .content-wrapper{
+    margin-top: 1rem;
+    grid-template-columns: 22rem repeat(3,1fr);
+    grid-template-rows: repeat(4,1fr);
+    gap: 1.5rem;
+}
+
+main.main-section .content-wrapper .side-bar{
+    grid-row: 1/-1;
+}
+
+main.main-section .content-wrapper .side-bar a img{
+    width: 21.8rem;
+    height: 4rem;
+    border-bottom: 1px solid var(--color-heading);
+}
+
+main.main-section .content-wrapper .side-bar .aside-links{
+    position: relative;
+    height: 83vh;
+}
+
+main.main-section .content-wrapper .side-bar .aside-links a{
+    font-size: 1.5rem;
+    margin-top: 1.3rem;
+    color: var(--color-gray);
+    text-decoration: none;
+    letter-spacing: var(--letter-spacing);
+    padding: 1rem 0 1rem 0;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+main.main-section .content-wrapper .side-bar .aside-links a:hover{
+    margin-left: 1rem;
+
+}
+
+main.main-section .content-wrapper .side-bar .aside-links a i{
+    margin: 0 0.5rem 0 0.4rem;
+}
+
+main.main-section .content-wrapper .side-bar .aside-links a:last-child{
+    position: absolute;
+    bottom: 2rem;
+    width: 95%;
+}
+
+main.main-section .content-wrapper .messages{
+    grid-template-columns: 30rem repeat(1, 1fr);
+    border: 1px solid green;
+    grid-column: 2/-1;
+    border-top: 3px solid var(--color-black);
+    border-left: 1px solid var(--color-thin-border);
+    border-bottom: 1px solid var(--color-thin-border);
+    border-right: 1px solid var(--color-thin-border);
+    background-color: var(--color-thin-border);
+}
+
+main.main-section .content-wrapper .messages .notification > a{
+    font-size: 1.5rem;
+    color: var(--color-gray);
+    text-decoration: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    display: inline-block;
+    transition: all .3s ease;
+}
+
+main.main-section .content-wrapper .messages .notification > a:hover{
+    color: var(--color-heading);
+}
+
+main.main-section .content-wrapper .messages .action-task .move-links .similar-links > a{
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--color-gray);
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+main.main-section .content-wrapper .messages .action-task .move-links .similar-links > a:hover{
+    color: var(--color-heading);
+}
+
+/* Main content */
+main.main-section .content-wrapper .main-content{
+    border: 1px solid green;
+    grid-column: 2/-1;
+    grid-row: 2/-1;
+
+    border-top: 3px solid var(--color-black);
+    border-left: 1px solid var(--color-thin-border);
+    border-bottom: 1px solid var(--color-thin-border);
+    border-right: 1px solid var(--color-thin-border);
+}
+
+main.main-section .content-wrapper .main-content .table-container{
+    width: 100%;
+}
+
+main.main-section .content-wrapper .main-content .table-container .table{
+    text-align: center;
+    padding: 1rem;
+    /* margin: 0.5rem; */
+    width: 100%;
+    background-color: var(--color-primary);
+    /* border-top: 3px solid var(--color-black); */
+}
+
+main.main-section .content-wrapper .main-content .table-container .table thead tr th{
+    font-size: 1.8rem;
+    color: var(--color-black);
+    letter-spacing: var(--letter-spacing);
+    padding-bottom: 0.5rem;
+}
+
+main.main-section .content-wrapper .main-content .table-container .table tbody tr td{
+    font-size: 1.2rem;
+    color: var(--color-gray);
+    letter-spacing: var(--letter-spacing);
+    padding: 0.4rem;
+    border-bottom: 1px solid var(--color-thin-border);
+}
+
+main.main-section .content-wrapper .main-content .table-container .table tbody tr:last-child td{
+    border-bottom: none;    
+}
+
+main.main-section .content-wrapper .main-content .table-container .table tbody tr td > a{
+    text-decoration: none;
+    color: var(--color-gray);
+    letter-spacing: var(--letter-spacing);
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+main.main-section .content-wrapper .main-content .table-container .table tbody tr td a:first-child{
+    color: var(--color-edit);
+}
+
+main.main-section .content-wrapper .main-content .table-container .table tbody tr td a.middle{
+    color: var(--color-delete);
+}
+
+main.main-section .content-wrapper .main-content .table-container .table tbody tr td a:last-child{
+    color: var(--color-details);
+}
