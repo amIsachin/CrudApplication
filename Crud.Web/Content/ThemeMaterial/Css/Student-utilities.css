@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
+/*---  ---------- Basic Reset ---------------/
+-----  ------------------------------------------------------------- */
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    /* background-color: var(--color-background); */
+
+    /* 100,300,400,500 */
+}
+
+/*---  ---------- Define Colors & Variables ---------------/
+-----  ------------------------------------------------------------- */
+:root{
+    --primary: #85D2D0;
+    --purple: #887BB0;
+    --rose: #F4B9B8;
+    --yellow: #FFF4BD;
+    --pure: #fff;
+    --black: #232323;
+    --color-dark-blue:#2b82e7;
+    
+    --text-gray: #6C6C6C;
+
+    --letter-sapcing: 0.1rem;
+
+    --thin-border:rgba(132, 139, 200, 0.18);
+
+}
+
+
+/*---  ---------- containers ---------------/
+-----  ------------------------------------------------------------- */
+.container{
+    width: 1300px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+/*---  ---------- Padding & Margin ---------------/
+-----  ------------------------------------------------------------- */
+.mt-1{
+    margin-top: 1rem;
+}
+
+.mr-2{
+    margin-right: 2rem;
+}
+
+.mr-1{
+    margin-right: 1rem;
+}
+
+.mb-2{
+    margin-bottom: 2rem;
+}
+
+.ml-2{
+    margin-left: 3rem;
+}
+
+/* paddings */
+.p{
+    padding: 1rem;
+}
+
+.p-5{
+    padding: 3rem;
+}
+
+.pb-5{
+    padding-bottom: 1rem;
+}
+
+/*---  ---------- h1 to h6 ---------------/
+-----  ------------------------------------------------------------- */
+.h4{
+    font-size: 1.7rem;
+    color: var(--black);
+    letter-spacing: var(--letter-sapcing);
+}
+
+.heading{
+    font-size: 2.5rem;
+    color: var(--text-gray);
+    letter-spacing: var(--letter-sapcing);
+}
+
+/*---  ---------- buttons ---------------/
+-----  ------------------------------------------------------------- */
+.a-btn{
+    font-size: 1.5rem;
+    border: 1px solid var(--thin-border);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    letter-spacing: var(--letter-sapcing);
+    color: var(--pure);
+    background-color: var(--color-dark-blue);
+    transition: all .3s ease;
+}
+
+.a-btn:hover{
+    background-color: var(--purple);
+}
+
+/*---  ---------- Classes ---------------/
+-----  ------------------------------------------------------------- */
+.thin-border{
+    border: 1px solid var(--thin-border);
+}
+
+.thin-border-right{
+    border-right: 1px solid var(--thin-border);
+}
+
+.dark-border-top{
+    border-top: 3px solid var(--primary);
+}
+
+.display-inline-block{
+    display: inline-block;
+}
+
+.red{
+    color: var(--rose);
+}
+
+/*---  ---------- flex ---------------/
+-----  ------------------------------------------------------------- */
+.flex{
+    display: flex;
+}
+
+.items-center{
+    align-items: center;
+}
+
+.justify-between{
+    justify-content: space-between;
+}
+
+.justify-evenly{
+    justify-content: space-evenly;
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
+
+.flex-direction-column{
+    flex-direction: column;
+}

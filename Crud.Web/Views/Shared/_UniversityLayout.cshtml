@@ -1,0 +1,105 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome CDN link come from this URL https://cdnjs.com/libraries/font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- font awesome CDN link come from this URL https://swiperjs.com/get-started#use-swiper-from-cdn -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="~/Content/ThemeMaterial/Css/Student.css">
+    <title>Student</title>
+</head>
+<body>
+    <!--  --------------------------- Navigation ---------------------\
+    ----  ---------------------------------------------------------------------------------->
+    <nav class="navigation">
+        <div class="container nav-wrapper flex items-center justify-between">
+            <div class="brand flex items-center">
+                <a href="#">
+                    <img src="~/Content/ThemeMaterial/Assets/AzureDevops.png" alt="web-logo">
+                </a>
+                <!-- <span><strong>University</strong></span> -->
+            </div>
+            <ul class="nav-list flex">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li>
+                    <a href="#">Cources</a>
+                    <ul class="drop-down-list">
+                        <li><a href="#">c#</a></li>
+                        <li><a href="#">Sql server</a></li>
+                        <li><a href="#">ASP.NET MVC</a></li>
+                        <li><a href="#">APIs</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    @RenderBody()
+
+    <!--  --------------------------- footer ---------------------\
+    ----  ---------------------------------------------------------------------------------->
+    <footer class="footer mt-1 pb-5">
+        <div class="container">
+            <div class="footer-wrapper flex items-center justify-between p-5">
+                <div class="slide flex flex-direction-column items-center justify-between">
+                    <h4 class="h4">Education</h4>
+                    <a href="#" class="links">Join Now</a>
+                    <a href="#" class="links">Join Now</a>
+                    <a href="#" class="links">Join Now</a>
+                    <a href="#" class="links">Join Now</a>
+                </div>
+                <div class="slide flex flex-direction-column items-center justify-between">
+                    <h4 class="h4">Education</h4>
+                    <a href="#" class="links">Join Now</a>
+                    <a href="#" class="links">Join Now</a>
+                    <a href="#" class="links">Join Now</a>
+                    <a href="#" class="links">Join Now</a>
+                </div>
+                <div class="slide flex flex-direction-column items-center justify-between">
+                    <h4 class="h4">Education</h4>
+                    <a href="#" class="links">Join Now</a>
+                    <a href="#" class="links">Join Now</a>
+                    <a href="#" class="links">Join Now</a>
+                    <a href="#" class="links">Join Now</a>
+                </div>
+                <div class="slide flex flex-direction-column items-center justify-between">
+                    <h4 class="h4">Education</h4>
+                    <a href="#" class="links">Join Now</a>
+                    <a href="#" class="links">Join Now</a>
+                    <a href="#" class="links">Join Now</a>
+                    <a href="#" class="links">Join Now</a>
+                </div>
+            </div>
+            <div class="footer-bottom flex center justify-between">
+                <div class="foot-img">
+                    <a href="#"><img src="~/Content/ThemeMaterial/Assets/preview_9290a0d4544d79be552c190170afe17c.jpg" alt="foot img"></a>
+                </div>
+                <div class="foot-bottom-links">
+                    <a href="#">Contact</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms & Condition</a>
+                    <a href="#">Testimonial</a>
+                    <a href="#">About University</a>
+                    <a href="#">© University 2022</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- font awesome CDN link come from this URL https://swiperjs.com/get-started#use-swiper-from-cdn -->
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="~/Content/ThemeMaterial/JavaScipt/Student.js"></script>
+</body>
+</html>

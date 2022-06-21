@@ -136,6 +136,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\UniversityController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -150,8 +151,11 @@
     <Content Include="Content\ThemeMaterial\Assests\preview_9290a0d4544d79be552c190170afe17c.jpg" />
     <Content Include="Content\ThemeMaterial\Css\Application-utilities.css" />
     <Content Include="Content\ThemeMaterial\Css\Application.css" />
+    <Content Include="Content\ThemeMaterial\Css\Student-utilities.css" />
+    <Content Include="Content\ThemeMaterial\Css\Student.css" />
     <Content Include="Content\ThemeMaterial\Fonts\fonts\OFL.txt" />
     <Content Include="Content\ThemeMaterial\Css\index.css" />
+    <Content Include="Content\ThemeMaterial\JavaScipt\Student.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -217,6 +221,8 @@
     <Content Include="Views\Student\Actions.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Admin\ControlPanel.cshtml" />
+    <Content Include="Views\Shared\_UniversityLayout.cshtml" />
+    <Content Include="Views\University\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,207 @@
+@import './Student-utilities.css';
+
+/*---  ---------- Navigation ---------------/
+-----  ------------------------------------------------------------- */
+.navigation{
+    background-color: var(--yellow);
+}
+    
+.navigation .brand a img{
+    height: 4rem;
+}
+
+.navigation .nav-wrapper ul.nav-list{
+    list-style-type: none;
+    align-items: center;
+}
+
+.navigation .nav-wrapper ul.nav-list li a{
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: var(--text-gray);
+    letter-spacing: var(--letter-sapcing);
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.navigation .nav-wrapper ul.nav-list li a:hover{
+    color: var(--primary);
+}
+
+.navigation .nav-wrapper ul.nav-list li{
+    margin-left: 2.5rem;
+    padding: 1.7rem 0;
+    position: relative;
+}
+
+.navigation ul.drop-down-list{
+    list-style-type: none;
+    display: block;
+    background-color: var(--yellow);
+    padding: 1rem 1.8rem;
+    letter-spacing: var(--letter-sapcing);
+    cursor: pointer;
+    position: absolute;
+    width: max-content;
+    z-index: 9999;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.navigation .nav-wrapper ul.drop-down-list li{
+    margin-left: 0;
+    padding: 1rem 0.2rem;
+}
+
+.navigation .nav-wrapper ul.drop-down-list li a{
+    color: var(--text-gray);
+}
+
+.navigation .nav-wrapper ul.nav-list li:hover .drop-down-list{
+    opacity: 1;
+    pointer-events: auto;
+    animation: moveUp .5s ease-in-out forwards;
+}
+
+@keyframes moveUp{
+    0%{
+        opacity: 0;
+        transform: translateX(-50%) translateY(4rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(-50%) translateY((2rem));
+    }
+}
+
+/*---  ---------- main ---------------/
+-----  ------------------------------------------------------------- */
+main.main-section .main-slider{
+    max-width: 100%;
+    height: 80vh;
+}
+
+/* cource-slider */
+main.main-section .course-slider{
+    max-width: 100%;
+    height: 40vh;
+}
+
+main.main-section .course-slider a img{
+    width: 22rem;
+}
+
+/* main swiper */
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+  .swiper-slide img {
+    display: block;
+    width: max-content;
+    height: max-content;
+    object-fit: cover;
+  }
+
+  /* main swiper END */
+
+/*---  ---------- section-news ---------------/
+-----  ------------------------------------------------------------- */
+section.section-news .news-wrapper .news p{
+    font-size: 2rem;
+    font-weight: 500;
+    padding: 2rem;
+    color: var(--purple);
+    letter-spacing: var(--letter-sapcing);
+}
+
+/*---  ---------- section-alert ---------------/
+-----  ------------------------------------------------------------- */
+section.section-alert .container .addmission-wrapper{
+    background-color: var(--thin-border);
+}
+
+section.section-alert .addmission-wrapper .addmission-form{
+    padding: 1rem 1rem 0 0;
+}
+
+section.section-alert .addmission-wrapper .addmission-form p {
+    font-size: 2rem;
+    color: var(--text-gray);
+}
+
+section.section-alert .addmission-wrapper .examination-form p{ 
+    font-size: 2rem;
+    color: var(--text-gray);
+}
+
+section.section-alert .addmission-wrapper strong{
+    animation: changeColor .8s ease-in-out infinite;
+}
+
+@keyframes changeColor{
+    0%{
+        color: var(--rose);
+    }
+    100%{
+        color: var(--color-dark-blue);
+    }
+}
+
+/*---  ---------- footer ---------------/
+-----  ------------------------------------------------------------- */
+footer.footer{
+    background-color: var(--primary);
+}
+
+footer.footer .footer-wrapper .slide a.links{
+    font-size: 1.5rem;
+    color: var(--text-gray);
+    text-decoration: none;
+    padding: 0.5rem 0 0 0;
+    transition: all .3s ease;
+}
+
+footer.footer .footer-wrapper .slide a.links:hover{
+    color: var(--color-dark-blue);
+    text-decoration: underline;
+}
+
+footer.footer .container .footer-bottom a img{
+    width: 8rem;
+}
+
+.footer.footer .container .footer-bottom .foot-bottom-links a{
+    font-size: 1.2rem;
+    color: var(--black);
+    margin-left: 3rem;
+    text-decoration: none;
+    transition: all .3s ease;
+}
+
+.footer.footer .container .footer-bottom .foot-bottom-links a:hover{
+    color: var(--color-dark-blue);
+    text-decoration: underline;
+}
