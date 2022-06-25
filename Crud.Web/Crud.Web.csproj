@@ -147,8 +147,16 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\ThemeMaterial\Assests\86916754-6b0c9380-c167-11ea-901b-78571ad4065d.png" />
-    <Content Include="Content\ThemeMaterial\Assests\preview_9290a0d4544d79be552c190170afe17c.jpg" />
+    <Content Include="Content\ThemeMaterial\Assets\86916754-6b0c9380-c167-11ea-901b-78571ad4065d.png" />
+    <Content Include="Content\ThemeMaterial\Assets\AzureDevops.png" />
+    <Content Include="Content\ThemeMaterial\Assets\Bitmap-MEDIUM_ASP.NET-Core-MVC-Logo_2colors_Square_Boxed_RGB.png" />
+    <Content Include="Content\ThemeMaterial\Assets\linq.png" />
+    <Content Include="Content\ThemeMaterial\Assets\microsoft.gif" />
+    <Content Include="Content\ThemeMaterial\Assets\OIP.jpg" />
+    <Content Include="Content\ThemeMaterial\Assets\png-clipart-c-logo-c-programming-language-computer-icons-computer-programming-programming-miscellaneous-blue.png" />
+    <Content Include="Content\ThemeMaterial\Assets\preview_9290a0d4544d79be552c190170afe17c.jpg" />
+    <Content Include="Content\ThemeMaterial\Assets\R.png" />
+    <Content Include="Content\ThemeMaterial\Assets\vstsfeature.png" />
     <Content Include="Content\ThemeMaterial\Css\Application-utilities.css" />
     <Content Include="Content\ThemeMaterial\Css\Application.css" />
     <Content Include="Content\ThemeMaterial\Css\Student-utilities.css" />
@@ -186,6 +194,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\ThemeMaterial\Assets\microsoft-sql-server-logo.webp" />
+    <Content Include="Content\ThemeMaterial\Assets\vs-2022.webp" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
