@@ -13,7 +13,7 @@ namespace ServicePrincipals
         private readonly CommonMethods CommonMethods = null;
         public StudentServicePrincipals(IStudentsService studentsService)
         {
-            _StudentsService = studentsService;
+            this._StudentsService = studentsService;
             CommonMethods = new CommonMethods(studentsService);
         }
 
