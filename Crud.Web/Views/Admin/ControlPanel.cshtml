@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<BusinessEntity.UniversityStudentEntity>
+
 @{
     ViewBag.Title = "ControlPanel";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -51,74 +52,29 @@
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Class</th>
                                 <th>Age</th>
                                 <th>Gender</th>
                                 <th>Fees</th>
+                                <th>City</th>
                                 <th>Task</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Sachin</td>
-                                <td>5th</td>
-                                <td>23</td>
-                                <td>male</td>
-                                <td>1200</td>
-                                <td>
-                                    <a href="#"><i class="fa-solid fa-pen"></i> Edit</a>
-                                    <a href="#" class="middle"><i class="fa-solid fa-trash-can"></i> Delete</a>
-                                    <a href="#"><i class="fa-solid fa-asterisk"></i> Details</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Sachin</td>
-                                <td>5th</td>
-                                <td>23</td>
-                                <td>male</td>
-                                <td>1200</td>
-                                <td>
-                                    <a href="#"><i class="fa-solid fa-pen"></i> Edit</a>
-                                    <a href="#" class="middle"><i class="fa-solid fa-trash-can"></i> Delete</a>
-                                    <a href="#"><i class="fa-solid fa-asterisk"></i> Details</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Sachin</td>
-                                <td>5th</td>
-                                <td>23</td>
-                                <td>male</td>
-                                <td>1200</td>
-                                <td>
-                                    <a href="#"><i class="fa-solid fa-pen"></i> Edit</a>
-                                    <a href="#" class="middle"><i class="fa-solid fa-trash-can"></i> Delete</a>
-                                    <a href="#"><i class="fa-solid fa-asterisk"></i> Details</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Sachin</td>
-                                <td>5th</td>
-                                <td>23</td>
-                                <td>male</td>
-                                <td>1200</td>
-                                <td>
-                                    <a href="#"><i class="fa-solid fa-pen"></i> Edit</a>
-                                    <a href="#" class="middle"><i class="fa-solid fa-trash-can"></i> Delete</a>
-                                    <a href="#"><i class="fa-solid fa-asterisk"></i> Details</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Sachin</td>
-                                <td>5th</td>
-                                <td>23</td>
-                                <td>male</td>
-                                <td>1200</td>
-                                <td>
-                                    <a href="#"><i class="fa-solid fa-pen"></i> Edit</a>
-                                    <a href="#" class="middle"><i class="fa-solid fa-trash-can"></i> Delete</a>
-                                    <a href="#"><i class="fa-solid fa-asterisk"></i> Details</a>
-                                </td>
-                            </tr>
+                            @foreach (var universityStuent in Model)
+                            {
+                                <tr>
+                                    <td>@universityStuent.Name</td>
+                                    <td>@universityStuent.Age</td>
+                                    <td>@universityStuent.Gender</td>
+                                    <td>@universityStuent.Fees</td>
+                                    <td>@universityStuent.City</td>
+                                    <td>
+                                        <a href="#"><i class="fa-solid fa-pen"></i> Edit</a>
+                                        <a href="#" class="middle"><i class="fa-solid fa-trash-can"></i> Delete</a>
+                                        <a href="#"><i class="fa-solid fa-asterisk"></i> Details</a>
+                                    </td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>

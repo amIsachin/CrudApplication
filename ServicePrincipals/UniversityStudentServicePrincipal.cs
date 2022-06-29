@@ -1,13 +1,28 @@
-﻿using StudentServices;
+﻿using BusinessEntity;
+using StudentServices;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ServicePrincipals
 {
-    public class UniversityStudentServicePrincipal
+    public sealed class UniversityStudentServicePrincipal
     {
         private readonly IUniversityStudentService _UniversityStudentService = null;
         public UniversityStudentServicePrincipal(IUniversityStudentService universityStudentService)
         {
             this._UniversityStudentService = universityStudentService;
         }
+
+        /// <summary>
+        /// Here return all University students.
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<UniversityStudentEntity>> GetAllUniversityStudents()
+        {
+            return await _UniversityStudentService.GetAllUniversityStudents();
+        }
+
+
     }
 }
