@@ -28,6 +28,13 @@ namespace Crud.Web
                 constraints: new { id = @"\d+" }
             );
 
+            /*--  Admin Controller --*/
+            routes.MapRoute(
+                name: "control",
+                url: "control-panel",
+                defaults: new { controller = "Admin", action = "ControlPanel", id = UrlParameter.Optional }
+            );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
