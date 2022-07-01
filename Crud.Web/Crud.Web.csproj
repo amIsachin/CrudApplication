@@ -159,6 +159,7 @@
     <Content Include="Content\ThemeMaterial\Assets\vstsfeature.png" />
     <Content Include="Content\ThemeMaterial\Css\Application-utilities.css" />
     <Content Include="Content\ThemeMaterial\Css\Application.css" />
+    <Content Include="Content\ThemeMaterial\Css\Registeration.css" />
     <Content Include="Content\ThemeMaterial\Css\Student-utilities.css" />
     <Content Include="Content\ThemeMaterial\Css\Student.css" />
     <Content Include="Content\ThemeMaterial\Fonts\fonts\OFL.txt" />
@@ -233,6 +234,7 @@
     <Content Include="Views\Admin\ControlPanel.cshtml" />
     <Content Include="Views\Shared\_UniversityLayout.cshtml" />
     <Content Include="Views\University\Index.cshtml" />
+    <Content Include="Views\University\Admission.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

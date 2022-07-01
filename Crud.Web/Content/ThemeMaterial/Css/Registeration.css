@@ -1,0 +1,87 @@
+/*@import '~/Content/ThemeMaterial/Css/Application-utilities.css';*/
+
+.justify-end{
+    justify-content:end;
+}
+
+.container-r {
+    padding: 2rem 0;
+    margin: 0 auto;
+    width: 90%;
+}
+
+/*body{
+    background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
+}*/
+
+section.section-form {
+    background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
+}
+
+section.section-form .form-wrapper h2.heading{
+    font-size: 3rem;
+    /* color: var(--color-gray); */
+    color: var(--color-black);
+    letter-spacing: var(--letter-spacing);
+    margin-bottom: 1rem;
+}
+
+section.section-form .form-wrapper{
+    padding: 7rem;
+}
+
+section.section-form .form-wrapper form.form .input-box label,
+section.section-form .form-wrapper form.form .radio-button label{
+    display: block;
+    font-size: 1.7rem;
+    letter-spacing: var(--letter-spacing);
+    color: var(--color-black);
+    margin-bottom: 0.5rem;
+}
+
+section.section-form .form-wrapper form.form .input-box > div{
+    width: 100%;
+}
+
+section.section-form .form-wrapper form.form .input-box input{
+    width: 90%;
+    font-size: 1.5rem;
+    letter-spacing: var(--letter-spacing);
+    color: var(--color-gray);
+    padding: 1rem 1rem;
+    border: transparent;
+    margin-bottom: 1rem;
+}
+
+section.section-form .form-wrapper form.form .input-box input:focus{
+    outline: none;
+}
+
+section.section-form .form-wrapper form.form .radio-button select{
+    width: 95%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    color: var(--color-gray);
+    letter-spacing: var(--letter-spacing);
+    border: none;
+}
+
+section.section-form .form-wrapper form.form .radio-button select:focus{
+    outline: none;
+}
+
+section.section-form .form-wrapper form.form .buttons{
+    width: 95%;
+}
+
+section.section-form .form-wrapper form.form .buttons a{
+    font-size: 2rem;
+    padding: 0.4rem 1.8rem;
+    margin-top: 1rem;
+    color: var(--pure);
+    text-decoration: none;
+    letter-spacing: var(--letter-spacing);
+    background-color: var(--color-heading);
+    margin-left: 2rem;
+    cursor: pointer;
+}

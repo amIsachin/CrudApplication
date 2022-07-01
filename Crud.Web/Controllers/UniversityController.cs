@@ -1,5 +1,6 @@
 ﻿using ServicePrincipals;
 using StudentServices;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace Crud.Web.Controllers
@@ -16,8 +17,19 @@ namespace Crud.Web.Controllers
         }
         #endregion
 
-
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Admission()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Admission(int Id)
         {
             return View();
         }

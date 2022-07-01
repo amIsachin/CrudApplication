@@ -9,8 +9,12 @@ namespace StudentServices
 {
     public class UniversityStudentService : IUniversityStudentService
     {
-        private string cs = ConfigurationManager.ConnectionStrings["Crud-app"].ConnectionString;
+        private readonly string cs = ConfigurationManager.ConnectionStrings["Crud-app"].ConnectionString;
 
+        /// <summary>
+        /// Get All University student functionality.
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<UniversityStudentEntity>> GetAllUniversityStudents()
         {
             List<UniversityStudentEntity> _universityStudentEntity = new List<UniversityStudentEntity>();

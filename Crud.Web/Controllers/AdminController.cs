@@ -20,7 +20,14 @@ namespace Crud.Web.Controllers
         [HttpGet]
         public async Task<ActionResult> ControlPanel()
         {
-            return View(await _UniversityStudentServicePrincipal.GetAllUniversityStudents());
+            try
+            {
+                return View(await _UniversityStudentServicePrincipal.GetAllUniversityStudents());
+            }
+            catch (System.Exception)
+            {
+                return new HttpStatusCodeResult(500);
+            }   
         }
     }
 }
