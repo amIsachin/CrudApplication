@@ -1,4 +1,5 @@
-﻿using ServicePrincipals;
+﻿using BusinessEntity;
+using ServicePrincipals;
 using StudentServices;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -10,13 +11,16 @@ namespace Crud.Web.Controllers
         #region InitializeDependencyInjectionInstance
         private readonly IUniversityStudentService _UniversityStudentService = null;
         private readonly UniversityStudentServicePrincipal _UniversityStudentServicePrincipal = null;
-        public UniversityController(IUniversityStudentService universityStudentService)
+        private readonly CourseServicePrincipal _CourseServicePrincipal = null;
+        public UniversityController(IUniversityStudentService universityStudentService, ICourseService courseService)
         {
             this._UniversityStudentService = universityStudentService;
             this._UniversityStudentServicePrincipal = new UniversityStudentServicePrincipal(universityStudentService);
+            this._CourseServicePrincipal = new CourseServicePrincipal(courseService);
         }
         #endregion
 
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
@@ -25,11 +29,11 @@ namespace Crud.Web.Controllers
         [HttpGet]
         public async Task<ActionResult> Admission()
         {
-            return View();
+            return View(await _CourseServicePrincipal.GetAllCourses());
         }
 
         [HttpPost]
-        public async Task<ActionResult> Admission(int Id)
+        public async Task<ActionResult> Admission(UniversityStudentEntity universityStudentEntity)
         {
             return View();
         }

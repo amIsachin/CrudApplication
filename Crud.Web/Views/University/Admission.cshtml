@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<BusinessEntity.CourseEntity>
+
 @{
     ViewBag.Title = "Addmission";
     Layout = "~/Views/Shared/_UniversityLayout.cshtml";
@@ -53,12 +54,12 @@
                 <div class="radio-button course-selection">
                     <div>
                         <label for="Gender" class="display-block">Select Course</label>
-                        <select name="" id="">
+                        <select name="CourseID" id="">
                             <option value="" selected>--Select*</option>
-                            <option value="">c#</option>
-                            <option value="">ASP.NET MVC</option>
-                            <option value="">ASP.NET MVC CORE</option>
-                            <option value="">SQL SERVER</option>
+                            @foreach (var course in Model)
+                            {
+                                <option value="@course.ID" >@course.Name</option>
+                            }
                         </select>
                     </div>
                 </div>

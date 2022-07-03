@@ -19,6 +19,7 @@ namespace Crud.Web
             //--> BusinessServices.
             container.RegisterType<IStudentsService, StudentsService>();
             container.RegisterType<IUniversityStudentService, UniversityStudentService>();
+            container.RegisterType<ICourseService, CourseService>();
 
             //--> businessentity.
             //container.RegisterType<IStudentEntity, StudentEntity>();
