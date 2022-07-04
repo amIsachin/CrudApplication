@@ -2,7 +2,7 @@
 
 namespace ViewModels
 {
-    public class UniversityStudentCombineCourseBindingViewModel : SEO
+    public class UniversityStudentCombineCourseBindingViewModel
     {
         public int EnrolmentNumber { get; set; }
         public string Name { get; set; }

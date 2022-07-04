@@ -9,7 +9,7 @@ namespace StudentServices
 {
     public class CourseService : ICourseService
     {
-        private readonly string cs = ConfigurationManager.ConnectionStrings["Crud-app"].ConnectionString;
+        //private readonly string cs = ConfigurationManager.ConnectionStrings["Crud-app"].ConnectionString;
 
         /// <summary>
         /// Get All Courses functionality.
@@ -19,7 +19,7 @@ namespace StudentServices
         {
             List<CourseEntity> _courseEntity = new List<CourseEntity>();
 
-            using (SqlConnection con = new SqlConnection(cs))
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Crud-app"].ConnectionString))
             {
                 SqlCommand cmd = new SqlCommand("spGetAllCourses", con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;

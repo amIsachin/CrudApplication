@@ -9,45 +9,45 @@
     <div class="container">
         <div class="form-wrapper">
             <h2 class="heading">Registeration</h2>
-            <form class="form">
+            <form class="form" action="@Url.Action("Admission","University")" method="post">
                 <div class="input-box flex">
                     <div>
                         <label for="">Name</label>
-                        <input type="text" placeholder="Enter Name*">
+                        <input type="text" name="Name" placeholder="Enter Name*">
                     </div>
                     <div>
                         <label for="">Age</label>
-                        <input type="text" placeholder="Enter Age*">
+                        <input type="text" name="Age" placeholder="Enter Age*">
                     </div>
                 </div>
                 <div class="input-box flex">
                     <div>
-                        <label for="">Name</label>
-                        <input type="text" placeholder="Enter Name*">
+                        <label for="">Fees</label>
+                        <input type="text" name="Fees" placeholder="Enter Name*">
                     </div>
                     <div>
-                        <label for="">Age</label>
-                        <input type="text" placeholder="Enter Age*">
+                        <label for="">City</label>
+                        <input type="text" name="City" placeholder="Enter Age*">
                     </div>
                 </div>
                 <div class="input-box flex">
                     <div>
-                        <label for="">Name</label>
-                        <input type="text" placeholder="Enter Name*">
+                        <label for="">Document</label>
+                        <input type="file" name="Document" placeholder="Enter Name*" class="file">
                     </div>
                     <div>
-                        <label for="">Age</label>
-                        <input type="text" placeholder="Enter Age*">
+                        <label for="">Image</label>
+                        <input type="file" name="Image" placeholder="Enter Age*" class="file">
                     </div>
                 </div>
                 <div class="radio-button mb-1">
                     <div>
                         <label for="Gender" class="display-block">Gender</label>
-                        <select name="" id="">
-                            <option value="" selected>--Select*</option>
-                            <option value="">Male</option>
-                            <option value="">Female</option>
-                            <option value="">Others</option>
+                        <select name="Gender" id="">
+                            <option value="-1" selected>--Select*</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Others">Others</option>
                         </select>
                     </div>
                 </div>
@@ -55,18 +55,19 @@
                     <div>
                         <label for="Gender" class="display-block">Select Course</label>
                         <select name="CourseID" id="">
-                            <option value="" selected>--Select*</option>
+                            <option value="-1" selected>--Select*</option>
                             @foreach (var course in Model)
                             {
-                                <option value="@course.ID" >@course.Name</option>
+                                <option value="@course.ID">@course.Name</option>
                             }
                         </select>
                     </div>
                 </div>
                 <div class="buttons">
                     <div class="btn-wrapper flex justify-end items-center">
-                        <a href="#">Register</a>
-                        <a href="#">Cancel</a>
+                        <a href="@Url.Action("Admission","University")" id="click">Register</a>
+                        <button>Register</button>
+                        <a href="@Url.Action("Index", "University")">Cancel</a>
                     </div>
                 </div>
             </form>
@@ -74,3 +75,15 @@
     </div>
 </section>
 
+@*<script>
+    $(document).ready(function () {
+        $('#click').click(function () {
+            $.ajax({
+                method:'POST',
+                url:'@Url.Action("Admission","University")'
+            })
+        });
+
+
+    }); //--> Here is close document ready function().
+</script>*@

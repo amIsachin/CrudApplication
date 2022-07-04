@@ -3,6 +3,7 @@ using ServicePrincipals;
 using StudentServices;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using ViewModels;
 
 namespace Crud.Web.Controllers
 {
@@ -33,8 +34,9 @@ namespace Crud.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Admission(UniversityStudentEntity universityStudentEntity)
+        public async Task<ActionResult> Admission(UniversityStudentCombineCourseBindingViewModel universityStudentEntity)
         {
+            //UniversityStudentCombineCourseBindingViewModel
             return View();
         }
     }
