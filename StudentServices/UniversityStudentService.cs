@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
+using ViewModels;
 
 namespace StudentServices
 {
@@ -44,6 +45,26 @@ namespace StudentServices
             }
 
             return  _universityStudentEntity;
+        }
+
+        public Task<bool> InsertUniversituStudentCombineCourse(UniversityStudentCombineCourseBindingViewModel universityStudentCombineCourseBindingViewModel)
+        {
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                SqlCommand cmd = new SqlCommand("spInsertUniversityStudentCombineCourse", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Name", universityStudentCombineCourseBindingViewModel.Name);
+                cmd.Parameters.AddWithValue("@Age", universityStudentCombineCourseBindingViewModel.Age);
+                cmd.Parameters.AddWithValue("@Gender", universityStudentCombineCourseBindingViewModel.Gender);
+                cmd.Parameters.AddWithValue("@Fees", universityStudentCombineCourseBindingViewModel.Fees);
+                cmd.Parameters.AddWithValue("@City", universityStudentCombineCourseBindingViewModel.City);
+                cmd.Parameters.AddWithValue("@Document", universityStudentCombineCourseBindingViewModel.Document);
+                cmd.Parameters.AddWithValue("@Image", universityStudentCombineCourseBindingViewModel.Image);
+                cmd.Parameters.AddWithValue("@CreaedOn", universityStudentCombineCourseBindingViewModel.CreatedOn);
+
+                cmd.Parameters.AddWithValue("@CourseName", universityStudentCombineCourseBindingViewModel.cour);
+
+            }
         }
     }
 }
