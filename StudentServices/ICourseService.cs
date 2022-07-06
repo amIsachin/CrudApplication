@@ -7,5 +7,6 @@ namespace StudentServices
     public interface ICourseService
     {
         Task<List<CourseEntity>> GetAllCourses();
+        Task<CourseEntity> GetCourseById(int ID);
     }
 }

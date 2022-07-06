@@ -21,5 +21,15 @@ namespace ServicePrincipals
         {
             return await _CourseService.GetAllCourses();
         }
+
+        /// <summary>
+        /// Get Course By ID functionality.
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        public async Task<CourseEntity> GetCourseById(int ID)
+        {
+            return await _CourseService.GetCourseById(ID);
+        }
     }
 }

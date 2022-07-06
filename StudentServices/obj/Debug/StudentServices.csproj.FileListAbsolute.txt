@@ -7,3 +7,5 @@ E:\Sachin\Application\Crud\CrudApplication\StudentServices\obj\Debug\StudentServ
 E:\Sachin\Application\Crud\CrudApplication\StudentServices\obj\Debug\StudentServices.csproj.CopyComplete
 E:\Sachin\Application\Crud\CrudApplication\StudentServices\obj\Debug\StudentServices.dll
 E:\Sachin\Application\Crud\CrudApplication\StudentServices\obj\Debug\StudentServices.pdb
+E:\Sachin\Application\Crud\CrudApplication\StudentServices\bin\Debug\ViewModels.dll
+E:\Sachin\Application\Crud\CrudApplication\StudentServices\bin\Debug\ViewModels.pdb

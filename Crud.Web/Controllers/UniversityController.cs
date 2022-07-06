@@ -34,9 +34,8 @@ namespace Crud.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Admission(UniversityStudentCombineCourseBindingViewModel universityStudentEntity)
+        public async Task<ActionResult> Admission(UniversityStudentCombineCourseBindingViewModel universityStudentCombineCourseBindingViewModel)
         {
-            //UniversityStudentCombineCourseBindingViewModel
             return View();
         }
     }

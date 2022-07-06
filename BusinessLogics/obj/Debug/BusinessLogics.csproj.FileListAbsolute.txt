@@ -9,3 +9,5 @@ E:\Sachin\Application\Crud\CrudApplication\BusinessLogics\obj\Debug\BusinessLogi
 E:\Sachin\Application\Crud\CrudApplication\BusinessLogics\obj\Debug\BusinessLogics.csproj.CopyComplete
 E:\Sachin\Application\Crud\CrudApplication\BusinessLogics\obj\Debug\BusinessLogics.dll
 E:\Sachin\Application\Crud\CrudApplication\BusinessLogics\obj\Debug\BusinessLogics.pdb
+E:\Sachin\Application\Crud\CrudApplication\BusinessLogics\bin\Debug\ViewModels.dll
+E:\Sachin\Application\Crud\CrudApplication\BusinessLogics\bin\Debug\ViewModels.pdb

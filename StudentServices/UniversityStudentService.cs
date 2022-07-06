@@ -24,12 +24,12 @@ namespace StudentServices
                 SqlCommand cmd = new SqlCommand("spGetAllUniversityStudent", con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 con.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
+                SqlDataReader dr = await cmd.ExecuteReaderAsync();
+                while (await dr.ReadAsync())
                 {
                     UniversityStudentEntity universityStudentEntity = new UniversityStudentEntity();
 
-                    universityStudentEntity.EnrolmentNumber =  Convert.ToInt32(dr.GetValue(0).ToString());
+                    universityStudentEntity.EnrolmentNumber = Convert.ToInt32(dr.GetValue(0).ToString());
                     universityStudentEntity.Name = dr.GetValue(1).ToString();
                     universityStudentEntity.Age = Convert.ToInt32(dr.GetValue(2).ToString());
                     universityStudentEntity.Gender = dr.GetValue(3).ToString();
@@ -44,10 +44,15 @@ namespace StudentServices
 
             }
 
-            return  _universityStudentEntity;
+            return _universityStudentEntity;
         }
 
-        public Task<bool> InsertUniversituStudentCombineCourse(UniversityStudentCombineCourseBindingViewModel universityStudentCombineCourseBindingViewModel)
+        /// <summary>
+        /// Insert university student with course.
+        /// </summary>
+        /// <param name="universityStudentCombineCourseBindingViewModel"></param>
+        /// <returns></returns>
+        public async Task<bool> InsertUniversituStudentCombineCourse(UniversityStudentCombineCourseBindingViewModel universityStudentCombineCourseBindingViewModel)
         {
             using (SqlConnection con = new SqlConnection(cs))
             {
@@ -62,7 +67,20 @@ namespace StudentServices
                 cmd.Parameters.AddWithValue("@Image", universityStudentCombineCourseBindingViewModel.Image);
                 cmd.Parameters.AddWithValue("@CreaedOn", universityStudentCombineCourseBindingViewModel.CreatedOn);
 
-                cmd.Parameters.AddWithValue("@CourseName", universityStudentCombineCourseBindingViewModel.cour);
+                cmd.Parameters.AddWithValue("@CourseName", universityStudentCombineCourseBindingViewModel.CourseName);
+                cmd.Parameters.AddWithValue("@CreatedOn", universityStudentCombineCourseBindingViewModel.CreatedOn);
+
+                con.Open();
+                int isInserted = await cmd.ExecuteNonQueryAsync();
+
+                if (isInserted > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
 
             }
         }

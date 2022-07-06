@@ -14,5 +14,6 @@ namespace ViewModels
         public string Image { get; set; }
         public DateTime CreatedOn { get; set; } = DateTime.Now;
         public int CourseID { get; set; }
+        public string CourseName { get; set; }
     }
 }

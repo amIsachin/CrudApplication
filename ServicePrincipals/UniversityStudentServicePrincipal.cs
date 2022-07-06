@@ -1,7 +1,6 @@
 ﻿using BusinessEntity;
 using StudentServices;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace ServicePrincipals
@@ -15,7 +14,7 @@ namespace ServicePrincipals
         }
 
         /// <summary>
-        /// Here return all University students.
+        /// Here return all University students functionality.
         /// </summary>
         /// <returns></returns>
         public async Task<List<UniversityStudentEntity>> GetAllUniversityStudents()
