@@ -36,6 +36,9 @@ namespace Crud.Web.Controllers
         [HttpPost]
         public async Task<ActionResult> Admission(UniversityStudentCombineCourseBindingViewModel universityStudentCombineCourseBindingViewModel)
         {
+
+            var value = await _CourseServicePrincipal.GetCourseById(universityStudentCombineCourseBindingViewModel.CourseID);
+
             return View();
         }
     }

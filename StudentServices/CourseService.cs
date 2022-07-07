@@ -53,6 +53,7 @@ namespace StudentServices
                 SqlCommand cmd = new SqlCommand("spGetCourseByID", con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 con.Open();
+                cmd.Parameters.AddWithValue("@ID", ID);
                 SqlDataReader dr = await cmd.ExecuteReaderAsync();
                 while (await dr.ReadAsync())
                 {
