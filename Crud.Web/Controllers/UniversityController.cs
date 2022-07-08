@@ -1,4 +1,4 @@
-﻿using BusinessEntity;
+﻿using BusinessLogics;
 using ServicePrincipals;
 using StudentServices;
 using System.Threading.Tasks;
@@ -36,6 +36,13 @@ namespace Crud.Web.Controllers
         [HttpPost]
         public async Task<ActionResult> Admission(UniversityStudentCombineCourseBindingViewModel universityStudentCombineCourseBindingViewModel)
         {
+            if (CommonMethods.SuspendCurrentExecutionEnvironment(universityStudentCombineCourseBindingViewModel.CourseID))
+            {
+                if (CommonMethods.IsGenderValid(universityStudentCombineCourseBindingViewModel.Gender))
+                {
+
+                }
+            }
 
             var value = await _CourseServicePrincipal.GetCourseById(universityStudentCombineCourseBindingViewModel.CourseID);
 

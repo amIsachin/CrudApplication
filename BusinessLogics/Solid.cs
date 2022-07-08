@@ -33,7 +33,7 @@ namespace BusinessLogics
         public CommonMethods(IStudentsService studentsService)
         {
             _StudentsService = studentsService;
-        } 
+        }
         #endregion
 
         public int GenerateRandomNumber()
@@ -49,6 +49,34 @@ namespace BusinessLogics
             else
             {
                 goto ReEvaluate;
+            }
+        }
+
+        public static bool SuspendCurrentExecutionEnvironment(int testedValue)
+        {
+            if (testedValue > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool IsGenderValid(string gender)
+        {
+            switch (gender.ToLower())
+            {
+                case "male":
+                    return true;
+                case "female":
+                    return true;
+                case "-1":
+                    return false;
+                default:
+                    return false;
+
             }
         }
 
