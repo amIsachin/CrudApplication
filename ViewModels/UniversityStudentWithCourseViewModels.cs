@@ -16,4 +16,6 @@ namespace ViewModels
         public int CourseID { get; set; }
         public string CourseName { get; set; }
     }
+
+    public class StudentWithCourseListBindingViewModel { }
 }

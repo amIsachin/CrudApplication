@@ -24,29 +24,53 @@ namespace Crud.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            try
+            {
+                return View();
+            }
+            catch (System.Exception)
+            {
+                return new HttpStatusCodeResult(500);
+            }
         }
 
         [HttpGet]
         public async Task<ActionResult> Admission()
         {
-            return View(await _CourseServicePrincipal.GetAllCourses());
+            try
+            {
+                return View(await _CourseServicePrincipal.GetAllCourses());
+            }
+            catch (System.Exception)
+            {
+                return new HttpStatusCodeResult(500);
+            }
+            
         }
 
         [HttpPost]
         public async Task<ActionResult> Admission(UniversityStudentCombineCourseBindingViewModel universityStudentCombineCourseBindingViewModel)
         {
-            if (CommonMethods.SuspendCurrentExecutionEnvironment(universityStudentCombineCourseBindingViewModel.CourseID))
+            if (CommonMethods.SuspendCurrentExecutionEnvironment(universityStudentCombineCourseBindingViewModel.CourseID)
+                && CommonMethods.IsGenderValid(universityStudentCombineCourseBindingViewModel.Gender))
             {
-                if (CommonMethods.IsGenderValid(universityStudentCombineCourseBindingViewModel.Gender))
-                {
+                var CourseRecord = await _CourseServicePrincipal.GetCourseById(universityStudentCombineCourseBindingViewModel.CourseID);
+                universityStudentCombineCourseBindingViewModel.CourseName = CourseRecord.Name;
+                universityStudentCombineCourseBindingViewModel.CreatedOn = CourseRecord.CreatedOn;
 
+                if (await _UniversityStudentServicePrincipal.InsertUniversituStudentCombineCourse(universityStudentCombineCourseBindingViewModel) is true)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View(await _CourseServicePrincipal.GetAllCourses());
                 }
             }
-
-            var value = await _CourseServicePrincipal.GetCourseById(universityStudentCombineCourseBindingViewModel.CourseID);
-
-            return View();
+            else
+            {
+                return View(await _CourseServicePrincipal.GetAllCourses());
+            }
         }
     }
 }

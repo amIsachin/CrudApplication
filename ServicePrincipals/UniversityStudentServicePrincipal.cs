@@ -2,6 +2,7 @@
 using StudentServices;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using ViewModels;
 
 namespace ServicePrincipals
 {
@@ -22,6 +23,22 @@ namespace ServicePrincipals
             return await _UniversityStudentService.GetAllUniversityStudents();
         }
 
+        /// <summary>
+        /// Save University student with course functionality.
+        /// </summary>
+        /// <param name="universityStudentCombineCourseBindingViewModel"></param>
+        /// <returns></returns>
+        public async Task<bool> InsertUniversituStudentCombineCourse(UniversityStudentCombineCourseBindingViewModel universityStudentCombineCourseBindingViewModel)
+        {
+            if (await _UniversityStudentService.InsertUniversituStudentCombineCourse(universityStudentCombineCourseBindingViewModel) is true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     }
 }
