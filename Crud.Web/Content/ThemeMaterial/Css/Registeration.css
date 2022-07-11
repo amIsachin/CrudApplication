@@ -1,4 +1,4 @@
-/*@import '~/Content/ThemeMaterial/Css/Application-utilities.css';*/
+/*@import url('Application-utilities.css');*/
 
 .justify-end{
     justify-content:end;
@@ -15,10 +15,23 @@
     color: black;
     background: white;
 }
-
-/*body{
+/*
+body{
     background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
 }*/
+
+/*--  --------------------------------------------/
+----  -------------- Essentials ---------------------------------------------------*/
+/* Please dont touch this line of code without consendering the jQuery validation error message code */
+/*.error {
+    font-size: 1.3rem;
+    color: red;
+}*/
+
+#Name-error {
+    font-size: 1.6rem;
+    color: red;
+}
 
 section.section-form {
     background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);

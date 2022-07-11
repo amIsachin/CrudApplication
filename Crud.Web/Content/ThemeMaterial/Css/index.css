@@ -23,17 +23,17 @@ body{
 ----  -------------- Fonts ---------------------------------------------------*/
 @font-face {
     font-family: 'Raleway-Bold';
-    src: url('Fonts/fonts/Raleway-Bold.ttf') format('truetype');
+    src: url('../Fonts/fonts/Raleway-Bold.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Raleway-Medium';
-    src: url('Fonts/fonts/Raleway-Medium.ttf') format('truetype');
+    src: url('../Fonts/fonts/Raleway-Medium.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Raleway-SemiBold';
-    src: url('Fonts/fonts/Raleway-SemiBold.ttf') format('truetype');
+    src: url('../Fonts/fonts/Raleway-SemiBold.ttf') format('truetype');
 }
 /*--  --------------------------------------------/
 ----  -------------- Color ---------------------------------------------------*/

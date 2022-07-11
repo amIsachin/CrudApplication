@@ -39,37 +39,49 @@ namespace Crud.Web.Controllers
         {
             try
             {
-                return View(await _CourseServicePrincipal.GetAllCourses());
+                UniversityStudentCombineCourseBindingViewModel UniversityStudentCombineCourseBindingViewModel = new
+                    UniversityStudentCombineCourseBindingViewModel();
+                UniversityStudentCombineCourseBindingViewModel.CourseList = await _CourseServicePrincipal.GetAllCourses();
+                return View(UniversityStudentCombineCourseBindingViewModel);
             }
             catch (System.Exception)
             {
                 return new HttpStatusCodeResult(500);
             }
-            
+
         }
 
         [HttpPost]
         public async Task<ActionResult> Admission(UniversityStudentCombineCourseBindingViewModel universityStudentCombineCourseBindingViewModel)
         {
-            if (CommonMethods.SuspendCurrentExecutionEnvironment(universityStudentCombineCourseBindingViewModel.CourseID)
-                && CommonMethods.IsGenderValid(universityStudentCombineCourseBindingViewModel.Gender))
+            try
             {
-                var CourseRecord = await _CourseServicePrincipal.GetCourseById(universityStudentCombineCourseBindingViewModel.CourseID);
-                universityStudentCombineCourseBindingViewModel.CourseName = CourseRecord.Name;
-                universityStudentCombineCourseBindingViewModel.CreatedOn = CourseRecord.CreatedOn;
-
-                if (await _UniversityStudentServicePrincipal.InsertUniversituStudentCombineCourse(universityStudentCombineCourseBindingViewModel) is true)
+                if (CommonMethods.SuspendCurrentExecutionEnvironment(universityStudentCombineCourseBindingViewModel.CourseID)
+                        && CommonMethods.IsGenderValid(universityStudentCombineCourseBindingViewModel.Gender))
                 {
-                    return RedirectToAction("Index");
+                    var CourseRecord = await _CourseServicePrincipal.GetCourseById(universityStudentCombineCourseBindingViewModel.CourseID);
+                    universityStudentCombineCourseBindingViewModel.CourseName = CourseRecord.Name;
+                    universityStudentCombineCourseBindingViewModel.CreatedOn = CourseRecord.CreatedOn;
+
+                    if (await _UniversityStudentServicePrincipal.InsertUniversituStudentCombineCourse(universityStudentCombineCourseBindingViewModel) is true)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        universityStudentCombineCourseBindingViewModel.CourseList = await _CourseServicePrincipal.GetAllCourses();
+                        return View(universityStudentCombineCourseBindingViewModel);
+                    }
                 }
                 else
                 {
-                    return View(await _CourseServicePrincipal.GetAllCourses());
+                    universityStudentCombineCourseBindingViewModel.CourseList = await _CourseServicePrincipal.GetAllCourses();
+                    return View(universityStudentCombineCourseBindingViewModel);
                 }
             }
-            else
+            catch (System.Exception)
             {
-                return View(await _CourseServicePrincipal.GetAllCourses());
+                return new HttpStatusCodeResult(500);
             }
         }
     }

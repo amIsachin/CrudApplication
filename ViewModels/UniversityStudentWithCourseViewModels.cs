@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessEntity;
+using System;
+using System.Collections.Generic;
 
 namespace ViewModels
 {
@@ -15,6 +17,7 @@ namespace ViewModels
         public DateTime CreatedOn { get; set; } = DateTime.Now;
         public int CourseID { get; set; }
         public string CourseName { get; set; }
+        public List<CourseEntity> CourseList{ get; set; }
     }
 
     public class StudentWithCourseListBindingViewModel { }

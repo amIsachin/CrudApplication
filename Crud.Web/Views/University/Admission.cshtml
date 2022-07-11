@@ -1,4 +1,5 @@
-﻿@model IEnumerable<BusinessEntity.CourseEntity>
+﻿@*@model IEnumerable<BusinessEntity.CourseEntity>*@
+@model ViewModels.UniversityStudentCombineCourseBindingViewModel
 
 @{
     ViewBag.Title = "Addmission";
@@ -9,25 +10,25 @@
     <div class="container">
         <div class="form-wrapper">
             <h2 class="heading">Registeration</h2>
-            <form class="form" action="@Url.Action("Admission","University")" method="post">
+            <form class="form" action="@Url.Action("Admission","University")" method="post" id="universityFormSerialize">
                 <div class="input-box flex">
                     <div>
                         <label for="">Name</label>
-                        <input type="text" name="Name" placeholder="Enter Name*">
+                        <input type="text" name="Name" placeholder="Enter Name*" value="@Model.Name" />
                     </div>
                     <div>
                         <label for="">Age</label>
-                        <input type="text" name="Age" placeholder="Enter Age*">
+                        <input type="text" name="Age" placeholder="Enter Age*" value="@Model.Age" />
                     </div>
                 </div>
                 <div class="input-box flex">
                     <div>
                         <label for="">Fees</label>
-                        <input type="text" name="Fees" placeholder="Enter Fees*">
+                        <input type="text" name="Fees" placeholder="Enter Fees*" value="@Model.Fees">
                     </div>
                     <div>
                         <label for="">City</label>
-                        <input type="text" name="City" placeholder="Enter City*">
+                        <input type="text" name="City" placeholder="Enter City*" value="@Model.City">
                     </div>
                 </div>
                 <div class="input-box flex">
@@ -43,7 +44,7 @@
                 <div class="radio-button mb-1">
                     <div>
                         <label for="Gender" class="display-block">Gender</label>
-                        <select name="Gender" id="">
+                        <select name="Gender" id="selectGender">
                             <option value="-1" selected>--Select*</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
@@ -54,9 +55,9 @@
                 <div class="radio-button course-selection">
                     <div>
                         <label for="Gender" class="display-block">Select Course</label>
-                        <select name="CourseID" id="">
+                        <select name="CourseID" id="selectCourse">
                             <option value="-1" selected>--Select*</option>
-                            @foreach (var course in Model)
+                            @foreach (var course in Model.CourseList)
                             {
                                 <option value="@course.ID">@course.Name</option>
                             }
@@ -65,8 +66,7 @@
                 </div>
                 <div class="buttons">
                     <div class="btn-wrapper flex justify-end items-center">
-                        <a href="@Url.Action("Admission","University")" id="click">Register</a>
-                        <button>Register</button>
+                        <a id="submitButton">Register</a>
                         <a href="@Url.Action("Index", "University")">Cancel</a>
                     </div>
                 </div>
@@ -75,15 +75,65 @@
     </div>
 </section>
 
-@*<script>
+<script>
     $(document).ready(function () {
-        $('#click').click(function () {
-            $.ajax({
-                method:'POST',
-                url:'@Url.Action("Admission","University")'
-            })
+        //--> Form submit button functionality.
+        $('#universityFormSerialize').validate({
+            rules: {
+                Name: {
+                    required: true
+                }
+            },
+            messages: {
+                Name: {
+                    required:'Name is required*'
+
+                }
+            }
+        });
+        $('#submitButton').click(function () {
+            if ($('#universityFormSerialize').valid())
+            {
+                $.ajax({
+                    method: 'POST',
+                    url: '@Url.Action("Admission","University")',
+                    data: $('#universityFormSerialize').serialize(),
+                    success: function (response) {
+                        window.location.href = 'https://microsoft.com'
+                    },
+                    error: function (error) {
+                        swal("Oosps something went wrong !! " + error.status);
+                    }
+
+                });
+            }
+            else
+            {
+                swal("Please enter all required fields !! ");
+            }
         });
 
 
+
+
     }); //--> Here is close document ready function().
-</script>*@
+</script>
+
+
+
+@*$('#submitButton').click(function () {
+        debugger;
+        $('#selectCourse').change(function () {
+            if ($(this).val() == -1) {
+                toastr.success("Please Select Course", 'Error Alert', { timeout: 5000, 'closeButton': true })
+                return false;
+            }
+        });
+
+        $('#selectGender').change(function () {
+            if ($(this).val() == -1) {
+                toastr.success("Please Select Gender", 'Error Alert', { timeout: 5000, 'closeButton': true })
+                return false;
+            }
+        });
+    });*@
