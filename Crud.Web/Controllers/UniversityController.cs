@@ -84,5 +84,10 @@ namespace Crud.Web.Controllers
                 return new HttpStatusCodeResult(500);
             }
         }
+
+        public ActionResult Congratulation()
+        {
+            return View();
+        }
     }
 }

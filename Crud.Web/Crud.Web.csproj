@@ -198,6 +198,7 @@
     <Content Include="Content\ThemeMaterial\Assets\microsoft-sql-server-logo.webp" />
     <Content Include="Content\ThemeMaterial\Assets\vs-2022.webp" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="HtmlPages\Congratulation.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -235,6 +236,7 @@
     <Content Include="Views\Shared\_UniversityLayout.cshtml" />
     <Content Include="Views\University\Index.cshtml" />
     <Content Include="Views\University\Admission.cshtml" />
+    <Content Include="Views\University\Congratulation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

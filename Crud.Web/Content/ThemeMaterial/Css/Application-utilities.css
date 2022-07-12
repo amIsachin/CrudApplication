@@ -66,6 +66,41 @@ body{
     color: var(--color-black);
 }
 
+.display-block {
+    display: block;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.pt-1 {
+    padding-top: 1rem;
+}
+
+.a-btn {
+    font-size: 1.8rem;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: var(--color-background);
+    background-color: var(--color-heading);
+    padding: 0.6rem 1.8rem;
+    transition: all .3s ease;
+}
+
+.a-btn:hover {
+    background-color: var(--color-details);
+    text-decoration: underline;
+}
+
 /*---  ---------- flex ---------------/
 -----  ------------------------------------------------------------- */
 .flex{
