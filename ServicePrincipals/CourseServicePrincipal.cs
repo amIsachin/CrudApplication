@@ -2,6 +2,7 @@
 using StudentServices;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace ServicePrincipals
 {
@@ -20,6 +21,16 @@ namespace ServicePrincipals
         public async Task<List<CourseEntity>> GetAllCourses()
         {
             return await _CourseService.GetAllCourses();
+        }
+
+        /// <summary>
+        /// Get distinct course name functionality.
+        /// this method is not used right now.
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<string>> GetDistinctCourseName()
+        {
+            return await _CourseService.GetDisnctCourseName();
         }
 
         /// <summary>

@@ -8,5 +8,6 @@ namespace StudentServices
     {
         Task<List<CourseEntity>> GetAllCourses();
         Task<CourseEntity> GetCourseById(int ID);
+        Task<List<string>> GetDisnctCourseName();
     }
 }

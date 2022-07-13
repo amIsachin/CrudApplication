@@ -99,7 +99,7 @@
                     url: '@Url.Action("Admission","University")',
                     data: $('#universityFormSerialize').serialize(),
                     success: function (response) {
-                        window.location.href = 'https://microsoft.com'
+                        window.location.href = '@Url.Action("Congratulation", "University")'
                     },
                     error: function (error) {
                         swal("Oosps something went wrong !! " + error.status);

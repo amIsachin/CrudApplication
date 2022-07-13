@@ -66,5 +66,30 @@ namespace StudentServices
 
             return _courseEntity;
         }
+
+        /// <summary>
+        /// This service is not used.
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<string>> GetDisnctCourseName()
+        {
+            List<string> _names = new List<string>();
+
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Crud-app"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("spGetDistinctCourseName", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                con.Open();
+                SqlDataReader dr = await cmd.ExecuteReaderAsync();
+                while (await dr.ReadAsync())
+                {
+                    string name;
+                    name = dr.GetValue(0).ToString();
+                    _names.Add(name);
+                }
+            }
+
+            return _names;
+        }
     }
 }
