@@ -39,6 +39,7 @@ namespace Crud.Web.Controllers
         {
             try
             {
+
                 UniversityStudentCombineCourseBindingViewModel UniversityStudentCombineCourseBindingViewModel = new
                     UniversityStudentCombineCourseBindingViewModel();
                 UniversityStudentCombineCourseBindingViewModel.CourseList = await _CourseServicePrincipal.GetAllCourses();
