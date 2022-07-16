@@ -42,7 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthenticationServices.cs" />
     <Compile Include="CourseService.cs" />
+    <Compile Include="IAuthenticationServices.cs" />
     <Compile Include="ICourseService.cs" />
     <Compile Include="IStudentsService.cs" />
     <Compile Include="IUniversityStudentService.cs" />

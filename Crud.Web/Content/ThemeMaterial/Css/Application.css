@@ -278,3 +278,94 @@ section.section-congratulation {
                 color: var(--color-details);
                 border-bottom: 2px dotted var(--color-details);
             }
+
+
+/*--  --------- Login Html file is login -----------
+----  -------------------------------------------------------------------------------*/
+section.section-login {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
+}
+
+    section.section-login .login-container {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: 30vw;
+        height: 80vh;
+        background-color: var(--pure);
+        border-radius: 1rem;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+    }
+
+        section.section-login .login-container.account {
+            height: 90vh !important;
+        }
+
+        section.section-login .login-container .heading {
+            text-align: center;
+        }
+
+            section.section-login .login-container .heading h2 {
+                color: var(--color-heading);
+            }
+
+    section.section-login .login-wrapper {
+        padding: 4rem 5rem;
+    }
+
+        section.section-login .login-wrapper div > label {
+            font-size: 2rem;
+            color: var(--color-black);
+            letter-spacing: var(--letter-spacing);
+        }
+
+        section.section-login .login-wrapper div > input {
+            border: none;
+            font-size: 1.5rem;
+            padding: 1rem 0.5rem;
+            width: 90%;
+            border-bottom: 1px solid var(--color-primary);
+            letter-spacing: var(--letter-spacing);
+        }
+
+            section.section-login .login-wrapper div > input:focus {
+                outline: none;
+                border-bottom: 1px solid var(--color-heading);
+            }
+
+    section.section-login .login-container .login-wrapper .btn-group .btn {
+        width: 93%;
+    }
+
+    section.section-login .login-container .sign-up {
+        text-align: center;
+    }
+
+        section.section-login .login-container .sign-up .sign-up-heading {
+            font-size: 1.8rem;
+            color: var(--color-gray);
+            letter-spacing: var(--letter-spacing);
+        }
+
+        section.section-login .login-container .sign-up .social-icon-wrapper a {
+            font-size: 2.5rem;
+            padding: 1rem 0.5rem;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+            section.section-login .login-container .sign-up .social-icon-wrapper a:first-child {
+                color: var(--color-heading);
+            }
+
+            section.section-login .login-container .sign-up .social-icon-wrapper a.middle {
+                color: var(--color-black);
+            }
+
+            section.section-login .login-container .sign-up .social-icon-wrapper a:last-child {
+                color: var(--color-pink);
+            }

@@ -20,6 +20,7 @@ namespace ServicePrincipals
         /// <returns></returns>
         public async Task<List<CourseEntity>> GetAllCourses()
         {
+            return await _CourseService.GetAllCourses();
 
             //var uniqueOrders = orders.Select(x => new { x.location, x.amount }).Distinct();
 
@@ -31,7 +32,7 @@ namespace ServicePrincipals
             //return (await _CourseService.GetAllCourses()).GroupBy(x => new { x.ID, x.Name, x.StudentID, x.CreatedOn })
             //    .Distinct(new CourseEntityComparer()).ToList();
 
-            return (await _CourseService.GetAllCourses()).Select(x => new CourseEntity { x.ID, x.Name, x.StudentID, x.CreatedOn }).GroupBy(x => x.Name).ToList();
+            //return (await _CourseService.GetAllCourses()).Select(x => new CourseEntity { x.ID, x.Name, x.StudentID, x.CreatedOn }).GroupBy(x => x.Name).ToList();
 
 
         }
