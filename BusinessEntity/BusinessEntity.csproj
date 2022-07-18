@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
     <Compile Include="CourseEntity.cs" />
+    <Compile Include="CreateAccountEntity.cs" />
     <Compile Include="IBaseEntity.cs" />
     <Compile Include="IStudentEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
