@@ -19,26 +19,26 @@
             <div class="heading mt-1">
                 <h2 class="section-heading">Account</h2>
             </div>
-            <form action="">
+            <form id="createAccountFormSearialize">
                 <div class="login-wrapper">
                     <div>
                         <label class="display-block">Emaiil or Phone number</label>
-                        <i class="fa-solid fa-at"></i><input type="text" placeholder="Type email or phone number" class="mb-2" />
+                        <i class="fa-solid fa-at"></i><input type="text" placeholder="Type email or phone number" class="mb-2" name="Email" />
                     </div>
                     <div>
                         <label class="display-block">User Name</label>
-                        <i class="fa-solid fa-user"></i><input type="password" placeholder="Type your username" class="mb-2" />
+                        <i class="fa-solid fa-user"></i><input type="text" placeholder="Type your username" class="mb-2" name="UserName"/>
                     </div>
                     <div>
                         <label class="display-block">Password</label>
-                        <i class="fa-solid fa-lock"></i><input type="password" placeholder="Type your password" class="mb-2" />
+                        <i class="fa-solid fa-lock"></i><input type="password" placeholder="Type your password" class="mb-2" name="Password"/>
                     </div>
                     <div>
                         <label class="display-block">Confirm Password</label>
-                        <i class="fa-solid fa-lock"></i><input type="password" placeholder="Type your confirm password" class="mb-2" />
+                        <i class="fa-solid fa-lock"></i><input type="password" placeholder="Type your confirm password" class="mb-2" name="ConfirmPassword"/>
                     </div>
                     <div class="btn-group">
-                        <button class="btn">Create Account</button>
+                        <button class="btn" id="createAccount">Create Account</button>
                     </div>
                 </div>
             </form>
@@ -58,3 +58,30 @@
     </section>
 </body>
 </html>
+
+@Scripts.Render("~/bundles/jquery")
+
+<script>
+    $(document).ready(function () {
+        $("#createAccount").click(function () {
+            debugger;
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("CreateAccount", "Authentication")',
+                data: $('#createAccountFormSearialize').serialize(),
+                success: function () {
+                    alert('Data ')
+                    window.location.href = '@Url.Action("Index", "University")'
+
+                },
+                error: function (error) {
+                    swal("Oop's something went wrong !! " + error.status);
+                }
+            })
+        })
+
+    })  //--> Here is close document ready funtion.
+
+</script>
+
+
