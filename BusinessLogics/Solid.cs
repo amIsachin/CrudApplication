@@ -80,19 +80,5 @@ namespace BusinessLogics
             }
         }
 
-        public static string IsAvailable(string email, string number)
-        {
-            if (string.IsNullOrWhiteSpace(email))
-            {
-                email = null;
-                return email;
-            }
-            else
-            {
-                number = null;
-                return number;
-            }
-        }
-
     }
 }

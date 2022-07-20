@@ -70,6 +70,7 @@
                 url: '@Url.Action("CreateAccount", "Authentication")',
                 data: $('#createAccountFormSearialize').serialize(),
                 success: function () {
+                    debugger;
                     alert('Data ')
                     window.location.href = '@Url.Action("Index", "University")'
 

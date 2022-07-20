@@ -1,5 +1,4 @@
 ﻿using BusinessEntity;
-using BusinessLogics;
 using ServicePrincipals;
 using StudentServices;
 using System.Threading.Tasks;
@@ -9,13 +8,15 @@ namespace Crud.Web.Controllers
 {
     public partial class AuthenticationController : Controller
     {
+        #region InitializeDependencyInjection
         private readonly IAuthenticationServices _AuthenticationServices = null;
         AthenticationServicePrincipal _AthenticationServicePrincipal = null;
         public AuthenticationController(IAuthenticationServices authenticationServices)
         {
             this._AuthenticationServices = authenticationServices;
             this._AthenticationServicePrincipal = new AthenticationServicePrincipal(authenticationServices);
-        }
+        } 
+        #endregion
 
         [HttpGet]
         public ActionResult CreateAccount()
@@ -26,8 +27,6 @@ namespace Crud.Web.Controllers
         [HttpPost]
         public async Task<ActionResult> CreateAccount(CreateAccountEntity createAccountEntity)
         {
-            CommonMethods.IsAvailable(createAccountEntity.Email, createAccountEntity.Number);
-            //await AthenticationServicePrincipal.Instance.InsertCourseEntity(createAccountEntity);
             await _AthenticationServicePrincipal.InsertCreateAccountEntity(createAccountEntity);
             return View();
         }
