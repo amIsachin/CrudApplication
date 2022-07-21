@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Crud.Web.Controllers
 {
-    public partial class AuthenticationController : Controller
+    public class AuthenticationController : Controller
     {
         #region InitializeDependencyInjection
         private readonly IAuthenticationServices _AuthenticationServices = null;
@@ -15,19 +15,43 @@ namespace Crud.Web.Controllers
         {
             this._AuthenticationServices = authenticationServices;
             this._AthenticationServicePrincipal = new AthenticationServicePrincipal(authenticationServices);
-        } 
+        }
         #endregion
 
         [HttpGet]
-        public ActionResult CreateAccount()
+        public ActionResult CreateAccount() //signup
         {
-            return View();
+            try
+            {
+                return View();
+            }
+            catch (System.Exception)
+            {
+                return new HttpStatusCodeResult(500);
+            }
         }
 
         [HttpPost]
         public async Task<ActionResult> CreateAccount(CreateAccountEntity createAccountEntity)
         {
-            await _AthenticationServicePrincipal.InsertCreateAccountEntity(createAccountEntity);
+            try
+            {
+                if (await _AthenticationServicePrincipal.InsertCreateAccountEntity(createAccountEntity))
+                {
+                    
+                }
+                return View();
+            }
+            catch (System.Exception)
+            {
+                //return new HttpStatusCodeResult(500);
+                return View("Error");
+            }
+        }
+
+
+        public ActionResult SignIn()
+        {
             return View();
         }
 

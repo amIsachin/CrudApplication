@@ -15,6 +15,9 @@ namespace Crud.Web
 
             //--> This reference Coming From UnityConfig Class.
             UnityConfig.RegisterComponents();
+
+            //--> Add Global authorize attribute
+            //GlobalFilters.Filters.Add(new AuthorizeAttribute());
         }
     }
 }

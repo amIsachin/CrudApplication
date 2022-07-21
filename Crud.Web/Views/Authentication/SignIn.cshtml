@@ -1,0 +1,52 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <!-- font awesome CDN link come from this URL https://cdnjs.com/libraries/font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="~/Content/ThemeMaterial/Css/Application.css" rel="stylesheet" />
+    <title>SignIn</title>
+</head>
+<body>
+    <section class="section-login">
+        <div class="login-container account">
+            <div class="heading mt-1">
+                <h2 class="section-heading">Account</h2>
+            </div>
+            <form id="createAccountFormSearialize">
+                <div class="login-wrapper">
+                    <div>
+                        <label class="display-block">Emaiil or Phone number</label>
+                        <i class="fa-solid fa-at"></i><input type="text" placeholder="Type email or phone number" class="mb-2" name="Email" />
+                    </div>
+                    <div>
+                        <label class="display-block">Password</label>
+                        <i class="fa-solid fa-lock"></i><input type="password" placeholder="Type your password" class="mb-2" name="Password" />
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn" id="createAccount">Sign In</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="sign-up">
+                <div class="sign-up-heading">
+                    <h4>Or sign up using</h4>
+                </div>
+                <div class="social-icon-wrapper mt-1">
+                    <a href="#"><i class="fa-brands fa-facebook-square"></i> </a>
+                    <a href="#" class="middle"><i class="fa-brands fa-github"></i></a>
+                    <a href="#"><i class="fa-brands fa-google"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</body>
+</html>

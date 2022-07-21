@@ -5,6 +5,7 @@ using System.Web.Mvc;
 
 namespace Crud.Web.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         #region InitializeDependencyInjectionInstance
