@@ -19,7 +19,7 @@
             <div class="heading mt-1">
                 <h2 class="section-heading">Account</h2>
             </div>
-            <form id="createAccountFormSearialize">
+            <form id="signInFormSerialize">
                 <div class="login-wrapper">
                     <div>
                         <label class="display-block">Emaiil or Phone number</label>
@@ -30,7 +30,7 @@
                         <i class="fa-solid fa-lock"></i><input type="password" placeholder="Type your password" class="mb-2" name="Password" />
                     </div>
                     <div class="btn-group">
-                        <button class="btn" id="createAccount">Sign In</button>
+                        <button class="btn" id="signIn">Sign In</button>
                     </div>
                 </div>
             </form>
@@ -50,3 +50,22 @@
     </section>
 </body>
 </html>
+
+@Scripts.Render("~/bundles/jquery")
+
+<script>
+    $('#signIn').click(function () {
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("SignIn", "Authentication")',
+            data: $('#signInFormSerialize').serialize(),
+            success: function (response) {
+                debugger;
+                window.location.href = '@Url.Action("ControlPanel", "Admin")'
+            },
+            error: function (error) {
+
+            }
+        })
+    });
+</script>
