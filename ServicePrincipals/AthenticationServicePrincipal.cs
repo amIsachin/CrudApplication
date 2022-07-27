@@ -44,13 +44,20 @@ namespace ServicePrincipals
         /// <returns></returns>
         public async Task<bool> InsertCreateAccountEntity(CreateAccountEntity createAccountEntity)
         {
-            if (await _AuthenticationServices.InsertCreateAccountEntity(createAccountEntity) is true)
+            try
             {
-                return true;
+                if (await _AuthenticationServices.InsertCreateAccountEntity(createAccountEntity) is true)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
+            catch (System.Exception)
             {
-                return false;
+                throw;
             }
         }
 
@@ -63,8 +70,6 @@ namespace ServicePrincipals
         {
             if ((await _AuthenticationServices.GetAllCreateAccounts()).Any(x => x.Email == email && x.Password == password))
             {
-                var dfasf = (await _AuthenticationServices.GetAllCreateAccounts()).
-                    Where(x => x.Email.Any(email) && x.Password.Any(password)).;
                 return true;
             }
             else

@@ -1,4 +1,5 @@
 ﻿using BusinessEntity;
+using Microsoft.Web.WebPages.OAuth;
 using ServicePrincipals;
 using StudentServices;
 using System.Threading.Tasks;
@@ -62,16 +63,34 @@ namespace Crud.Web.Controllers
         [HttpPost]
         public async Task<ActionResult> SignIn(CreateAccountEntity createAccountEntity)
         {
-            if (await _AthenticationServicePrincipal.IsExistAccount(createAccountEntity.Email, createAccountEntity.Password))
+            try
             {
-                FormsAuthentication.SetAuthCookie(createAccountEntity.UserName, false);
-                return RedirectToAction("ControlPanel", "Admin", createAccountEntity.UserName);
+                if (await _AthenticationServicePrincipal.IsExistAccount(createAccountEntity.Email, createAccountEntity.Password))
+                {
+                    FormsAuthentication.SetAuthCookie("Sachin", false);
+                    return RedirectToAction("ControlPanel", "Admin");
+                }
+                else
+                {
+                    return View();
+                }
             }
-            else
+            catch (System.Exception)
             {
-                return View();
+                return new HttpStatusCodeResult(500);
             }
         }
 
+        [HttpGet]
+        public ActionResult Facebook(string provider)
+        {
+            OAuthWebSecurity.RequestAuthentication(provider, Url.Action("Returnback"));
+            return View();
+        }
+
+        public ActionResult Returnback()
+        {
+            return RedirectToAction("ControlPanel", "Admin");
+        }
     }
 }
