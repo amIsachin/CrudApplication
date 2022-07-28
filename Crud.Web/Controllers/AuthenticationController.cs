@@ -82,14 +82,16 @@ namespace Crud.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Facebook(string provider)
+        public ActionResult Facebook(string provider="facebook")
         {
             OAuthWebSecurity.RequestAuthentication(provider, Url.Action("Returnback"));
             return View();
         }
 
-        public ActionResult Returnback()
+        public ActionResult Returnback(string provider)
         {
+            var result = OAuthWebSecurity.VerifyAuthentication();
+
             return RedirectToAction("ControlPanel", "Admin");
         }
     }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Web.WebPages.OAuth;
+using System.Configuration;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -12,6 +13,8 @@ namespace Crud.Web
             public static void RegisterProviders()
             {
                 OAuthWebSecurity.RegisterGoogleClient();
+                OAuthWebSecurity.RegisterFacebookClient(appId: ConfigurationManager.AppSettings["AppId"],
+                    appSecret: ConfigurationManager.AppSettings["AppSecret"]);
             }
         }
 
