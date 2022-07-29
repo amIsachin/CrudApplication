@@ -19,7 +19,7 @@
             <div class="heading mt-1">
                 <h2 class="section-heading">Account</h2>
             </div>
-            <form id="signInFormSerialize">
+            <form action="@Url.Action("SignIn","Authentication")" method="post" id="signInFormSerialize">
                 <div class="login-wrapper">
                     <div>
                         <label class="display-block">Emaiil or Phone number</label>
@@ -30,7 +30,10 @@
                         <i class="fa-solid fa-lock"></i><input type="password" placeholder="Type your password" class="mb-2" name="Password" />
                     </div>
                     <div class="btn-group">
-                        <button class="btn" id="signIn">Sign In</button>
+                        <button class="btn">Sign In</button>
+                    </div>
+                    <div class="mt-1">
+                        <a href="@Url.Action("CreateAccount","Authentication")" class="create-link"><i class="fa-solid fa-plus"></i> Create account</a>
                     </div>
                 </div>
             </form>
@@ -64,7 +67,7 @@
         })
     });
 
-    //-->
+    //--> this method is not use rigth now
     $('#signIn').click(function () {
         $.ajax({
             type: 'POST',

@@ -68,13 +68,20 @@ namespace ServicePrincipals
 
         public async Task<bool> IsExistAccount(string email, string password)
         {
-            if ((await _AuthenticationServices.GetAllCreateAccounts()).Any(x => x.Email == email && x.Password == password))
+            try
             {
-                return true;
+                if ((await _AuthenticationServices.GetAllCreateAccounts()).Any(x => x.Email == email && x.Password == password))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
+            catch (System.Exception)
             {
-                return false;
+                throw;
             }
         }
     }

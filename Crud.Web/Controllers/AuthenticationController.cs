@@ -82,6 +82,13 @@ namespace Crud.Web.Controllers
         }
 
         [HttpGet]
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("SignIn");
+        }
+
+        [HttpGet]
         public ActionResult Facebook(string provider="facebook")
         {
             OAuthWebSecurity.RequestAuthentication(provider, Url.Action("Returnback"));

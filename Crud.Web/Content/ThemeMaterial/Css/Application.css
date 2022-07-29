@@ -369,3 +369,15 @@ section.section-login {
             section.section-login .login-container .sign-up .social-icon-wrapper a:last-child {
                 color: var(--color-pink);
             }
+
+    section.section-login .login-container .create-link {
+        font-size: 1.5rem;
+        color: var(--color-gray);
+        text-decoration: none;
+        transition: all .3s ease;
+    }
+
+        section.section-login .login-container .create-link:hover {
+            color: var(--color-heading);
+            text-decoration: underline;
+        }
