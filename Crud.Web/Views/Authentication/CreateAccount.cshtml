@@ -27,18 +27,21 @@
                     </div>
                     <div>
                         <label class="display-block">User Name</label>
-                        <i class="fa-solid fa-user"></i><input type="text" placeholder="Type your username" class="mb-2" name="UserName"/>
+                        <i class="fa-solid fa-user"></i><input type="text" placeholder="Type your username" class="mb-2" name="UserName" />
                     </div>
                     <div>
                         <label class="display-block">Password</label>
-                        <i class="fa-solid fa-lock"></i><input type="password" placeholder="Type your password" class="mb-2" name="Password"/>
+                        <i class="fa-solid fa-lock"></i><input type="password" placeholder="Type your password" class="mb-2" name="Password" />
                     </div>
                     <div>
                         <label class="display-block">Confirm Password</label>
-                        <i class="fa-solid fa-lock"></i><input type="password" placeholder="Type your confirm password" class="mb-2" name="ConfirmPassword"/>
+                        <i class="fa-solid fa-lock"></i><input type="password" placeholder="Type your confirm password" class="mb-2" name="ConfirmPassword" />
                     </div>
                     <div class="btn-group">
                         <button class="btn" id="createAccount">Create Account</button>
+                    </div>
+                    <div class="mt-1">
+                        <a href="@Url.Action("SignIn","Authentication")" class="create-link"><i class="fa-solid fa-arrow-left"></i> Back to login</a>
                     </div>
                 </div>
             </form>

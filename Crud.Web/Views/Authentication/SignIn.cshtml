@@ -19,7 +19,7 @@
             <div class="heading mt-1">
                 <h2 class="section-heading">Account</h2>
             </div>
-            <form action="@Url.Action("SignIn","Authentication")" method="post" id="signInFormSerialize">
+            <form action="@Url.Action("SignIn", "Authentication")" method="post" id="signInFormSerialize">
                 <div class="login-wrapper">
                     <div>
                         <label class="display-block">Emaiil or Phone number</label>
@@ -33,7 +33,7 @@
                         <button class="btn">Sign In</button>
                     </div>
                     <div class="mt-1">
-                        <a href="@Url.Action("CreateAccount","Authentication")" class="create-link"><i class="fa-solid fa-plus"></i> Create account</a>
+                        <a href="@Url.Action("CreateAccount", "Authentication")" class="create-link"><i class="fa-solid fa-plus"></i> Create account</a>
                     </div>
                 </div>
             </form>
@@ -43,7 +43,7 @@
                     <h4>Or sign up using</h4>
                 </div>
                 <div class="social-icon-wrapper mt-1">
-                    <a id="loginFacebook"><i class="fa-brands fa-facebook-square"></i> </a>
+                    <a href="@Url.Action("Facebook","Authentication", new {provider="facebook"})"><i class="fa-brands fa-facebook-square"></i> </a>
                     <a href="#" class="middle"><i class="fa-brands fa-github"></i></a>
                     <a href="#"><i class="fa-brands fa-google"></i></a>
                 </div>
@@ -57,6 +57,7 @@
 @Scripts.Render("~/bundles/jquery")
 
 <script>
+    //this request is not use right now.
     $('#loginFacebook').click(function () {
         $.ajax({
             type: 'GET',
