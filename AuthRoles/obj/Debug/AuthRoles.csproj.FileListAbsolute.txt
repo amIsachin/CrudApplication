@@ -1,0 +1,6 @@
+E:\Sachin\Application\Crud\CrudApplication\AuthRoles\bin\Debug\AuthRoles.dll
+E:\Sachin\Application\Crud\CrudApplication\AuthRoles\bin\Debug\AuthRoles.pdb
+E:\Sachin\Application\Crud\CrudApplication\AuthRoles\obj\Debug\AuthRoles.csproj.AssemblyReference.cache
+E:\Sachin\Application\Crud\CrudApplication\AuthRoles\obj\Debug\AuthRoles.csproj.CoreCompileInputs.cache
+E:\Sachin\Application\Crud\CrudApplication\AuthRoles\obj\Debug\AuthRoles.dll
+E:\Sachin\Application\Crud\CrudApplication\AuthRoles\obj\Debug\AuthRoles.pdb

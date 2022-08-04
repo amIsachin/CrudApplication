@@ -112,7 +112,7 @@ namespace Crud.Web.Controllers
 
         public ActionResult Google(string provider="Google")
         {
-            IAuthenticationRequest request = openID.CreateRequest(openid_identifier);
+            //IAuthenticationRequest request = openID.CreateRequest(openid_identifier);
             OAuthWebSecurity.RequestAuthentication(provider, Url.Action("GoogleRetrun"));
 
             return RedirectToAction("ControlPanel", "Admin");
