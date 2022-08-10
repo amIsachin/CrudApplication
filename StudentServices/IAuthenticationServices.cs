@@ -1,6 +1,7 @@
 ﻿using BusinessEntity;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using ViewModels;
 
 namespace StudentServices
 {
@@ -8,5 +9,6 @@ namespace StudentServices
     {
         Task<bool> InsertCreateAccountEntity(CreateAccountEntity createAccountEntity);
         Task<List<CreateAccountEntity>> GetAllCreateAccounts();
+        Task<List<InnerJoinUserRoleWithCreateAccountEntity>> GetAllInnerJoinUserRoleWithCreateAccountEntity();
     }
 }

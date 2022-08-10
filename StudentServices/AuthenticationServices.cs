@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
+using ViewModels;
 
 namespace StudentServices
 {
@@ -43,6 +44,38 @@ namespace StudentServices
             {
                 throw;
             }
+        }
+
+        public async Task<List<InnerJoinUserRoleWithCreateAccountEntity>> GetAllInnerJoinUserRoleWithCreateAccountEntity()
+        {
+            List<InnerJoinUserRoleWithCreateAccountEntity> _innerJoinUserRoleWithCreateAccountEntity = new List<InnerJoinUserRoleWithCreateAccountEntity>();
+
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Crud-app"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("InnerJoinUserRoleWithCreateAccount", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                await con.OpenAsync();
+                SqlDataReader dr = await cmd.ExecuteReaderAsync();
+                while (await dr.ReadAsync())
+                {
+                    InnerJoinUserRoleWithCreateAccountEntity innerJoinUserRoleWithCreateAccountEntity = new InnerJoinUserRoleWithCreateAccountEntity();
+                    innerJoinUserRoleWithCreateAccountEntity.UserRoleID = Convert.ToInt32(dr.GetValue(0).ToString());
+                    innerJoinUserRoleWithCreateAccountEntity.Role = dr.GetValue(1).ToString();
+                    innerJoinUserRoleWithCreateAccountEntity.UserID = Convert.ToInt32(dr.GetValue(2).ToString());
+                    innerJoinUserRoleWithCreateAccountEntity.UserRoleCreatedOn = Convert.ToDateTime(dr.GetValue(3).ToString());
+                    innerJoinUserRoleWithCreateAccountEntity.CreatedAccountID = Convert.ToInt32(dr.GetValue(4).ToString());
+                    innerJoinUserRoleWithCreateAccountEntity.UserName = dr.GetValue(5).ToString();
+                    innerJoinUserRoleWithCreateAccountEntity.Email = dr.GetValue(6).ToString();
+                    innerJoinUserRoleWithCreateAccountEntity.Number = dr.GetValue(7).ToString();
+                    innerJoinUserRoleWithCreateAccountEntity.Password= dr.GetValue(8).ToString();
+                    innerJoinUserRoleWithCreateAccountEntity.ConfirmPassword = dr.GetValue(9).ToString();
+                    innerJoinUserRoleWithCreateAccountEntity.CreateAccountCreatedOn = Convert.ToDateTime(dr.GetValue(10).ToString());
+
+                    _innerJoinUserRoleWithCreateAccountEntity.Add(innerJoinUserRoleWithCreateAccountEntity);
+                }
+            }
+
+            return _innerJoinUserRoleWithCreateAccountEntity;
         }
 
         public async Task<bool> InsertCreateAccountEntity(CreateAccountEntity createAccountEntity)

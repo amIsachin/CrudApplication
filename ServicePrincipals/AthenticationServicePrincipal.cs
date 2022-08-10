@@ -3,6 +3,7 @@ using StudentServices;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
+using ViewModels;
 
 namespace ServicePrincipals
 {
@@ -30,10 +31,10 @@ namespace ServicePrincipals
 
 
         #region InitializeDependencyInjection
-        private readonly IAuthenticationServices _AuthenticationServices = null;
+        private readonly IAuthenticationServices _authenticationServices;
         public AthenticationServicePrincipal(IAuthenticationServices authenticationServices)
         {
-            this._AuthenticationServices = authenticationServices;
+            this._authenticationServices = authenticationServices;
         }
         #endregion
 
@@ -46,7 +47,7 @@ namespace ServicePrincipals
         {
             try
             {
-                if (await _AuthenticationServices.InsertCreateAccountEntity(createAccountEntity) is true)
+                if (await _authenticationServices.InsertCreateAccountEntity(createAccountEntity) is true)
                 {
                     return true;
                 }
@@ -63,14 +64,14 @@ namespace ServicePrincipals
 
         public async Task<List<CreateAccountEntity>> GetAllCreateAccounts()
         {
-            return await _AuthenticationServices.GetAllCreateAccounts();
+            return await _authenticationServices.GetAllCreateAccounts();
         }
 
         public async Task<bool> IsExistAccount(string email, string password)
         {
             try
             {
-                if ((await _AuthenticationServices.GetAllCreateAccounts()).Any(x => x.Email == email && x.Password == password))
+                if ((await _authenticationServices.GetAllCreateAccounts()).Any(x => x.Email == email && x.Password == password))
                 {
                     return true;
                 }
@@ -83,6 +84,11 @@ namespace ServicePrincipals
             {
                 throw;
             }
+        }
+
+        public async Task<List<InnerJoinUserRoleWithCreateAccountEntity>> GetAllInnerJoinUserRoleWithCreateAccountEntity()
+        {
+            return await _authenticationServices.GetAllInnerJoinUserRoleWithCreateAccountEntity();
         }
     }
 }
