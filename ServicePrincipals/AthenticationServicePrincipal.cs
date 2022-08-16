@@ -90,5 +90,13 @@ namespace ServicePrincipals
         {
             return await _authenticationServices.GetAllInnerJoinUserRoleWithCreateAccountEntity();
         }
+
+        public async Task<string[]> GetAllInnerJoinUserRoleWithCreateAccountEntityWithParam(string userName)
+        {
+            return (await _authenticationServices.GetAllInnerJoinUserRoleWithCreateAccountEntity())
+                .Where(x => x.Role == userName).Select(x => x.Role).ToArray();
+        }
+
+
     }
 }

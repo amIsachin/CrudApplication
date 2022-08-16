@@ -1,16 +1,20 @@
 ﻿using StudentServices;
-using ViewModels;
 using System.Web.Security;
-using System.Collections.Generic;
+using ServicePrincipals;
+using System.Threading.Tasks;
+using System.Linq;
 
 namespace AuthRoles
 {
     public class WebRoleProviders : RoleProvider
     {
         private readonly IAuthenticationServices _authenticationServices;
+        private readonly AthenticationServicePrincipal _athenticationServicePrincipal;
         public WebRoleProviders(IAuthenticationServices authenticationServices)
         {
-            _authenticationServices = authenticationServices;
+            this._authenticationServices = authenticationServices;
+            this._athenticationServicePrincipal = new AthenticationServicePrincipal(authenticationServices);
+
         }
 
         public override string ApplicationName { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
@@ -40,11 +44,12 @@ namespace AuthRoles
             throw new System.NotImplementedException();
         }
 
-        public override string[] GetRolesForUser(string username)
+        public override async Task<string[]> GetRolesForUser(string username)
         {
-            var record = await _authenticationServices.GetAllInnerJoinUserRoleWithCreateAccountEntity();
+            return await _athenticationServicePrincipal.GetAllInnerJoinUserRoleWithCreateAccountEntityWithParam(username)
+                ;
             //throw new System.NotImplementedException();
-            return new List<string>() { "Sacin" };
+            //return new List<string>() { "Sacin" };
         }
 
         public override string[] GetUsersInRole(string roleName)

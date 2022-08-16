@@ -47,6 +47,10 @@
     <Compile Include="WebRoleProviders.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ServicePrincipals\ServicePrincipals.csproj">
+      <Project>{BD01A9DB-E1B0-497B-9977-4AB12B750510}</Project>
+      <Name>ServicePrincipals</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StudentServices\StudentServices.csproj">
       <Project>{FF532114-75A2-4B07-8CF1-BD1F3C339843}</Project>
       <Name>StudentServices</Name>
