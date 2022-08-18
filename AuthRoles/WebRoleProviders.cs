@@ -1,8 +1,6 @@
 ﻿using StudentServices;
 using System.Web.Security;
 using ServicePrincipals;
-using System.Threading.Tasks;
-using System.Linq;
 
 namespace AuthRoles
 {
@@ -44,10 +42,9 @@ namespace AuthRoles
             throw new System.NotImplementedException();
         }
 
-        public override async Task<string[]> GetRolesForUser(string username)
+        public override string[] GetRolesForUser(string username)
         {
-            return await _athenticationServicePrincipal.GetAllInnerJoinUserRoleWithCreateAccountEntityWithParam(username)
-                ;
+            return _athenticationServicePrincipal.GetAllInnerJoinUserRoleWithCreateAccountEntityWithParam(username);
             //throw new System.NotImplementedException();
             //return new List<string>() { "Sacin" };
         }

@@ -46,7 +46,7 @@ namespace StudentServices
             }
         }
 
-        public async Task<List<InnerJoinUserRoleWithCreateAccountEntity>> GetAllInnerJoinUserRoleWithCreateAccountEntity()
+        public List<InnerJoinUserRoleWithCreateAccountEntity> GetAllInnerJoinUserRoleWithCreateAccountEntity()
         {
             List<InnerJoinUserRoleWithCreateAccountEntity> _innerJoinUserRoleWithCreateAccountEntity = new List<InnerJoinUserRoleWithCreateAccountEntity>();
 
@@ -54,9 +54,9 @@ namespace StudentServices
             {
                 SqlCommand cmd = new SqlCommand("InnerJoinUserRoleWithCreateAccount", con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                await con.OpenAsync();
-                SqlDataReader dr = await cmd.ExecuteReaderAsync();
-                while (await dr.ReadAsync())
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
                 {
                     InnerJoinUserRoleWithCreateAccountEntity innerJoinUserRoleWithCreateAccountEntity = new InnerJoinUserRoleWithCreateAccountEntity();
                     innerJoinUserRoleWithCreateAccountEntity.UserRoleID = Convert.ToInt32(dr.GetValue(0).ToString());

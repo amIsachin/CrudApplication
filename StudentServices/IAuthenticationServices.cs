@@ -9,6 +9,6 @@ namespace StudentServices
     {
         Task<bool> InsertCreateAccountEntity(CreateAccountEntity createAccountEntity);
         Task<List<CreateAccountEntity>> GetAllCreateAccounts();
-        Task<List<InnerJoinUserRoleWithCreateAccountEntity>> GetAllInnerJoinUserRoleWithCreateAccountEntity();
+        List<InnerJoinUserRoleWithCreateAccountEntity> GetAllInnerJoinUserRoleWithCreateAccountEntity();
     }
 }

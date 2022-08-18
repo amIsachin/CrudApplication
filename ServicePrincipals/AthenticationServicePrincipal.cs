@@ -86,14 +86,14 @@ namespace ServicePrincipals
             }
         }
 
-        public async Task<List<InnerJoinUserRoleWithCreateAccountEntity>> GetAllInnerJoinUserRoleWithCreateAccountEntity()
-        {
-            return await _authenticationServices.GetAllInnerJoinUserRoleWithCreateAccountEntity();
-        }
+        //public async Task<List<InnerJoinUserRoleWithCreateAccountEntity>> GetAllInnerJoinUserRoleWithCreateAccountEntity()
+        //{
+        //    return await _authenticationServices.GetAllInnerJoinUserRoleWithCreateAccountEntity();
+        //}
 
-        public async Task<string[]> GetAllInnerJoinUserRoleWithCreateAccountEntityWithParam(string userName)
+        public string[] GetAllInnerJoinUserRoleWithCreateAccountEntityWithParam(string userName)
         {
-            return (await _authenticationServices.GetAllInnerJoinUserRoleWithCreateAccountEntity())
+            return _authenticationServices.GetAllInnerJoinUserRoleWithCreateAccountEntity()
                 .Where(x => x.Role == userName).Select(x => x.Role).ToArray();
         }
 

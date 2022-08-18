@@ -4,3 +4,14 @@ E:\Sachin\Application\Crud\CrudApplication\AuthRoles\obj\Debug\AuthRoles.csproj.
 E:\Sachin\Application\Crud\CrudApplication\AuthRoles\obj\Debug\AuthRoles.csproj.CoreCompileInputs.cache
 E:\Sachin\Application\Crud\CrudApplication\AuthRoles\obj\Debug\AuthRoles.dll
 E:\Sachin\Application\Crud\CrudApplication\AuthRoles\obj\Debug\AuthRoles.pdb
+E:\Sachin\Application\Crud\CrudApplication\AuthRoles\bin\Debug\ServicePrincipals.dll
+E:\Sachin\Application\Crud\CrudApplication\AuthRoles\bin\Debug\StudentServices.dll
+E:\Sachin\Application\Crud\CrudApplication\AuthRoles\bin\Debug\ViewModels.dll
+E:\Sachin\Application\Crud\CrudApplication\AuthRoles\bin\Debug\BusinessEntity.dll
+E:\Sachin\Application\Crud\CrudApplication\AuthRoles\bin\Debug\BusinessLogics.dll
+E:\Sachin\Application\Crud\CrudApplication\AuthRoles\bin\Debug\ServicePrincipals.pdb
+E:\Sachin\Application\Crud\CrudApplication\AuthRoles\bin\Debug\StudentServices.pdb
+E:\Sachin\Application\Crud\CrudApplication\AuthRoles\bin\Debug\ViewModels.pdb
+E:\Sachin\Application\Crud\CrudApplication\AuthRoles\bin\Debug\BusinessEntity.pdb
+E:\Sachin\Application\Crud\CrudApplication\AuthRoles\bin\Debug\BusinessLogics.pdb
+E:\Sachin\Application\Crud\CrudApplication\AuthRoles\obj\Debug\AuthRoles.csproj.CopyComplete

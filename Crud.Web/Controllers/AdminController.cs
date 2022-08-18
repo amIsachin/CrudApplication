@@ -19,6 +19,7 @@ namespace Crud.Web.Controllers
         #endregion
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> ControlPanel()
         {
             try
