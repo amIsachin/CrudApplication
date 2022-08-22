@@ -39,7 +39,7 @@ namespace Crud.Web.Controllers
         {
             try
             {
-                if (await _AthenticationServicePrincipal.InsertCreateAccountEntity(createAccountEntity))
+                if (await _AthenticationServicePrincipal.InsertCreateAccountEntity(createAccountEntity) is true)
                 {
                     return RedirectToAction("ControlPanel", "Admin");
                 }
@@ -110,7 +110,7 @@ namespace Crud.Web.Controllers
             return RedirectToAction("ControlPanel", "Admin");
         }
 
-        public ActionResult Google(string provider="Google")
+        public ActionResult Google(string provider = "Google")
         {
             //IAuthenticationRequest request = openID.CreateRequest(openid_identifier);
             OAuthWebSecurity.RequestAuthentication(provider, Url.Action("GoogleRetrun"));
