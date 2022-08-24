@@ -1,6 +1,5 @@
 ﻿using BusinessEntity;
 using DotNetOpenAuth.OpenId.Provider;
-using Microsoft.Web.WebPages.OAuth;
 using ServicePrincipals;
 using StudentServices;
 using System.Threading.Tasks;
@@ -96,32 +95,32 @@ namespace Crud.Web.Controllers
             }
         }
 
-        [HttpGet]
-        public ActionResult Facebook(string provider = "facebook")
-        {
-            OAuthWebSecurity.RequestAuthentication(provider, Url.Action("Returnback"));
-            return RedirectToAction("ControlPanel", "Admin");
-        }
+        //[HttpGet]
+        //public ActionResult Facebook(string provider = "facebook")
+        //{
+        //    OAuthWebSecurity.RequestAuthentication(provider, Url.Action("Returnback"));
+        //    return RedirectToAction("ControlPanel", "Admin");
+        //}
 
-        public ActionResult Returnback(string provider)
-        {
-            var result = OAuthWebSecurity.VerifyAuthentication();
+        //public ActionResult Returnback(string provider)
+        //{
+        //    var result = OAuthWebSecurity.VerifyAuthentication();
 
-            return RedirectToAction("ControlPanel", "Admin");
-        }
+        //    return RedirectToAction("ControlPanel", "Admin");
+        //}
 
-        public ActionResult Google(string provider = "Google")
-        {
-            //IAuthenticationRequest request = openID.CreateRequest(openid_identifier);
-            OAuthWebSecurity.RequestAuthentication(provider, Url.Action("GoogleRetrun"));
+        //public ActionResult Google(string provider = "Google")
+        //{
+        //    //IAuthenticationRequest request = openID.CreateRequest(openid_identifier);
+        //    OAuthWebSecurity.RequestAuthentication(provider, Url.Action("GoogleRetrun"));
 
-            return RedirectToAction("ControlPanel", "Admin");
-        }
-        public ActionResult GoogleRetrun(string provider)
-        {
-            OAuthWebSecurity.RequestAuthentication(provider, Url.Action("GoogleRetrun"));
-            FormsAuthentication.SignOut();
-            return RedirectToAction("ControlPanel", "Admin");
-        }
+        //    return RedirectToAction("ControlPanel", "Admin");
+        //}
+        //public ActionResult GoogleRetrun(string provider)
+        //{
+        //    OAuthWebSecurity.RequestAuthentication(provider, Url.Action("GoogleRetrun"));
+        //    FormsAuthentication.SignOut();
+        //    return RedirectToAction("ControlPanel", "Admin");
+        //}
     }
 }

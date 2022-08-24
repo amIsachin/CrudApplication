@@ -107,7 +107,6 @@ E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\DotNetOpenAuth.OAuth.Con
 E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\DotNetOpenAuth.OAuth.dll
 E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\DotNetOpenAuth.OpenId.dll
 E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
-E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\Microsoft.Web.WebPages.OAuth.dll
 E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\WebMatrix.Data.dll
 E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\WebMatrix.WebData.dll
 E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\Org.Mentalis.Security.Cryptography.dll
@@ -118,7 +117,6 @@ E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\DotNetOpenAuth.OAuth.xml
 E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
 E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\DotNetOpenAuth.OpenId.xml
 E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
-E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\Microsoft.Web.WebPages.OAuth.xml
 E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\WebMatrix.Data.xml
 E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\WebMatrix.WebData.xml
 E:\Sachin\Application\Crud\CrudApplication\Crud.Web\bin\Org.Mentalis.Security.Cryptography.xml
