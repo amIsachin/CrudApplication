@@ -7,15 +7,15 @@ namespace Crud.Web
 {
     public class MvcApplication : System.Web.HttpApplication
     {
-        public class OAuthConfig
-        {
-            //public static void RegisterProviders()
-            //{
-            //    OAuthWebSecurity.RegisterGoogleClient();
-            //    OAuthWebSecurity.RegisterFacebookClient(appId: ConfigurationManager.AppSettings["AppId"],
-            //        appSecret: ConfigurationManager.AppSettings["AppSecret"]);
-            //}
-        }
+        //public class OAuthConfig
+        //{
+        //    //public static void RegisterProviders()
+        //    //{
+        //    //    OAuthWebSecurity.RegisterGoogleClient();
+        //    //    OAuthWebSecurity.RegisterFacebookClient(appId: ConfigurationManager.AppSettings["AppId"],
+        //    //        appSecret: ConfigurationManager.AppSettings["AppSecret"]);
+        //    //}
+        //}
 
         protected void Application_Start()
         {
