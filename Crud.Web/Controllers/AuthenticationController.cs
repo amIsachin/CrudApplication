@@ -8,7 +8,7 @@ using System.Web.Security;
 
 namespace Crud.Web.Controllers
 {
-    public class AuthenticationController : Controller
+    public class AuthenticationController : Controller 
     {
         #region InitializeDependencyInjection
         private readonly IAuthenticationServices _AuthenticationServices = null;
