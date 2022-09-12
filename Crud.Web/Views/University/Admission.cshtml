@@ -38,7 +38,7 @@
                     </div>
                     <div>
                         <label for="">Image</label>
-                        <input type="file" name="Image" placeholder="Enter Age*" class="file">
+                        <input type="file" name="Image" placeholder="Enter Age*" class="file" id="uploadImage">
                     </div>
                 </div>
                 <div class="radio-button mb-1">
@@ -77,6 +77,25 @@
 
 <script>
     $(document).ready(function () {
+        //--> Image upload functionality.
+        $('#uploadImage').change(function () {
+            debugger;
+            var files = this.files.length;
+            var formData = new FormData();
+            $.ajax({
+                url: '@Url.Action("UploadImage", "Shared")',
+                type: 'POST',
+                dataType:'JSON',
+                contentType: false,
+                processData: false,
+                data: formData
+                
+
+            });
+            
+        });
+
+
         //--> Form submit button functionality.
         $('#universityFormSerialize').validate({
             rules: {
