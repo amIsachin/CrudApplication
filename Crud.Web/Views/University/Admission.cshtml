@@ -80,8 +80,12 @@
         //--> Image upload functionality.
         $('#uploadImage').change(function () {
             debugger;
-            var files = this.files.length;
+            var files = this.files;
             var formData = new FormData();
+            for (var i = 0; i < files.length; i++) {
+                formData.append("Image", files[i]);
+            }
+            
             $.ajax({
                 url: '@Url.Action("UploadImage", "Shared")',
                 type: 'POST',
