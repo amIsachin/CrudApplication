@@ -10,18 +10,27 @@ namespace Crud.Web.Controllers
     public class SharedController : Controller
     {
         [HttpPost]
-        public ActionResult UploadImage(string imageUrl)
+        public JsonResult UploadImage(string imageUrl)
         {
-            var picutres = Request.Files[0];
+            JsonResult jsonResult = new JsonResult();
+            try
+            {
+                var picutres = Request.Files[0];
 
-            var fileName = Guid.NewGuid() + Path.GetExtension(picutres.FileName);
+                var fileName = Guid.NewGuid() + Path.GetExtension(picutres.FileName);
 
-            var path = Path.Combine(Server.MapPath(@"~/Content/ThemeMaterial/StudentResources/Images/") + fileName);
+                var path = Path.Combine(Server.MapPath(@"~/Content/ThemeMaterial/StudentResources/Images/") + fileName);
 
-            picutres.SaveAs(path);
-            
+                picutres.SaveAs(path);
 
-            return View();
+                jsonResult.Data = new { Success = true, ImageUrl = string.Format("/Content/ThemeMaterial/StudentResources/Images/{0}", fileName) };
+            }
+            catch (Exception ex)
+            {
+                jsonResult.Data = new { Success = false, ex.Message };
+            }
+
+            return jsonResult;
         }
     }
 }

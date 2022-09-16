@@ -4,6 +4,7 @@
 @{
     ViewBag.Title = "Addmission";
     Layout = "~/Views/Shared/_UniversityLayout.cshtml";
+    var Image = "";
 }
 
 <section class="section-form">
@@ -38,6 +39,8 @@
                     </div>
                     <div>
                         <label for="">Image</label>
+                        <input type="hidden" name="Image" value="" id="studentImageUrl" />
+                        <img src="@Image" alt="Alternate Text" id="studentImage" />
                         <input type="file" name="Image" placeholder="Enter Age*" class="file" id="uploadImage">
                     </div>
                 </div>
@@ -85,18 +88,26 @@
             for (var i = 0; i < files.length; i++) {
                 formData.append("Image", files[i]);
             }
-            
+
             $.ajax({
                 url: '@Url.Action("UploadImage", "Shared")',
                 type: 'POST',
                 dataType:'JSON',
                 contentType: false,
                 processData: false,
-                data: formData
-                
+                data: formData,
+                success: function (response) {
+                    if (response.Success) {
+                        $('#studentImage').attr('src', response.ImageUrl);
+                        $('#studentImageUrl').val(response.ImageUrl);
 
+                    }
+                },
+                error: function (error) {
+                    swal("Oosps something went wrong !! " + error.status);
+                }
             });
-            
+
         });
 
 
