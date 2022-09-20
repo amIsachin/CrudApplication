@@ -32,5 +32,19 @@ namespace Crud.Web.Controllers
 
             return jsonResult;
         }
+
+        public FileResult Download()
+        {
+            string fileName = Path.GetFileName("4a69cbcd-6c52-460e-9a25-f01a6a63d8d1.png");
+
+            var path = Path.Combine(Server.MapPath(@"~/Content/ThemeMaterial/StudentResources/Images/") + fileName);
+
+            string generatedFileName = Guid.NewGuid().ToString() + ".jpg";
+
+            return File(path, @"image/png", generatedFileName);
+
+            //return File(path, @"~/Content/ThemeMaterial/StudentResources/Images/png");
+
+        }
     }
 }
