@@ -34,7 +34,7 @@
                 <!-- <span><strong>University</strong></span> -->
             </div>
             <ul class="nav-list flex">
-                <li><a href="#">Home</a></li>
+                <li><a href="@Url.Action("Index", "University")">Home</a></li>
                 <li><a href="#">Services</a></li>
                 <li>
                     <a href="#">Cources</a>
@@ -47,7 +47,7 @@
                 </li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
-                <li><a href="@Url.Action("SignIn","Authentication")" title="log in"><i class="fa-solid fa-user-plus"></i></a></li>
+                <li><a href="@Url.Action("SignIn","Authentication")" title="log in" target="_blank"><i class="fa-solid fa-user-plus"></i></a></li>
             </ul>
         </div>
     </nav>
@@ -90,7 +90,7 @@
             </div>
             <div class="footer-bottom flex center justify-between">
                 <div class="foot-img">
-                    <a href="#"><img src="~/Content/ThemeMaterial/Assets/preview_9290a0d4544d79be552c190170afe17c.jpg" alt="foot img"></a>
+                    <a href="@Url.Action("Index","University")"><img src="~/Content/ThemeMaterial/Assets/preview_9290a0d4544d79be552c190170afe17c.jpg" alt="foot img"></a>
                 </div>
                 <div class="foot-bottom-links">
                     <a href="#">Contact</a>

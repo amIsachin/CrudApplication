@@ -35,11 +35,11 @@ namespace Crud.Web.Controllers
 
         public FileResult Download()
         {
-            string fileName = Path.GetFileName("4a69cbcd-6c52-460e-9a25-f01a6a63d8d1.png");
+            string fileName = Path.GetFileName("fd300015-8625-47bc-8f56-666b145439c9.pdf");
 
             var path = Path.Combine(Server.MapPath(@"~/Content/ThemeMaterial/StudentResources/Images/") + fileName);
 
-            string generatedFileName = Guid.NewGuid().ToString() + ".jpg";
+            string generatedFileName = Guid.NewGuid().ToString() + ".pdf";
 
             return File(path, @"image/png", generatedFileName);
 
