@@ -10,7 +10,7 @@ namespace Crud.Web.Controllers
     public class SharedController : Controller
     {
         [HttpPost]
-        public JsonResult UploadImage(string imageUrl)
+        public JsonResult UploadImage()
         {
             JsonResult jsonResult = new JsonResult();
             try
@@ -42,9 +42,6 @@ namespace Crud.Web.Controllers
             string generatedFileName = Guid.NewGuid().ToString() + ".pdf";
 
             return File(path, @"image/png", generatedFileName);
-
-            //return File(path, @"~/Content/ThemeMaterial/StudentResources/Images/png");
-
         }
     }
 }
