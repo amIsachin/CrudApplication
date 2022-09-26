@@ -85,6 +85,11 @@ namespace Crud.Web.Controllers
             }
         }
 
+        public ActionResult About()
+        {
+            return View();
+        }
+
         public ActionResult ContactUs() 
         {
             return View();

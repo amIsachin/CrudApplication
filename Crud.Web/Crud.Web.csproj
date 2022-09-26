@@ -286,6 +286,7 @@
     <Content Include="Views\Authentication\CreateAccount.cshtml" />
     <Content Include="Views\Authentication\SignIn.cshtml" />
     <Content Include="Views\University\ContactUs.cshtml" />
+    <Content Include="Views\University\About.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

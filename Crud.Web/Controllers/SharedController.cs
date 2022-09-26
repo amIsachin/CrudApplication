@@ -23,7 +23,7 @@ namespace Crud.Web.Controllers
 
                 picutres.SaveAs(path);
 
-                jsonResult.Data = new { Success = true, ImageUrl = string.Format("/Content/ThemeMaterial/StudentResources/Images/{0}", fileName) };
+                jsonResult.Data = new { Success = true, ImageUrl = string.Format(@"/Content/ThemeMaterial/StudentResources/Images/{0}", fileName) };
             }
             catch (Exception ex)
             {

@@ -28,7 +28,7 @@
     <nav class="navigation">
         <div class="container nav-wrapper flex items-center justify-between">
             <div class="brand flex items-center">
-                <a href="#">
+                <a href="@Url.Action("Index", "University")">
                     <img src="~/Content/ThemeMaterial/Assets/AzureDevops.png" alt="web-logo">
                 </a>
                 <!-- <span><strong>University</strong></span> -->
@@ -45,7 +45,7 @@
                         <li><a href="#">APIs</a></li>
                     </ul>
                 </li>
-                <li><a href="#">About</a></li>
+                <li><a href="@Url.Action("About", "University")">About</a></li>
                 <li><a href="@Url.Action("ContactUs", "University")">Contact</a></li>
                 <li><a href="@Url.Action("SignIn","Authentication")" title="log in" target="_blank"><i class="fa-solid fa-user-plus"></i></a></li>
             </ul>
