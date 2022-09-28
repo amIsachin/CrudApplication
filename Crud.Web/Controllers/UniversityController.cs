@@ -85,6 +85,11 @@ namespace Crud.Web.Controllers
             }
         }
 
+        public ActionResult Courses()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             return View();
