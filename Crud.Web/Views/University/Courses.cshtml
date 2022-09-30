@@ -7,6 +7,43 @@
 <!--  --------------------------- main ---------------------\
  ----  ---------------------------------------------------------------------------------->
 <main class="main-section">
+
+    <div class="container">
+        @for (int i = 0; i < 2; i++)
+        {
+            <section class="card-wrapper flex mt-1 mb-5">
+                <div class="card-item thin-border">
+                    <img src="~/Content/ThemeMaterial/Assets/AzureDevops.png" alt="" width="250" height="150">
+                    <p class="mb-1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, obcaecati?</p>
+                    <a href="#" class="a-btn">By now</a>
+                </div>
+
+                <div class="card-item thin-border">
+                    <img src="~/Content/ThemeMaterial/Assets/86916754-6b0c9380-c167-11ea-901b-78571ad4065d.png" alt="" width="250" height="150">
+                    <p class="mb-1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, obcaecati?</p>
+                    <a href="#" class="a-btn">By now</a>
+                </div>
+
+                <div class="card-item thin-border">
+                    <img src="~/Content/ThemeMaterial/Assets/Bitmap-MEDIUM_ASP.NET-Core-MVC-Logo_2colors_Square_Boxed_RGB.png" alt="" width="250" height="150">
+                    <p class="mb-1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, obcaecati?</p>
+                    <a href="#" class="a-btn">By now</a>
+                </div>
+
+                <div class="card-item thin-border">
+                    <img src="~/Content/ThemeMaterial/Assets/linq.png" alt="" width="250" height="150">
+                    <p class="mb-1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, obcaecati?</p>
+                    <a href="#" class="a-btn">By now</a>
+                </div>
+            </section>
+        }
+    </div>
+
+
+
+
+
+
     <div class="container">
         <section class="section-heading mt-1" id="moveToService">
             <div class="heading">
@@ -18,7 +55,7 @@
             <!-- Swiper -->
             <div class="swiper course-swiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide thin-border-right"> <a href="@Url.Action("ContactUs", "University")"><img src="~/Content/ThemeMaterial/Assets/86916754-6b0c9380-c167-11ea-901b-78571ad4065d.png" alt="logo"> Take Course </a> </div>
+                    <div class="swiper-slide thin-border-right"> <a href="#"><img src="~/Content/ThemeMaterial/Assets/86916754-6b0c9380-c167-11ea-901b-78571ad4065d.png" alt="logo"> Take Course </a> </div>
                     <div class="swiper-slide thin-border-right"> <a href="#"><img src="~/Content/ThemeMaterial/Assets/AzureDevops.png" alt="logo"></a> </div>
                     <div class="swiper-slide thin-border-right"> <a href="#"><img src="~/Content/ThemeMaterial/Assets/Bitmap-MEDIUM_ASP.NET-Core-MVC-Logo_2colors_Square_Boxed_RGB.png" alt="logo"></a> </div>
                     <div class="swiper-slide thin-border-right"> <a href="#"><img src="~/Content/ThemeMaterial/Assets/linq.png" alt="logo"></a> </div>

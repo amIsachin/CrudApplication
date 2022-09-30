@@ -170,6 +170,23 @@ section.section-alert .addmission-wrapper strong{
     }
 }
 
+/*---  ---------- section-card-wrapper ---------------/
+-----  ------------------------------------------------------------- */
+section.card-wrapper .card-item {
+    width: 25%;
+    padding: 1rem;
+}
+
+section.card-wrapper > div {
+    margin-right: 2rem;
+}
+
+section.card-wrapper .card-item p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    letter-spacing: var(--letter-sapcing);
+}
+
 /*---  ---------- footer ---------------/
 -----  ------------------------------------------------------------- */
 footer.footer{

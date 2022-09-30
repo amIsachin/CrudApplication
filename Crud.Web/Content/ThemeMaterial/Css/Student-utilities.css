@@ -69,8 +69,16 @@ body{
     margin-bottom: 2rem;
 }
 
+.mb-5 {
+    margin-bottom: 5rem;
+}
+
 .ml-2{
     margin-left: 3rem;
+}
+
+.mr-2 {
+    margin-right: 2rem;
 }
 
 /* paddings */
