@@ -85,9 +85,12 @@ namespace Crud.Web.Controllers
             }
         }
 
-        public ActionResult Courses()
+        [HttpGet]
+        public async Task<ActionResult> Courses()
         {
-            return View();
+            var allCourses = await _CourseServicePrincipal.GetAllCourses();
+
+            return View(allCourses);
         }
 
         public ActionResult About()
@@ -95,7 +98,7 @@ namespace Crud.Web.Controllers
             return View();
         }
 
-        public ActionResult ContactUs() 
+        public ActionResult ContactUs()
         {
             return View();
         }

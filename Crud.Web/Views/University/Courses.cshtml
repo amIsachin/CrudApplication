@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<BusinessEntity.CourseEntity>
+
 @{
     ViewBag.Title = "Courses";
     Layout = "~/Views/Shared/_UniversityLayout.cshtml";
@@ -9,33 +10,44 @@
 <main class="main-section">
 
     <div class="container">
-        @for (int i = 0; i < 2; i++)
+        @foreach(var item in Model)
         {
             <section class="card-wrapper flex mt-1 mb-5">
                 <div class="card-item thin-border">
                     <img src="~/Content/ThemeMaterial/Assets/AzureDevops.png" alt="" width="250" height="150">
                     <p class="mb-1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, obcaecati?</p>
+                    <h2><span>@item.Name</span></h2> <br />
+                    <h2><span>200.20$</span></h2> <br />
                     <a href="#" class="a-btn">By now</a>
                 </div>
 
                 <div class="card-item thin-border">
-                    <img src="~/Content/ThemeMaterial/Assets/86916754-6b0c9380-c167-11ea-901b-78571ad4065d.png" alt="" width="250" height="150">
+                    <img src="~/Content/ThemeMaterial/Assets/AzureDevops.png" alt="" width="250" height="150">
                     <p class="mb-1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, obcaecati?</p>
+                    <h2><span>@item.Name</span></h2> <br />
+                    <h2><span>200.20$</span></h2> <br />
                     <a href="#" class="a-btn">By now</a>
                 </div>
 
                 <div class="card-item thin-border">
                     <img src="~/Content/ThemeMaterial/Assets/Bitmap-MEDIUM_ASP.NET-Core-MVC-Logo_2colors_Square_Boxed_RGB.png" alt="" width="250" height="150">
                     <p class="mb-1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, obcaecati?</p>
+                    <h2><span>@item.Name</span></h2> <br />
+                    <h2><span>200.20$</span></h2> <br />
                     <a href="#" class="a-btn">By now</a>
                 </div>
 
                 <div class="card-item thin-border">
                     <img src="~/Content/ThemeMaterial/Assets/linq.png" alt="" width="250" height="150">
                     <p class="mb-1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, obcaecati?</p>
+                    <h2><span>@item.Name</span></h2> <br />
+                    <h2><span>200.20$</span></h2> <br />
                     <a href="#" class="a-btn">By now</a>
                 </div>
             </section>
+
+            <a href="#" class="view-all">View all</a>
+
         }
     </div>
 
