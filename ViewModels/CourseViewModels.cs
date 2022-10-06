@@ -6,6 +6,7 @@ namespace ViewModels
     {
         public int ID { get; set; }
         public string CourseName { get; set; }
+        public int PageNumber { get; set; }
         public int StudentID { get; set; }
         public DateTime CreatedOn { get; set; } = DateTime.Now;
     }

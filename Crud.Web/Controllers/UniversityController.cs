@@ -88,7 +88,9 @@ namespace Crud.Web.Controllers
         [HttpGet]
         public async Task<ActionResult> Courses()
         {
-            var allCourses = await _CourseServicePrincipal.GetAllCourses();
+            var allCourses = await _CourseServicePrincipal.GetAllCoursesPagination();
+
+
 
             return View(allCourses);
         }

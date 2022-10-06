@@ -3,6 +3,7 @@ using StudentServices;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
+using ViewModels;
 
 namespace ServicePrincipals
 {
@@ -15,12 +16,37 @@ namespace ServicePrincipals
         }
 
         /// <summary>
+        /// Get All Courses functionality like pagination.
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<CourseEntity>> GetAllCoursesPagination()  //  int pageSize
+        {
+            CourseBindingViewModel courseBindingViewModel = new CourseBindingViewModel();
+            List<CourseBindingViewModel> courseBindingViewModelList = new List<CourseBindingViewModel>();
+            var courseRecord = await _CourseService.GetAllCourses();
+
+            foreach (var item in courseRecord)
+            {
+                courseBindingViewModel.ID = item.ID;
+                courseBindingViewModel.CourseName = item.Name;
+                courseBindingViewModel.StudentID = item.StudentID;
+                courseBindingViewModel.PageNumber = 1;
+                courseBindingViewModel.CreatedOn = item.CreatedOn;
+
+                courseBindingViewModelList.Add(courseBindingViewModel);
+            }
+
+            return (await _CourseService.GetAllCourses()).Take(2).ToList();
+
+        }
+
+        /// <summary>
         /// Get All Courses functionality.
         /// </summary>
         /// <returns></returns>
         public async Task<List<CourseEntity>> GetAllCourses()
         {
-            return await _CourseService.GetAllCourses();
+            return (await _CourseService.GetAllCourses());
 
             //var uniqueOrders = orders.Select(x => new { x.location, x.amount }).Distinct();
 

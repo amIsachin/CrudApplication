@@ -187,9 +187,24 @@ section.card-wrapper .card-item p {
     letter-spacing: var(--letter-sapcing);
 }
 
+/*---  ---------- Specific for course.cshtml ---------------/
+-----  ------------------------------------------------------------- */
+.showMore{
+    font-size: 2rem;
+    text-decoration: none;
+    letter-spacing: var(--letter-sapcing);
+    color: var(--text-gray);
+    display: block;
+    text-align: center;
+
+}
+
+
+
+
 /*---  ---------- footer ---------------/
 -----  ------------------------------------------------------------- */
-footer.footer{
+footer.footer {
     background-color: var(--primary);
 }
 
