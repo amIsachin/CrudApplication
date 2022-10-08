@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BusinessEntity.CourseEntity>
+﻿@model ViewModels.CourseBindingViewModelPagination
 
 @{
     ViewBag.Title = "Courses";
@@ -10,7 +10,7 @@
 <main class="main-section">
 
     <div class="container">
-        @foreach (var item in Model)
+        @foreach (var item in Model.Course)
         {
             <section class="card-wrapper flex mt-1 mb-5">
                 <div class="card-item thin-border">
@@ -48,7 +48,7 @@
 
         }
 
-        <a href="@Url.Action("Courses", "University")" class="showMore mb-1">View all</a>
+        <a href="@Url.Action("Courses", "University")" class="showMore mb-1" data-pageNo="(@Model.PageNumber+1)">Show More</a>
     </div>
 
 
@@ -83,3 +83,6 @@
         </section>
     </div>
 </main>
+
+
+<script></script>

@@ -1,6 +1,7 @@
 ﻿using BusinessLogics;
 using ServicePrincipals;
 using StudentServices;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using ViewModels;
@@ -86,11 +87,11 @@ namespace Crud.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> Courses()
+        public async Task<ActionResult> Courses(int? pageNo)
         {
-            var allCourses = await _CourseServicePrincipal.GetAllCoursesPagination();
-
-
+            pageNo = pageNo.HasValue ? pageNo : 1;
+            CourseBindingViewModelPagination allCourses = new CourseBindingViewModelPagination();
+            allCourses = await _CourseServicePrincipal.GetAllCoursesPagination(pageNo.Value);
 
             return View(allCourses);
         }
