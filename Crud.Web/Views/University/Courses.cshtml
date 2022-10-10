@@ -48,13 +48,8 @@
 
         }
 
-        <a href="@Url.Action("Courses", "University")" class="showMore mb-1" data-pageNo="(@Model.PageNumber+1)">Show More</a>
+        <a class="showMore mb-1 pagination" id="pagination" data-pageNo="@( Model.PageNumber + 1 )">Show More</a>
     </div>
-
-
-
-
-
 
     <div class="container">
         <section class="section-heading mt-1" id="moveToService">
@@ -85,4 +80,18 @@
 </main>
 
 
-<script></script>
+<script>
+    $(document).ready(function () {
+        $('.pagination').click(function () {
+            var data = $(this).attr('data-pageNo');
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("Courses", "University")',
+                data: {
+                    pageNo: $(this).attr('data-pageNo')
+                }
+
+            })
+        })
+    });
+</script>

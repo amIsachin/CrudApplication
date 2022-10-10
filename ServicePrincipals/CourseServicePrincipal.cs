@@ -19,9 +19,9 @@ namespace ServicePrincipals
         /// Get All Courses functionality like pagination.
         /// </summary>
         /// <returns></returns>
-        public async Task<CourseBindingViewModelPagination> GetAllCoursesPagination(int pageNo)
+        public async Task<CourseBindingViewModelPagination> GetAllCoursesPagination(CourseBindingViewModelPagination courseBindingViewModelPagination)
         {
-            CourseBindingViewModelPagination courseBindingViewModel = new CourseBindingViewModelPagination();
+            //CourseBindingViewModelPagination courseBindingViewModel = new CourseBindingViewModelPagination();
             CourseBindingViewModelPagination courseBindingViewModelList = new CourseBindingViewModelPagination();
             //var courseRecord = await _CourseService.GetAllCourses();
             courseBindingViewModelList.Course = await _CourseService.GetAllCourses();
@@ -40,7 +40,7 @@ namespace ServicePrincipals
             //    //courseBindingViewModelList.Course.Add(courseBindingViewModel);
             //}
 
-            courseBindingViewModelList.Course = courseBindingViewModelList.Course.Skip((pageNo - 1) * pageSize).Take(pageSize).ToList();
+            courseBindingViewModelList.Course = courseBindingViewModelList.Course.Skip((courseBindingViewModelPagination.PageNumber - 1) * pageSize).Take(pageSize).ToList();
 
             return courseBindingViewModelList;
 
