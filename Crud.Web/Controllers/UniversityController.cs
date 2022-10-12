@@ -87,11 +87,21 @@ namespace Crud.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> Courses(int? pageNo)
+        public async Task<ActionResult> Courses(string clicked)
         {
             CourseBindingViewModelPagination allCourses = new CourseBindingViewModelPagination();
-            allCourses.PageNumber = pageNo.HasValue ? pageNo.Value : 1;
-            allCourses.Course = await _CourseServicePrincipal.GetAllCoursesPagination(allCourses);
+
+            if (!string.IsNullOrWhiteSpace(clicked))
+            {
+                allCourses.Clicked = clicked;
+                allCourses.PageNumber = ++allCourses.PageNumber;
+                allCourses = await _CourseServicePrincipal.GetAllCoursesPagination(allCourses.Clicked, allCourses.PageNumber);
+            }
+            else
+            {
+                allCourses.Clicked = null;
+                allCourses = await _CourseServicePrincipal.GetAllCoursesPagination(allCourses.Clicked, allCourses.PageNumber);
+            }
 
             return View(allCourses);
         }

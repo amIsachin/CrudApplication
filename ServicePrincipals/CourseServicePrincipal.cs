@@ -19,28 +19,26 @@ namespace ServicePrincipals
         /// Get All Courses functionality like pagination.
         /// </summary>
         /// <returns></returns>
-        public async Task<CourseBindingViewModelPagination> GetAllCoursesPagination(CourseBindingViewModelPagination courseBindingViewModelPagination)
+        public async Task<CourseBindingViewModelPagination> GetAllCoursesPagination(string isClicked, int pageNo)
         {
-            //CourseBindingViewModelPagination courseBindingViewModel = new CourseBindingViewModelPagination();
-            CourseBindingViewModelPagination courseBindingViewModelList = new CourseBindingViewModelPagination();
-            //var courseRecord = await _CourseService.GetAllCourses();
-            courseBindingViewModelList.Course = await _CourseService.GetAllCourses();
             int pageSize = 2;
+            CourseBindingViewModelPagination courseBindingViewModelList = new CourseBindingViewModelPagination();
+            courseBindingViewModelList.Course = await _CourseService.GetAllCourses();
 
-            //courseBindingViewModelList.Course.id = courseRecord;
+            if (!string.IsNullOrWhiteSpace(isClicked) && pageNo > 0)
+            {
+                pageSize = pageNo > 0 ? pageSize * pageSize - 1 : pageSize;
+                courseBindingViewModelList.Course = courseBindingViewModelList.Course.OrderByDescending(x => x.ID)
+                    .Take(pageSize).ToList();
+            }
+            else
+            {
+                courseBindingViewModelList.Course = courseBindingViewModelList.Course.OrderByDescending(x => x.ID)
+                    .Take(pageSize).ToList();
+            }
 
-            //foreach (var item in courseRecord)
-            //{
-            //    //courseBindingViewModelList.Course.id= item.ID;
-            //    //courseBindingViewModel.CourseName = item.Name;
-            //    //courseBindingViewModel.StudentID = item.StudentID;
-            //    //courseBindingViewModel.PageNumber = 1;
-            //    //courseBindingViewModel.CreatedOn = item.CreatedOn;
-
-            //    //courseBindingViewModelList.Course.Add(courseBindingViewModel);
-            //}
-
-            courseBindingViewModelList.Course = courseBindingViewModelList.Course.Skip((courseBindingViewModelPagination.PageNumber - 1) * pageSize).Take(pageSize).ToList();
+            //courseBindingViewModelList.Course = courseBindingViewModelList.Course.Skip((pageNo - 1) * pageSize).Take(pageSize).ToList();
+            //courseBindingViewModelList.Course = courseBindingViewModelList.Course.Take(pageSize).ToList();
 
             return courseBindingViewModelList;
 

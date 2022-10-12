@@ -48,7 +48,7 @@
 
         }
 
-        <a class="showMore mb-1 pagination" id="pagination" data-pageNo="@( Model.PageNumber + 1 )">Show More</a>
+        <a class="showMore mb-1 pagination" id="click" data-click="click" data-pageNo="@Model.PageNumber">Show More</a>
     </div>
 
     <div class="container">
@@ -83,12 +83,13 @@
 <script>
     $(document).ready(function () {
         $('.pagination').click(function () {
-            var data = $(this).attr('data-pageNo');
+            var data = $('#click').attr('data-click');
+            console.log(data)
             $.ajax({
                 type: 'GET',
                 url: '@Url.Action("Courses", "University")',
                 data: {
-                    pageNo: $(this).attr('data-pageNo')
+                    clicked: $('#click').attr('data-click')
                 }
 
             })

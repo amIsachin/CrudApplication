@@ -14,5 +14,6 @@ namespace ViewModels
 
         public List<CourseEntity> Course { get; set; }
         public int PageNumber { get; set; }
+        public string Clicked { get; set; }
     }
 }
