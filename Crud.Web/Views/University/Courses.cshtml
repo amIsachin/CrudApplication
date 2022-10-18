@@ -48,7 +48,7 @@
 
         }
 
-        <a class="showMore mb-1 pagination" id="click" data-click="click" data-pageNo="@Model.PageNumber">Show More</a>
+        <a class="showMore mb-1 pagination" id="click" data-click="click" data-pageNo="@( Model.PageNumber + 1 )">Show More</a>
     </div>
 
     <div class="container">
@@ -83,14 +83,20 @@
 <script>
     $(document).ready(function () {
         $('.pagination').click(function () {
-            var data = $('#click').attr('data-click');
-            console.log(data)
             $.ajax({
                 type: 'GET',
                 url: '@Url.Action("Courses", "University")',
                 data: {
-                    clicked: $('#click').attr('data-click')
+                    clicked: $('#click').attr('data-click'),
+                    pageNo: $('#click').attr('data-pageNo')
+                },
+                success: function (response) {
+                    //window.location.reload();
+                },
+                error: function (error) {
+                    swal("Oops something went wrong !!" + error.status);
                 }
+
 
             })
         })

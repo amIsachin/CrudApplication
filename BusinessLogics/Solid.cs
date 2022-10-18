@@ -80,5 +80,10 @@ namespace BusinessLogics
             }
         }
 
+        public int IncrementedValue(int val)
+        {
+            return ++val;
+        }
+
     }
 }

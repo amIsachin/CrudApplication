@@ -4,15 +4,22 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
 using ViewModels;
+using BusinessLogics;
 
 namespace ServicePrincipals
 {
     public class CourseServicePrincipal
     {
         private readonly ICourseService _CourseService = null;
+        private readonly IStudentsService _studentService = null;
         public CourseServicePrincipal(ICourseService courseService)
         {
             _CourseService = courseService;
+        }
+
+        public CourseServicePrincipal(IStudentsService studentService)
+        {
+            _studentService = studentService;
         }
 
         /// <summary>
@@ -23,18 +30,29 @@ namespace ServicePrincipals
         {
             int pageSize = 2;
             CourseBindingViewModelPagination courseBindingViewModelList = new CourseBindingViewModelPagination();
+            CommonMethods commonMethods = new CommonMethods(_studentService);
             courseBindingViewModelList.Course = await _CourseService.GetAllCourses();
 
             if (!string.IsNullOrWhiteSpace(isClicked) && pageNo > 0)
             {
-                pageSize = pageNo > 0 ? pageSize * pageSize - 1 : pageSize;
+                //pageSize = pageNo > 0 ? pageSize * pageSize - 1 : pageSize;
+                pageSize = commonMethods.IncrementedValue(pageNo);
+
                 courseBindingViewModelList.Course = courseBindingViewModelList.Course.OrderByDescending(x => x.ID)
+                    .Skip((pageNo - 1) * pageSize)
                     .Take(pageSize).ToList();
+
+                courseBindingViewModelList.PageNumber = pageNo;
             }
             else
             {
-                courseBindingViewModelList.Course = courseBindingViewModelList.Course.OrderByDescending(x => x.ID)
+                courseBindingViewModelList.Course = (await _CourseService.GetAllCourses())
+                    .OrderByDescending(name => name.Name)
                     .Take(pageSize).ToList();
+
+                courseBindingViewModelList.PageNumber = pageNo;
+                //courseBindingViewModelList.Course = courseBindingViewModelList.Course.OrderByDescending(x => x.ID)
+                //    .Take(pageSize).ToList();
             }
 
             //courseBindingViewModelList.Course = courseBindingViewModelList.Course.Skip((pageNo - 1) * pageSize).Take(pageSize).ToList();
