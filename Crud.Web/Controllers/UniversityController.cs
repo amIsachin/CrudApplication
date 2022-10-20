@@ -96,6 +96,7 @@ namespace Crud.Web.Controllers
             {
                 allCourses.Clicked = clicked;
                 allCourses = await _CourseServicePrincipal.GetAllCoursesPagination(allCourses.Clicked, allCourses.PageNumber);
+                allCourses.PageNumber += 1;
             }
             else
             {

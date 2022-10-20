@@ -48,6 +48,10 @@
 
         }
 
+    <form action="/" method="post">
+        <input type="text" value="@( Model.PageNumber )" id="pageNumber" />
+    </form>
+
         <a class="showMore mb-1 pagination" id="click" data-click="click" data-pageNo="@( Model.PageNumber + 1 )">Show More</a>
     </div>
 
@@ -83,12 +87,13 @@
 <script>
     $(document).ready(function () {
         $('.pagination').click(function () {
+            var page = $('#pageNumber').val();
             $.ajax({
                 type: 'GET',
                 url: '@Url.Action("Courses", "University")',
                 data: {
                     clicked: $('#click').attr('data-click'),
-                    pageNo: $('#click').attr('data-pageNo')
+                    pageNo: page
                 },
                 success: function (response) {
                     //window.location.reload();
