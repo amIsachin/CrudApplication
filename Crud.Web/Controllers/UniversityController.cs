@@ -87,9 +87,31 @@ namespace Crud.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> Courses(string clicked, int? pageNo)
+        public async Task<ActionResult> Courses()
         {
             CourseBindingViewModelPagination allCourses = new CourseBindingViewModelPagination();
+            allCourses.PageNumber = 1;
+            allCourses.Course = await _CourseServicePrincipal.GetPaginationCourse();
+
+            return View(allCourses);
+        }
+
+        [HttpGet]
+        public async Task<JsonResult> CoursesListing(string clicked, int? pageNo)
+        {
+            JsonResult json = new JsonResult();
+            json.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+
+            pageNo += 1;
+
+            json.Data = new { success = true, pageNumber = pageNo };
+
+            return json;
+
+            //return View(allCourses);
+
+            /*
+             *  CourseBindingViewModelPagination allCourses = new CourseBindingViewModelPagination();
             allCourses.PageNumber = pageNo.HasValue ? pageNo.Value : 1;
 
             if (!string.IsNullOrWhiteSpace(clicked))
@@ -103,8 +125,7 @@ namespace Crud.Web.Controllers
                 allCourses.Clicked = null;
                 allCourses = await _CourseServicePrincipal.GetAllCoursesPagination(allCourses.Clicked, allCourses.PageNumber);
             }
-
-            return View(allCourses);
+             */
         }
 
         public ActionResult About()

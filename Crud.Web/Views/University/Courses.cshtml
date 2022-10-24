@@ -52,7 +52,7 @@
         <input type="text" value="@( Model.PageNumber )" id="pageNumber" />
     </form>
 
-        <a class="showMore mb-1 pagination" id="click" data-click="click" data-pageNo="@( Model.PageNumber + 1 )">Show More</a>
+        <a class="showMore mb-1 pagination" id="click" data-click="click" data-pageNo="@( Model.PageNumber )">Show More</a>
     </div>
 
     <div class="container">
@@ -90,13 +90,16 @@
             var page = $('#pageNumber').val();
             $.ajax({
                 type: 'GET',
-                url: '@Url.Action("Courses", "University")',
+                url: '@Url.Action("CoursesListing", "University")',
                 data: {
                     clicked: $('#click').attr('data-click'),
                     pageNo: page
                 },
                 success: function (response) {
-                    //window.location.reload();
+                    debugger;
+                    if (response.success) {
+                        $('#pageNumber').attr('value', response.pageNumber)                        
+                    }
                 },
                 error: function (error) {
                     swal("Oops something went wrong !!" + error.status);

@@ -62,6 +62,11 @@ namespace ServicePrincipals
 
         }
 
+        public async Task<List<CourseEntity>> GetPaginationCourse()
+        {
+            return (await _CourseService.GetAllCourses()).Take(3).ToList();
+        }
+
         /// <summary>
         /// Get All Courses functionality.
         /// </summary>
