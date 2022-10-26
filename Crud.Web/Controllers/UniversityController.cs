@@ -87,11 +87,22 @@ namespace Crud.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> Courses()
+        public async Task<ActionResult> Courses(int? pageNo)
         {
             CourseBindingViewModelPagination allCourses = new CourseBindingViewModelPagination();
             allCourses.PageNumber = 1;
             allCourses.Course = await _CourseServicePrincipal.GetPaginationCourse();
+
+            allCourses.PageNumber = pageNo.HasValue ? pageNo.Value : 1;
+
+            if (allCourses.PageNumber > 0)
+            {
+                allCourses = await _CourseServicePrincipal.GetAllCoursesPagination(allCourses.PageNumber);
+            }
+            else
+            {
+                allCourses = await _CourseServicePrincipal.GetAllCoursesPagination(allCourses.PageNumber);
+            }
 
             return View(allCourses);
         }
@@ -106,26 +117,9 @@ namespace Crud.Web.Controllers
 
             json.Data = new { success = true, pageNumber = pageNo };
 
+            this.Courses(pageNo);
+
             return json;
-
-            //return View(allCourses);
-
-            /*
-             *  CourseBindingViewModelPagination allCourses = new CourseBindingViewModelPagination();
-            allCourses.PageNumber = pageNo.HasValue ? pageNo.Value : 1;
-
-            if (!string.IsNullOrWhiteSpace(clicked))
-            {
-                allCourses.Clicked = clicked;
-                allCourses = await _CourseServicePrincipal.GetAllCoursesPagination(allCourses.Clicked, allCourses.PageNumber);
-                allCourses.PageNumber += 1;
-            }
-            else
-            {
-                allCourses.Clicked = null;
-                allCourses = await _CourseServicePrincipal.GetAllCoursesPagination(allCourses.Clicked, allCourses.PageNumber);
-            }
-             */
         }
 
         public ActionResult About()

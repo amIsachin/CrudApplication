@@ -26,45 +26,31 @@ namespace ServicePrincipals
         /// Get All Courses functionality like pagination.
         /// </summary>
         /// <returns></returns>
-        public async Task<CourseBindingViewModelPagination> GetAllCoursesPagination(string isClicked, int pageNo)
+        public async Task<CourseBindingViewModelPagination> GetAllCoursesPagination(int pageNo)
         {
             int pageSize = 2;
-            CourseBindingViewModelPagination courseBindingViewModelList = new CourseBindingViewModelPagination();
             CommonMethods commonMethods = new CommonMethods(_studentService);
+            CourseBindingViewModelPagination courseBindingViewModelList = new CourseBindingViewModelPagination();
             courseBindingViewModelList.Course = await _CourseService.GetAllCourses();
 
-            if (!string.IsNullOrWhiteSpace(isClicked) && pageNo > 0)
+            if (pageNo > 0)
             {
-                //pageSize = pageNo > 0 ? pageSize * pageSize - 1 : pageSize;
-                pageSize = commonMethods.IncrementedValue(pageNo);
-
-                courseBindingViewModelList.Course = courseBindingViewModelList.Course.OrderByDescending(x => x.ID)
+                courseBindingViewModelList.Course = courseBindingViewModelList.Course.OrderByDescending(x => x.Name)
                     .Skip((pageNo - 1) * pageSize)
                     .Take(pageSize).ToList();
-
-                courseBindingViewModelList.PageNumber = pageNo;
             }
             else
             {
-                courseBindingViewModelList.Course = (await _CourseService.GetAllCourses())
-                    .OrderByDescending(name => name.Name)
+                courseBindingViewModelList.Course = courseBindingViewModelList.Course.OrderByDescending(x => x.Name)
                     .Take(pageSize).ToList();
-
-                courseBindingViewModelList.PageNumber = pageNo;
-                //courseBindingViewModelList.Course = courseBindingViewModelList.Course.OrderByDescending(x => x.ID)
-                //    .Take(pageSize).ToList();
             }
 
-            //courseBindingViewModelList.Course = courseBindingViewModelList.Course.Skip((pageNo - 1) * pageSize).Take(pageSize).ToList();
-            //courseBindingViewModelList.Course = courseBindingViewModelList.Course.Take(pageSize).ToList();
-
             return courseBindingViewModelList;
-
         }
 
         public async Task<List<CourseEntity>> GetPaginationCourse()
         {
-            return (await _CourseService.GetAllCourses()).Take(3).ToList();
+            return (await _CourseService.GetAllCourses()).Take(2).ToList();
         }
 
         /// <summary>

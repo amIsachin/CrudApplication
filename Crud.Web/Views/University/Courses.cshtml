@@ -49,7 +49,7 @@
         }
 
     <form action="/" method="post">
-        <input type="text" value="@( Model.PageNumber )" id="pageNumber" />
+        <input type="hidden" value="@( Model.PageNumber )" id="pageNumber" />
     </form>
 
         <a class="showMore mb-1 pagination" id="click" data-click="click" data-pageNo="@( Model.PageNumber )">Show More</a>
@@ -98,7 +98,7 @@
                 success: function (response) {
                     debugger;
                     if (response.success) {
-                        $('#pageNumber').attr('value', response.pageNumber)                        
+                        $('#pageNumber').attr('value', response.pageNumber);                     
                     }
                 },
                 error: function (error) {
