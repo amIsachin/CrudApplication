@@ -41,8 +41,11 @@ namespace ServicePrincipals
             }
             else
             {
-                courseBindingViewModelList.Course = courseBindingViewModelList.Course.OrderByDescending(x => x.Name)
-                    .Take(pageSize).ToList();
+                //courseBindingViewModelList.Course = courseBindingViewModelList.Course.OrderByDescending(x => x.Name)
+                //    .Take(pageSize).ToList();
+
+                courseBindingViewModelList.Course = await _CourseService.GetAllCourses();
+
             }
 
             return courseBindingViewModelList;

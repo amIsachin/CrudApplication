@@ -104,6 +104,8 @@ namespace Crud.Web.Controllers
                 allCourses = await _CourseServicePrincipal.GetAllCoursesPagination(allCourses.PageNumber);
             }
 
+            //allCourses = await _CourseServicePrincipal.GetAllCoursesPagination(allCourses.PageNumber);
+
             return View(allCourses);
         }
 
