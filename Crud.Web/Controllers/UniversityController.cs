@@ -49,7 +49,6 @@ namespace Crud.Web.Controllers
             {
                 return new HttpStatusCodeResult(500);
             }
-
         }
 
         [HttpPost]
